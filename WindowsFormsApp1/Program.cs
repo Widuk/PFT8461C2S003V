@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Model.Autenticacion;
+using WindowsFormsApp1.Model.Mantenedores.Descuento;
 
 namespace WindowsFormsApp1
 {
@@ -17,7 +18,8 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            //Application.Run(new Login());
+            Application.Run(new ListarDescuentos());
         }
     }
 }
