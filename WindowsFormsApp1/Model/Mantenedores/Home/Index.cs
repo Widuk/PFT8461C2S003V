@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Model.Autenticacion
+namespace WindowsFormsApp1.Model.Home
 {
-    public partial class Login : Form
+    public partial class Index: Form
     {
-        public Login()
+        public Index()
         {
             InitializeComponent();
         }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.wsofertas.duoc.cl/" targetNamespace="http://ws.wsofertas.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="procesarLogin" type="tns:procesarLogin" />
+  <xs:element name="procesarLoginResponse" type="tns:procesarLoginResponse" />
+  <xs:complexType name="procesarLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="loginRequest" type="tns:loginRequestVO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginRequestVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="procesarLoginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:loginResponseVO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginResponseVO">
+    <xs:sequence>
+      <xs:element name="codigoRespuesta" type="xs:int" />
+      <xs:element name="codigoUsuario" type="xs:long" />
+      <xs:element minOccurs="0" name="respuesta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
