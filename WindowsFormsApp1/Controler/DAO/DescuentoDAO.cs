@@ -81,6 +81,76 @@ namespace WindowsFormsApp1.Controler.DAO
             }
         }
 
+        public void modificarDescuento(Descuento desc)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "sp_modifica_descuento";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("IDDESCUENTOPARAM", OracleDbType.Varchar2).Value = desc.idDescuento;
+                cmd.Parameters.Add("NOMBREPARAM", OracleDbType.Varchar2).Value = desc.nombre;
+                cmd.Parameters.Add("DESCRIPCIONPARAM", OracleDbType.Varchar2).Value = desc.descripcion;
+                cmd.Parameters.Add("ISPORCENTAJEPARAM", OracleDbType.Int16).Value = desc.isPorcentaje;
+                cmd.Parameters.Add("PORCENTAJEDESCUENTO", OracleDbType.Decimal).Value = desc.porcentajeDescuento;
+                cmd.Parameters.Add("ISPRECIODIRECTOPARAM", OracleDbType.Int16).Value = desc.isPrecioDirecto;
+                cmd.Parameters.Add("PRECIODESCUENTOPARAM", OracleDbType.Int32).Value = desc.precioDescuento;
+                cmd.Parameters.Add("IDPRODUCTOPARAM", OracleDbType.Int32).Value = desc.idProducto;
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public Descuento obtenerDescuentoPorID(long idDescuento)
+        {
+            OracleConnection conn = Conexion.Connect();
+            Descuento desc = null;
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Descuento WHERE IDDESCUENTO = :idDescuento";
+                cmd.Parameters.Add(":idDescuento", OracleDbType.Int32).Value = idDescuento;
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    desc = new Descuento();
+                    desc.idDescuento = long.Parse(reader["IDDESCUENTO"].ToString());
+                    desc.nombre = reader["NOMBRE"].ToString();
+                    desc.descripcion = reader["DESCRIPCION"].ToString();
+                    desc.isPorcentaje = short.Parse(reader["ISPORCENTAJE"].ToString());
+                    desc.porcentajeDescuento = double.Parse(reader["PORCENTAJEDESCUENTO"].ToString());
+                    desc.isPrecioDirecto = short.Parse(reader["ISPRECIODIRECTO"].ToString());
+                    desc.precioDescuento = int.Parse(reader["PRECIODESCUENTO"].ToString());
+                    desc.idProducto = long.Parse(reader["PRODUCTO_IDPRODUCTO"].ToString());
+                }
+
+                reader.Close();
+                cmd.Dispose();
+
+                return desc;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
         public Descuento obtenerDescuentoPorProducto(long idProducto)
         {
             OracleConnection conn = Conexion.Connect();
@@ -110,7 +180,7 @@ namespace WindowsFormsApp1.Controler.DAO
 
                 return desc;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

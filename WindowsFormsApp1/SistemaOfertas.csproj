@@ -101,6 +101,12 @@
     <Compile Include="Model\Mantenedores\Descuento\ListarDescuentos.Designer.cs">
       <DependentUpon>ListarDescuentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Mantenedores\Descuento\ModificarDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Descuento\ModificarDescuento.Designer.cs">
+      <DependentUpon>ModificarDescuento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Mantenedores\Home\Index.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Descuento\ListarDescuentos.resx">
       <DependentUpon>ListarDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Descuento\ModificarDescuento.resx">
+      <DependentUpon>ModificarDescuento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Home\Index.resx">
       <DependentUpon>Index.cs</DependentUpon>

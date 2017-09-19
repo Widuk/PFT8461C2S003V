@@ -229,8 +229,9 @@
             this.btnModificar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnModificar.Size = new System.Drawing.Size(133, 27);
             this.btnModificar.TabIndex = 17;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "Editar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // ListarDescuentos
             // 

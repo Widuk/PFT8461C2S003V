@@ -81,5 +81,31 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                 MessageBox.Show("Error grave Eliminando Descuento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvDescuento.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Error: Debe seleccionar un descuento para Editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    DescuentoDAO descuentoDAO = new DescuentoDAO();
+                    ModificarDescuento modif = new ModificarDescuento();
+                    WindowsFormsApp1.Model.Negocio.Entities.Descuento descuentoSeleccionado = descuentoDAO.obtenerDescuentoPorID(long.Parse(dgvDescuento.SelectedRows[0].Cells[0].Value.ToString()));
+                    modif.descuentoSeleccionado = descuentoSeleccionado;
+                    modif.ShowDialog();
+                    listaDescuentos = new BindingList<DescuentoGridVO>(descuentoDAO.getAllDescuentosGrid());
+                    this.dgvDescuento.DataSource = listaDescuentos;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error grave Editando Descuento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
