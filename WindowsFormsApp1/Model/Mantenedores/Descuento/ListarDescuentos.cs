@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.Vo;
 
 namespace WindowsFormsApp1.Model.Mantenedores.Descuento
@@ -64,7 +65,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                     MessageBox.Show("Error: Debe seleccionar un descuento para Eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }else
                 {
-                    DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar " + dgvDescuento.SelectedRows[0].Cells[2].Value.ToString(), "Eliminar " + dgvDescuento.SelectedRows[0].Cells[2].Value.ToString(), MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar " + dgvDescuento.SelectedRows[0].Cells[2].Value.ToString() + "?", "Eliminar " + dgvDescuento.SelectedRows[0].Cells[2].Value.ToString(), MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
                         long codigoDescuento = long.Parse(dgvDescuento.SelectedRows[0].Cells[0].Value.ToString());
@@ -92,9 +93,18 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                 }
                 else
                 {
+                    OfertaDAO ofertaDAO = new OfertaDAO();
                     DescuentoDAO descuentoDAO = new DescuentoDAO();
-                    ModificarDescuento modif = new ModificarDescuento();
                     WindowsFormsApp1.Model.Negocio.Entities.Descuento descuentoSeleccionado = descuentoDAO.obtenerDescuentoPorID(long.Parse(dgvDescuento.SelectedRows[0].Cells[0].Value.ToString()));
+                    Oferta oferta = ofertaDAO.getOfertaVigenteByCodigoProducto(descuentoSeleccionado.idProducto);
+
+                    if(oferta != null)
+                    {
+                        MessageBox.Show("Error: Existe una oferta activa para este descuento, no puede ser editado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    ModificarDescuento modif = new ModificarDescuento();
                     modif.descuentoSeleccionado = descuentoSeleccionado;
                     modif.ShowDialog();
                     listaDescuentos = new BindingList<DescuentoGridVO>(descuentoDAO.getAllDescuentosGrid());
