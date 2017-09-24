@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp1.Model.Negocio.Conexion;
+using WindowsFormsApp1.Model.Negocio.Entities;
 
 namespace WindowsFormsApp1.Controler.DAO
 {
@@ -29,6 +30,40 @@ namespace WindowsFormsApp1.Controler.DAO
             {
                 throw new Exception(ex.Message);
             }finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public List<Ciudad> listarCiudades()
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "SELECT * FROM CIUDAD where isactivo = 1";
+                OracleDataReader dr = command.ExecuteReader();
+
+                List<Ciudad> lstCiudad = new List<Ciudad>();
+
+                while (dr.Read())
+                {
+                    Ciudad entCiudad = new Ciudad();
+                    entCiudad.nombre = (string)dr["NOMBRE"];
+                    entCiudad.idCiudad = Int16.Parse(dr["IDCIUDAD"].ToString());
+                    lstCiudad.Add(entCiudad);
+                }
+
+                dr.Close();
+                command.Dispose();
+                return lstCiudad;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
             {
                 conn.Close();
                 conn.Dispose();

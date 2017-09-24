@@ -33,14 +33,13 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.cbIsActivo = new System.Windows.Forms.ComboBox();
+            this.cmbActivo = new System.Windows.Forms.ComboBox();
             this.txtSKU = new System.Windows.Forms.TextBox();
             this.cbPermitePromocion = new System.Windows.Forms.CheckBox();
             this.btnCrearProducto = new System.Windows.Forms.Button();
             this.btnCancelarProducto = new System.Windows.Forms.Button();
-            this.dtpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblFechaVencimiento = new System.Windows.Forms.Label();
+            this.cmbTienda = new System.Windows.Forms.ComboBox();
+            this.cmbRubro = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblTituloCrear
@@ -52,7 +51,6 @@
             this.lblTituloCrear.Size = new System.Drawing.Size(136, 20);
             this.lblTituloCrear.TabIndex = 0;
             this.lblTituloCrear.Text = "Nuevo Producto";
-            this.lblTituloCrear.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblDescripcionCrear
             // 
@@ -63,7 +61,6 @@
             this.lblDescripcionCrear.Size = new System.Drawing.Size(281, 32);
             this.lblDescripcionCrear.TabIndex = 1;
             this.lblDescripcionCrear.Text = "Ingrese los datos solicitados para agregar un \r\nnuevo producto al sistema:";
-            this.lblDescripcionCrear.Click += new System.EventHandler(this.lblDescripcionCrear_Click);
             // 
             // txtNombre
             // 
@@ -75,19 +72,21 @@
             this.txtNombre.Size = new System.Drawing.Size(285, 22);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.Text = "Nombre";
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
+            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.ForeColor = System.Drawing.Color.Gray;
-            this.txtDescripcion.Location = new System.Drawing.Point(16, 230);
+            this.txtDescripcion.Location = new System.Drawing.Point(16, 261);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(285, 73);
-            this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.Size = new System.Drawing.Size(281, 73);
+            this.txtDescripcion.TabIndex = 7;
             this.txtDescripcion.Text = "Descripción";
-            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
+            this.txtDescripcion.Enter += new System.EventHandler(this.txtDescripcion_Enter);
+            this.txtDescripcion.Leave += new System.EventHandler(this.txtDescripcion_Leave);
             // 
             // txtPrecio
             // 
@@ -96,19 +95,25 @@
             this.txtPrecio.Location = new System.Drawing.Point(16, 142);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(285, 22);
-            this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.TabIndex = 3;
             this.txtPrecio.Text = "Precio";
+            this.txtPrecio.Enter += new System.EventHandler(this.txtPrecio_Enter);
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            this.txtPrecio.Leave += new System.EventHandler(this.txtPrecio_Leave);
             // 
-            // cbIsActivo
+            // cmbActivo
             // 
-            this.cbIsActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbIsActivo.ForeColor = System.Drawing.Color.Gray;
-            this.cbIsActivo.FormattingEnabled = true;
-            this.cbIsActivo.Location = new System.Drawing.Point(16, 170);
-            this.cbIsActivo.Name = "cbIsActivo";
-            this.cbIsActivo.Size = new System.Drawing.Size(285, 24);
-            this.cbIsActivo.TabIndex = 5;
-            this.cbIsActivo.Text = "Estado";
+            this.cmbActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbActivo.ForeColor = System.Drawing.Color.Gray;
+            this.cmbActivo.FormattingEnabled = true;
+            this.cmbActivo.Items.AddRange(new object[] {
+            "Activo",
+            "No activo"});
+            this.cmbActivo.Location = new System.Drawing.Point(16, 170);
+            this.cmbActivo.Name = "cmbActivo";
+            this.cmbActivo.Size = new System.Drawing.Size(285, 24);
+            this.cmbActivo.TabIndex = 4;
+            this.cmbActivo.Text = "Estado";
             // 
             // txtSKU
             // 
@@ -117,8 +122,10 @@
             this.txtSKU.Location = new System.Drawing.Point(16, 86);
             this.txtSKU.Name = "txtSKU";
             this.txtSKU.Size = new System.Drawing.Size(285, 22);
-            this.txtSKU.TabIndex = 6;
+            this.txtSKU.TabIndex = 1;
             this.txtSKU.Text = "SKU";
+            this.txtSKU.Enter += new System.EventHandler(this.txtSKU_Enter);
+            this.txtSKU.Leave += new System.EventHandler(this.txtSKU_Leave);
             // 
             // cbPermitePromocion
             // 
@@ -127,7 +134,7 @@
             this.cbPermitePromocion.Location = new System.Drawing.Point(16, 345);
             this.cbPermitePromocion.Name = "cbPermitePromocion";
             this.cbPermitePromocion.Size = new System.Drawing.Size(242, 20);
-            this.cbPermitePromocion.TabIndex = 7;
+            this.cbPermitePromocion.TabIndex = 8;
             this.cbPermitePromocion.Text = "Permite propociones 2x1 y similares";
             this.cbPermitePromocion.UseVisualStyleBackColor = true;
             // 
@@ -143,6 +150,7 @@
             this.btnCrearProducto.TabIndex = 9;
             this.btnCrearProducto.Text = "Crear producto";
             this.btnCrearProducto.UseVisualStyleBackColor = false;
+            this.btnCrearProducto.Click += new System.EventHandler(this.btnCrearProducto_Click);
             // 
             // btnCancelarProducto
             // 
@@ -156,60 +164,52 @@
             this.btnCancelarProducto.TabIndex = 10;
             this.btnCancelarProducto.Text = "Cancelar";
             this.btnCancelarProducto.UseVisualStyleBackColor = false;
+            this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
             // 
-            // dtpFechaVencimiento
+            // cmbTienda
             // 
-            this.dtpFechaVencimiento.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaVencimiento.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
-            this.dtpFechaVencimiento.CalendarTitleForeColor = System.Drawing.Color.Gray;
-            this.dtpFechaVencimiento.Location = new System.Drawing.Point(104, 316);
-            this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
-            this.dtpFechaVencimiento.Size = new System.Drawing.Size(197, 20);
-            this.dtpFechaVencimiento.TabIndex = 11;
+            this.cmbTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTienda.ForeColor = System.Drawing.Color.Gray;
+            this.cmbTienda.FormattingEnabled = true;
+            this.cmbTienda.Location = new System.Drawing.Point(16, 201);
+            this.cmbTienda.Name = "cmbTienda";
+            this.cmbTienda.Size = new System.Drawing.Size(285, 24);
+            this.cmbTienda.TabIndex = 5;
+            this.cmbTienda.Text = "Tienda asociada";
             // 
-            // comboBox1
+            // cmbRubro
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.Gray;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 200);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(285, 24);
-            this.comboBox1.TabIndex = 12;
-            this.comboBox1.Text = "Tienda asociada";
+            this.cmbRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRubro.ForeColor = System.Drawing.Color.Gray;
+            this.cmbRubro.FormattingEnabled = true;
+            this.cmbRubro.Location = new System.Drawing.Point(16, 231);
+            this.cmbRubro.Name = "cmbRubro";
+            this.cmbRubro.Size = new System.Drawing.Size(285, 24);
+            this.cmbRubro.TabIndex = 6;
+            this.cmbRubro.Text = "Rubro";
             // 
-            // lblFechaVencimiento
-            // 
-            this.lblFechaVencimiento.AutoSize = true;
-            this.lblFechaVencimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaVencimiento.Location = new System.Drawing.Point(13, 316);
-            this.lblFechaVencimiento.Name = "lblFechaVencimiento";
-            this.lblFechaVencimiento.Size = new System.Drawing.Size(85, 16);
-            this.lblFechaVencimiento.TabIndex = 13;
-            this.lblFechaVencimiento.Text = "Vencimiento:";
-            this.lblFechaVencimiento.Click += new System.EventHandler(this.lblFechaVencimiento_Click);
-            // 
-            // Form2
+            // CrearProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(319, 442);
-            this.Controls.Add(this.lblFechaVencimiento);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dtpFechaVencimiento);
+            this.Controls.Add(this.cmbRubro);
+            this.Controls.Add(this.cmbTienda);
             this.Controls.Add(this.btnCancelarProducto);
             this.Controls.Add(this.btnCrearProducto);
             this.Controls.Add(this.cbPermitePromocion);
             this.Controls.Add(this.txtSKU);
-            this.Controls.Add(this.cbIsActivo);
+            this.Controls.Add(this.cmbActivo);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblDescripcionCrear);
             this.Controls.Add(this.lblTituloCrear);
-            this.Name = "Form2";
+            this.Name = "CrearProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.CrearProducto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,13 +222,12 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.ComboBox cbIsActivo;
+        private System.Windows.Forms.ComboBox cmbActivo;
         private System.Windows.Forms.TextBox txtSKU;
         private System.Windows.Forms.CheckBox cbPermitePromocion;
         private System.Windows.Forms.Button btnCrearProducto;
         private System.Windows.Forms.Button btnCancelarProducto;
-        private System.Windows.Forms.DateTimePicker dtpFechaVencimiento;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label lblFechaVencimiento;
+        private System.Windows.Forms.ComboBox cmbTienda;
+        private System.Windows.Forms.ComboBox cmbRubro;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
+using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.Vo;
 
@@ -101,6 +102,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                 this.Hide();
                 //this.Dispose();
             }
+            else if (e.ClickedItem.Name.Equals("tiendasToolStripMenuItem"))
+            {
+                PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
+                mantTienda.Show();
+                this.Hide();
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -136,6 +143,28 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
             }catch(Exception ex)
             {
                 MessageBox.Show("Error grave editando usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Name.Equals("descuentosToolStripMenuItem"))
+            {
+                ListarDescuentos listardesc = new ListarDescuentos();
+                listardesc.Show();
+                this.Hide();
+            }
+            else if (e.ClickedItem.Name.Equals("tiendasToolStripMenuItem"))
+            {
+                PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
+                mantTienda.Show();
+                this.Hide();
+            }
+            else if (e.ClickedItem.Name.Equals("productosToolStripMenuItem"))
+            {
+                PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
+                mantProd.Show();
+                this.Hide();
             }
         }
     }

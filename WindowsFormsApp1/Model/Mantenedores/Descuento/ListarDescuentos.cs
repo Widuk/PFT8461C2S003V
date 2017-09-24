@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.Vo;
@@ -127,6 +128,17 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                 listarUsu.Show();
                 this.Hide();
                 //this.Dispose();
+            }else if (e.ClickedItem.Name.Equals("tiendasToolStripMenuItem"))
+            {
+                PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
+                mantTienda.Show();
+                this.Hide();
+            }
+            else if (e.ClickedItem.Name.Equals("productosToolStripMenuItem"))
+            {
+                PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
+                mantProd.Show();
+                this.Hide();
             }
         }
     }

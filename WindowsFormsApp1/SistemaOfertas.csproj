@@ -84,6 +84,8 @@
     <Compile Include="Controler\DAO\OfertaDAO.cs" />
     <Compile Include="Controler\DAO\PerfilDAO.cs" />
     <Compile Include="Controler\DAO\ProductoDAO.cs" />
+    <Compile Include="Controler\DAO\RubroDAO.cs" />
+    <Compile Include="Controler\DAO\TiendaDAO.cs" />
     <Compile Include="Controler\DAO\TrabajadorDAO.cs" />
     <Compile Include="Controler\DAO\UsuarioDAO.cs" />
     <Compile Include="Model\Mantenedores\Autenticacion\Login.cs">
@@ -109,6 +111,24 @@
     </Compile>
     <Compile Include="Model\Mantenedores\Descuento\ModificarDescuento.Designer.cs">
       <DependentUpon>ModificarDescuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\CrearTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\CrearTienda.Designer.cs">
+      <DependentUpon>CrearTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\EditarTiendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\EditarTiendas.Designer.cs">
+      <DependentUpon>EditarTiendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\PortadaMantenedorTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\PortadaMantenedorTienda.Designer.cs">
+      <DependentUpon>PortadaMantenedorTienda.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Mantenedores\Home\Index.cs">
       <SubType>Form</SubType>
@@ -155,9 +175,12 @@
     <Compile Include="Model\Negocio\Conexion\Conexion.cs" />
     <Compile Include="Model\Negocio\Entities\Ciudad.cs" />
     <Compile Include="Model\Negocio\Entities\Descuento.cs" />
+    <Compile Include="Model\Negocio\Entities\objetoPaso.cs" />
     <Compile Include="Model\Negocio\Entities\Oferta.cs" />
     <Compile Include="Model\Negocio\Entities\Perfil.cs" />
     <Compile Include="Model\Negocio\Entities\Producto.cs" />
+    <Compile Include="Model\Negocio\Entities\Rubro.cs" />
+    <Compile Include="Model\Negocio\Entities\Tienda.cs" />
     <Compile Include="Model\Negocio\Entities\Trabajador.cs" />
     <Compile Include="Model\Negocio\Entities\Usuario.cs" />
     <Compile Include="Model\Negocio\SessionBag\SesionBag.cs" />
@@ -182,6 +205,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Descuento\ModificarDescuento.resx">
       <DependentUpon>ModificarDescuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Empresa\CrearTienda.resx">
+      <DependentUpon>CrearTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Empresa\EditarTiendas.resx">
+      <DependentUpon>EditarTiendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Empresa\PortadaMantenedorTienda.resx">
+      <DependentUpon>PortadaMantenedorTienda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Home\Index.resx">
       <DependentUpon>Index.cs</DependentUpon>

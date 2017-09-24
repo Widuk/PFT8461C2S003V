@@ -33,19 +33,22 @@
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.dtgListaPreducto = new System.Windows.Forms.DataGridView();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminarDescuento = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.asdadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descuentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descargaArchivoBIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListaPreducto)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNuevo
@@ -60,7 +63,7 @@
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo producto";
             this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.button1_Click);
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // panel1
             // 
@@ -81,13 +84,12 @@
             this.lblBienvenido.Size = new System.Drawing.Size(60, 13);
             this.lblBienvenido.TabIndex = 0;
             this.lblBienvenido.Text = "Bienvenido";
-            this.lblBienvenido.Click += new System.EventHandler(this.lblBienvenido_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 575);
+            this.panel2.Location = new System.Drawing.Point(0, 524);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(837, 37);
             this.panel2.TabIndex = 3;
@@ -98,32 +100,107 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 37);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(130, 538);
+            this.panel3.Size = new System.Drawing.Size(130, 487);
             this.panel3.TabIndex = 4;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint_1);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(161, 91);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(216, 20);
+            this.lblTitulo.TabIndex = 5;
+            this.lblTitulo.Text = "Mantenedor de Productos";
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(162, 142);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(517, 16);
+            this.lblDescripcion.TabIndex = 6;
+            this.lblDescripcion.Text = "Lista de productos. Para operar sobre un producto, selecciona la fila correspondi" +
+    "ente.";
+            // 
+            // dtgListaPreducto
+            // 
+            this.dtgListaPreducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgListaPreducto.Location = new System.Drawing.Point(164, 201);
+            this.dtgListaPreducto.Name = "dtgListaPreducto";
+            this.dtgListaPreducto.Size = new System.Drawing.Size(658, 264);
+            this.dtgListaPreducto.TabIndex = 7;
+            this.dtgListaPreducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaPreducto_CellClick);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Location = new System.Drawing.Point(550, 482);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnModificar.Size = new System.Drawing.Size(133, 27);
+            this.btnModificar.TabIndex = 24;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnEliminarDescuento
+            // 
+            this.btnEliminarDescuento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnEliminarDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarDescuento.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarDescuento.Location = new System.Drawing.Point(689, 482);
+            this.btnEliminarDescuento.Name = "btnEliminarDescuento";
+            this.btnEliminarDescuento.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnEliminarDescuento.Size = new System.Drawing.Size(133, 27);
+            this.btnEliminarDescuento.TabIndex = 23;
+            this.btnEliminarDescuento.Text = "Eliminar";
+            this.btnEliminarDescuento.UseVisualStyleBackColor = false;
+            this.btnEliminarDescuento.Click += new System.EventHandler(this.btnEliminarDescuento_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Location = new System.Drawing.Point(411, 482);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnActualizar.Size = new System.Drawing.Size(133, 27);
+            this.btnActualizar.TabIndex = 22;
+            this.btnActualizar.Text = "Actualizar Tabla";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asdadaToolStripMenuItem,
+            this.tiendasToolStripMenuItem,
             this.productosToolStripMenuItem,
             this.descuentosToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.descargaArchivoBIToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(141, 538);
-            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Size = new System.Drawing.Size(141, 487);
+            this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
-            // asdadaToolStripMenuItem
+            // tiendasToolStripMenuItem
             // 
-            this.asdadaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.asdadaToolStripMenuItem.Name = "asdadaToolStripMenuItem";
-            this.asdadaToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
-            this.asdadaToolStripMenuItem.Text = "Empresas";
+            this.tiendasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiendasToolStripMenuItem.Name = "tiendasToolStripMenuItem";
+            this.tiendasToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
+            this.tiendasToolStripMenuItem.Text = "Tiendas";
             // 
             // productosToolStripMenuItem
             // 
@@ -153,57 +230,33 @@
             this.descargaArchivoBIToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
             this.descargaArchivoBIToolStripMenuItem.Text = "Descarga archivo BI";
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(161, 91);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(53, 20);
-            this.lblTitulo.TabIndex = 5;
-            this.lblTitulo.Text = "Titulo";
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(162, 142);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(80, 16);
-            this.lblDescripcion.TabIndex = 6;
-            this.lblDescripcion.Text = "Descripcion";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(164, 201);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(608, 264);
-            this.dataGridView1.TabIndex = 7;
-            // 
-            // Form1
+            // PortadaMantenedorProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(837, 612);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(837, 561);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnEliminarDescuento);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.dtgListaPreducto);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNuevo);
-            this.Name = "Form1";
+            this.Name = "PortadaMantenedorProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListaPreducto)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,15 +269,18 @@
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminarDescuento;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.DataGridView dtgListaPreducto;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem asdadaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem descuentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem descargaArchivoBIToolStripMenuItem;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
