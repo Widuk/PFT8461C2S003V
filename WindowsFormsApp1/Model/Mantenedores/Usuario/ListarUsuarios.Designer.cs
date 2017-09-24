@@ -63,6 +63,7 @@
             this.btnModificar.TabIndex = 27;
             this.btnModificar.Text = "Editar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnActualizar
             // 
@@ -86,6 +87,7 @@
             this.dgvUsuario.AllowUserToOrderColumns = true;
             this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuario.Location = new System.Drawing.Point(188, 193);
+            this.dgvUsuario.MultiSelect = false;
             this.dgvUsuario.Name = "dgvUsuario";
             this.dgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuario.Size = new System.Drawing.Size(641, 257);
@@ -137,6 +139,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(141, 484);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // asdadaToolStripMenuItem
             // 

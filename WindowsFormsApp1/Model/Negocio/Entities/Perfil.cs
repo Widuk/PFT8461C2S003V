@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.Model.Negocio.Entities
 {
-    public class Usuario
+    class Perfil
     {
-        public long idUsuario { get; set; }
-        public string login { get; set; }
-        public string password { get; set; }
+        public long idPerfil { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
         public short isActivo { get; set; }
         public DateTime fechaCreacion { get; set; }
         public DateTime fechaModificacion { get; set; }
-        public String idSession { get; set; }
-        public long codigoPerfil { get; set; }
-
     }
 }

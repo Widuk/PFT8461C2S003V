@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.Vo;
 
@@ -115,6 +116,17 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
             catch (Exception ex)
             {
                 MessageBox.Show("Error grave Editando Descuento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Name.Equals("usuariosToolStripMenuItem"))
+            {
+                ListarUsuarios listarUsu = new ListarUsuarios();
+                listarUsu.Show();
+                this.Hide();
+                //this.Dispose();
             }
         }
     }

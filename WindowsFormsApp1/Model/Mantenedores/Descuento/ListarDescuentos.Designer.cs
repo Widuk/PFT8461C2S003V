@@ -58,6 +58,7 @@
             this.dgvDescuento.AllowUserToOrderColumns = true;
             this.dgvDescuento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDescuento.Location = new System.Drawing.Point(179, 207);
+            this.dgvDescuento.MultiSelect = false;
             this.dgvDescuento.Name = "dgvDescuento";
             this.dgvDescuento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDescuento.Size = new System.Drawing.Size(608, 264);
@@ -109,6 +110,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(141, 494);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // asdadaToolStripMenuItem
             // 

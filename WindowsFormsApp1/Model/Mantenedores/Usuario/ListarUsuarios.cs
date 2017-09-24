@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Mantenedores.Descuento;
+using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.Vo;
 
 namespace WindowsFormsApp1.Model.Mantenedores.Usuario
@@ -27,7 +29,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
                 List<UsuarioGridVO> listaUsuariosFin = new List<UsuarioGridVO>();
                 listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosTrabajadores());
-                listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosConsumidores());
+                //listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosConsumidores());
                 
                 listaUsuarios =  new BindingList<UsuarioGridVO>(listaUsuariosFin);
 
@@ -36,7 +38,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
             }
             catch(Exception ex)
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show("Error grave listando Usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -79,6 +81,62 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
         {
             CrearUsuario cu = new CrearUsuario();
             cu.ShowDialog();
+
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            List<UsuarioGridVO> listaUsuariosFin = new List<UsuarioGridVO>();
+            listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosTrabajadores());
+            listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosConsumidores());
+
+            listaUsuarios = new BindingList<UsuarioGridVO>(listaUsuariosFin);
+
+            this.dgvUsuario.DataSource = listaUsuarios;
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Name.Equals("descuentosToolStripMenuItem"))
+            {
+                ListarDescuentos listarDesc = new ListarDescuentos();
+                listarDesc.Show();
+                this.Hide();
+                //this.Dispose();
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(this.dgvUsuario.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Error: Debe seleccionar un usuario para Editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    UsuarioDAO usuarioDAO = new UsuarioDAO();
+                    TrabajadorDAO trabajadorDAO = new TrabajadorDAO();
+
+                    WindowsFormsApp1.Model.Negocio.Entities.Usuario usuarioSeleccionado = usuarioDAO.getUsuarioPorCodigo(long.Parse(dgvUsuario.SelectedRows[0].Cells[0].Value.ToString()));
+                    Trabajador trabajadorSeleccionado = trabajadorDAO.getTrabajadorPorIdUsuario(usuarioSeleccionado.idUsuario);
+                    EditarUsuario editarUsuario = new EditarUsuario();
+                    editarUsuario.usuarioSeleccionado = usuarioSeleccionado;
+                    editarUsuario.trabajadorSeleccionado = trabajadorSeleccionado;
+                    editarUsuario.ShowDialog();
+
+                    List<UsuarioGridVO> listaUsuariosFin = new List<UsuarioGridVO>();
+                    listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosTrabajadores());
+                    listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosConsumidores());
+
+                    listaUsuarios = new BindingList<UsuarioGridVO>(listaUsuariosFin);
+
+                    this.dgvUsuario.DataSource = listaUsuarios;
+
+                    this.Focus();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error grave editando usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

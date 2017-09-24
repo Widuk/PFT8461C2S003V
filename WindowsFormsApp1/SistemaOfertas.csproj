@@ -79,10 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Borrar.cs" />
+    <Compile Include="Controler\DAO\CiudadDAO.cs" />
     <Compile Include="Controler\DAO\DescuentoDAO.cs" />
     <Compile Include="Controler\DAO\OfertaDAO.cs" />
+    <Compile Include="Controler\DAO\PerfilDAO.cs" />
     <Compile Include="Controler\DAO\ProductoDAO.cs" />
+    <Compile Include="Controler\DAO\TrabajadorDAO.cs" />
     <Compile Include="Controler\DAO\UsuarioDAO.cs" />
     <Compile Include="Model\Mantenedores\Autenticacion\Login.cs">
       <SubType>Form</SubType>
@@ -138,6 +140,12 @@
     <Compile Include="Model\Mantenedores\Usuario\CrearUsuario.Designer.cs">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Mantenedores\Usuario\EditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Usuario\EditarUsuario.Designer.cs">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Mantenedores\Usuario\ListarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +153,15 @@
       <DependentUpon>ListarUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Negocio\Conexion\Conexion.cs" />
+    <Compile Include="Model\Negocio\Entities\Ciudad.cs" />
     <Compile Include="Model\Negocio\Entities\Descuento.cs" />
     <Compile Include="Model\Negocio\Entities\Oferta.cs" />
+    <Compile Include="Model\Negocio\Entities\Perfil.cs" />
     <Compile Include="Model\Negocio\Entities\Producto.cs" />
+    <Compile Include="Model\Negocio\Entities\Trabajador.cs" />
     <Compile Include="Model\Negocio\Entities\Usuario.cs" />
     <Compile Include="Model\Negocio\SessionBag\SesionBag.cs" />
+    <Compile Include="Model\Negocio\Utils\Utils.cs" />
     <Compile Include="Model\Negocio\Vo\DescuentoGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\UsuarioGridVO.cs" />
     <Compile Include="Program.cs" />
@@ -185,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Usuario\CrearUsuario.resx">
       <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Usuario\EditarUsuario.resx">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Usuario\ListarUsuarios.resx">
       <DependentUpon>ListarUsuarios.cs</DependentUpon>

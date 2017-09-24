@@ -13,6 +13,7 @@ using WindowsFormsApp1.Model.Negocio.Conexion;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.SessionBag;
+using WindowsFormsApp1.Model.Mantenedores.Descuento;
 
 namespace WindowsFormsApp1.Model.Autenticacion
 {
@@ -48,7 +49,7 @@ namespace WindowsFormsApp1.Model.Autenticacion
                         UsuarioDAO usuarioDAO = new UsuarioDAO();
                         Usuario usu = usuarioDAO.getUsuarioPorCodigo(loginResponse.codigoUsuario);
                         SesionBag.usuarioSesionado = usu;
-                        Index homeView = new Index();
+                        ListarDescuentos homeView = new ListarDescuentos();
                         homeView.Visible = true;
                         this.Visible = false;
                     }
