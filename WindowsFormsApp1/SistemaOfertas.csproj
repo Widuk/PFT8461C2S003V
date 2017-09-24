@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controler\DAO\CiudadDAO.cs" />
+    <Compile Include="Controler\DAO\ConsumidorDAO.cs" />
     <Compile Include="Controler\DAO\DescuentoDAO.cs" />
     <Compile Include="Controler\DAO\OfertaDAO.cs" />
     <Compile Include="Controler\DAO\PerfilDAO.cs" />
@@ -174,6 +175,7 @@
     </Compile>
     <Compile Include="Model\Negocio\Conexion\Conexion.cs" />
     <Compile Include="Model\Negocio\Entities\Ciudad.cs" />
+    <Compile Include="Model\Negocio\Entities\Consumidor.cs" />
     <Compile Include="Model\Negocio\Entities\Descuento.cs" />
     <Compile Include="Model\Negocio\Entities\objetoPaso.cs" />
     <Compile Include="Model\Negocio\Entities\Oferta.cs" />

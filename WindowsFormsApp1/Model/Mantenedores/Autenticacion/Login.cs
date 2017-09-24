@@ -47,7 +47,25 @@ namespace WindowsFormsApp1.Model.Autenticacion
                     if (loginResponse.codigoRespuesta == 0)
                     {
                         UsuarioDAO usuarioDAO = new UsuarioDAO();
+                        ConsumidorDAO consumidorDAO = new ConsumidorDAO();
                         Usuario usu = usuarioDAO.getUsuarioPorCodigo(loginResponse.codigoUsuario);
+
+                        if(usu.isActivo == 0)
+                        {
+                            MessageBox.Show("Error: El usuario ingresado se encuentra inactivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+
+                        Consumidor cons = consumidorDAO.getConsumidorPorCodigoUsuario(usu.idUsuario);
+
+                        if(cons != null)
+                        {
+                            MessageBox.Show("Error: El usuario ingresado pertenece a un Consumidor, no es posible ingresar a la aplicación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        
+
                         SesionBag.usuarioSesionado = usu;
                         ListarDescuentos homeView = new ListarDescuentos();
                         homeView.Visible = true;
