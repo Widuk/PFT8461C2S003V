@@ -80,14 +80,14 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             if (txtNombreTienda.Text == null || txtNombreTienda.Text.Trim().Equals(string.Empty))
             {
-                txtNombreTienda.Text = "Nombre tienda";
+                txtNombreTienda.Text = "Nombre de la tienda";
                 txtNombreTienda.ForeColor = Color.Gray;
             }
         }
 
         private void txtNombreTienda_Enter(object sender, EventArgs e)
         {
-            if (txtNombreTienda.Text.Equals("Nombre tienda"))
+            if (txtNombreTienda.Text.Equals("Nombre de la tienda"))
             {
                 txtNombreTienda.Text = "";
                 txtNombreTienda.ForeColor = Color.Black;
@@ -98,14 +98,14 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             if (txtDireccionTienda.Text == null || txtDireccionTienda.Text.Trim().Equals(string.Empty))
             {
-                txtDireccionTienda.Text = "Nombre tienda";
+                txtDireccionTienda.Text = "Dirección";
                 txtDireccionTienda.ForeColor = Color.Gray;
             }
         }
 
         private void txtDireccionTienda_Enter(object sender, EventArgs e)
         {
-            if (txtDireccionTienda.Text.Equals("Nombre tienda"))
+            if (txtDireccionTienda.Text.Equals("Dirección"))
             {
                 txtDireccionTienda.Text = "";
                 txtDireccionTienda.ForeColor = Color.Black;
@@ -116,7 +116,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             if (txtTelefonoTienda.Text == null || txtTelefonoTienda.Text.Trim().Equals(string.Empty))
             {
-                txtTelefonoTienda.Text = "Telefono Tienda";
+                txtTelefonoTienda.Text = "Teléfono ## ### ####";
                 txtTelefonoTienda.ForeColor = Color.Gray;
             }
         }
@@ -125,14 +125,14 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             if (txtNombreEmpresa.Text == null || txtNombreEmpresa.Text.Trim().Equals(string.Empty))
             {
-                txtNombreEmpresa.Text = "## ### ####";
+                txtNombreEmpresa.Text = "Nombre de empresa";
                 txtNombreEmpresa.ForeColor = Color.Gray;
             }
         }
 
         private void txtNombreEmpresa_Enter(object sender, EventArgs e)
         {
-            if (txtNombreEmpresa.Text.Equals("Nombre tienda"))
+            if (txtNombreEmpresa.Text.Equals("Nombre de empresa"))
             {
                 txtNombreEmpresa.Text = "";
                 txtNombreEmpresa.ForeColor = Color.Black;
@@ -141,7 +141,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void txtTelefonoTienda_Enter(object sender, EventArgs e)
         {
-            if (txtTelefonoTienda.Text.Equals("## ### ####"))
+            if (txtTelefonoTienda.Text.Equals("Teléfono ## ### ####"))
             {
                 txtTelefonoTienda.Text = "";
                 txtTelefonoTienda.ForeColor = Color.Black;

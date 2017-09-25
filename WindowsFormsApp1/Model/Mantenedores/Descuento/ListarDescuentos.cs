@@ -28,6 +28,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
             DescuentoDAO descDAO = new DescuentoDAO();
             listaDescuentos = new BindingList<DescuentoGridVO>(descDAO.getAllDescuentosGrid());
             this.dgvDescuento.DataSource = listaDescuentos;
+            descuentosToolStripMenuItem.ForeColor = Color.Gray;
         }
 
         private void dgvDescuento_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

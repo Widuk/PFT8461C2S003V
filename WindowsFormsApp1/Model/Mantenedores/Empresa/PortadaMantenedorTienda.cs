@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
@@ -23,7 +17,9 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void Tienda_Load(object sender, EventArgs e)
         {
+            objetoPaso.limpiaPaso();
             cargaTiendas();
+            tiendaToolStripMenuItem.ForeColor = Color.Gray;
         }
 
         public void cargaTiendas()
@@ -34,13 +30,15 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             dtgTiendas.Columns[0].HeaderText = "N°";
             dtgTiendas.Columns[1].HeaderText = "Nombre";
             dtgTiendas.Columns[2].HeaderText = "Dirección";
-            dtgTiendas.Columns[3].HeaderText = "telefono";
-            dtgTiendas.Columns[4].HeaderText = "activo";
-            dtgTiendas.Columns[4].Visible = false;
-            dtgTiendas.Columns[5].HeaderText = "F. Creación";
-            dtgTiendas.Columns[6].HeaderText = "F. Modificación";
-            dtgTiendas.Columns[7].HeaderText = "Empresa";
-            dtgTiendas.Columns[8].HeaderText = "Ciudad";
+            dtgTiendas.Columns[3].HeaderText = "Ciudad";
+            dtgTiendas.Columns[4].HeaderText = "Telefono";
+            dtgTiendas.Columns[5].HeaderText = "activo";
+            dtgTiendas.Columns[5].Visible = false;
+            dtgTiendas.Columns[6].HeaderText = "F. Creación";
+            dtgTiendas.Columns[7].HeaderText = "F. Modificación";
+            dtgTiendas.Columns[8].HeaderText = "Empresa";
+            dtgTiendas.Columns[9].HeaderText = "IdCiudad";
+            dtgTiendas.Columns[9].Visible = false;            
         }
 
 
@@ -57,12 +55,13 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             objetoPaso.paso0 = filaSeleccionada.Cells[0].Value.ToString();  //id
             objetoPaso.paso1 = filaSeleccionada.Cells[1].Value.ToString();  //nombre
             objetoPaso.paso2 = filaSeleccionada.Cells[2].Value.ToString();  //dirección
-            objetoPaso.paso3 = filaSeleccionada.Cells[3].Value.ToString();  //telefono
-            objetoPaso.paso4 = filaSeleccionada.Cells[4].Value.ToString();  //activo
-            objetoPaso.paso5 = filaSeleccionada.Cells[5].Value.ToString();  //creacion
-            objetoPaso.paso6 = filaSeleccionada.Cells[6].Value.ToString();  //modificacion
-            objetoPaso.paso7 = filaSeleccionada.Cells[7].Value.ToString();  //Empresa
-            objetoPaso.paso8 = filaSeleccionada.Cells[8].Value.ToString();  //Ciudad
+            objetoPaso.paso3 = filaSeleccionada.Cells[3].Value.ToString();  //ciudad
+            objetoPaso.paso4 = filaSeleccionada.Cells[4].Value.ToString();  //telefono
+            objetoPaso.paso5 = filaSeleccionada.Cells[5].Value.ToString();  //activo
+            objetoPaso.paso6 = filaSeleccionada.Cells[6].Value.ToString();  //creacion
+            objetoPaso.paso7 = filaSeleccionada.Cells[7].Value.ToString();  //modificacion
+            objetoPaso.paso8 = filaSeleccionada.Cells[8].Value.ToString();  //empresa
+            objetoPaso.paso9 = filaSeleccionada.Cells[9].Value.ToString();  //idCiudad
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -72,7 +71,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (objetoPaso.paso0 == null)
+            if (objetoPaso.paso0 == null || objetoPaso.paso0 == "0" || objetoPaso.paso0 == "")
             {
                 return;
             }

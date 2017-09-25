@@ -20,5 +20,23 @@ namespace WindowsFormsApp1.Model.Negocio.Entities
         public static string paso9;
         public static string paso10;
         public static string paso11;
+        public static string paso12;
+
+        public static void limpiaPaso()
+        {
+        paso0= "";
+        paso1= "";
+        paso2= "";
+        paso3= "";
+        paso4= "";
+        paso5= "";
+        paso6= "";
+        paso7= "";
+        paso8= "";
+        paso9= "";
+        paso10="";
+        paso11="";
+        paso12="";
+    }
     }
 }

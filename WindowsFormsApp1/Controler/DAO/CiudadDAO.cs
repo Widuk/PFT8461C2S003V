@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.Controler.DAO
             try
             {
                 OracleCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT IDCIUDAD, NOMBRE FROM Ciudad WHERE ISACTIVO = :registroActivo";
+                cmd.CommandText = "SELECT IDCIUDAD, NOMBRE FROM Ciudad WHERE ISACTIVO = :registroActivo order by nombre";
                 cmd.Parameters.Add(":registroActivo", OracleDbType.Int16).Value = 1;
                 OracleDataAdapter oda = new OracleDataAdapter(cmd);
                 DataTable dataTable = new DataTable("Ciudades");
@@ -42,7 +42,7 @@ namespace WindowsFormsApp1.Controler.DAO
             try
             {
                 OracleCommand command = conn.CreateCommand();
-                command.CommandText = "SELECT * FROM CIUDAD where isactivo = 1";
+                command.CommandText = "SELECT * FROM CIUDAD where isactivo = 1 order by nombre";
                 OracleDataReader dr = command.ExecuteReader();
 
                 List<Ciudad> lstCiudad = new List<Ciudad>();

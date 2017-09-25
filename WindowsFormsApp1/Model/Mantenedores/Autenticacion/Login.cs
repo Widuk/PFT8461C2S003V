@@ -56,7 +56,6 @@ namespace WindowsFormsApp1.Model.Autenticacion
                             return;
                         }
 
-
                         Consumidor cons = consumidorDAO.getConsumidorPorCodigoUsuario(usu.idUsuario);
 
                         if(cons != null)
@@ -64,8 +63,6 @@ namespace WindowsFormsApp1.Model.Autenticacion
                             MessageBox.Show("Error: El usuario ingresado pertenece a un Consumidor, no es posible ingresar a la aplicación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                        
-
                         SesionBag.usuarioSesionado = usu;
                         ListarDescuentos homeView = new ListarDescuentos();
                         homeView.Visible = true;

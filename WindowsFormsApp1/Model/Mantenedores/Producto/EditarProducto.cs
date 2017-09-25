@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Negocio.Vo;
 using WindowsFormsApp1.Model.Negocio.Entities;
 
 namespace WindowsFormsApp1
@@ -23,7 +17,6 @@ namespace WindowsFormsApp1
         {
             try
             {
-
                 Int16 x = Int16.Parse(objetoPaso.paso0);                        //id
                 Int16 j;
                 if (chDisponiblidad.Checked == true) { j = 1; } else { j = 0; }; //2X1
@@ -31,7 +24,7 @@ namespace WindowsFormsApp1
                 if (cmbEstado.Text == "Activo") { i = 1; } else { i = 0; };         //estado
 
                 ProductoDAO editaProducto = new ProductoDAO();
-                editaProducto.EditarProducto(x, txtNombreTienda.Text, txtDescripcion.Text, txtPrecio.Text, j, txtSku.Text, i, DateTime.Now, Int16.Parse(cmbTienda.SelectedValue.ToString()), Int16.Parse(cmbRubro.SelectedValue.ToString()));
+                editaProducto.EditarProducto(x, txtNombreTienda.Text, txtDescripcion.Text, Int64.Parse(txtPrecio.Text), j, txtSku.Text, i, DateTime.Now, Int16.Parse(cmbTienda.SelectedValue.ToString()), Int16.Parse(cmbRubro.SelectedValue.ToString()));
                 MessageBox.Show("Modificación de producto exitosa.");
                 PortadaMantenedorProducto ProductoView = new PortadaMantenedorProducto();
                 ProductoView.cargaProductos();
@@ -65,23 +58,30 @@ namespace WindowsFormsApp1
 
         private void EditarProducto_Load(object sender, EventArgs e)
         {
-            cargaProductosEditar();
             cargaRubro();
             cargaTiendas();
+            cargaProductosEditar();
         }
 
         void cargaProductosEditar()
         {
+            ProductoGridVO prod = new ProductoGridVO();
+            prod.idTienda = long.Parse(objetoPaso.paso11);
+            prod.idRubro = long.Parse(objetoPaso.paso12);
             Boolean check = false;
+            int x = 0;
+
             txtNombreTienda.Text = objetoPaso.paso1;    //nombre
             txtDescripcion.Text = objetoPaso.paso2;    //descripcion
             txtPrecio.Text = objetoPaso.paso3;    //precio
-            txtSku.Text = objetoPaso.paso5;    //sku
-            cmbTienda.SelectedValue = objetoPaso.paso9;    //tienda
-            cmbRubro.SelectedValue = objetoPaso.paso10;    //rubro
-            cmbEstado.SelectedIndex = Int16.Parse(objetoPaso.paso6);    //estado
+            txtSku.Text = objetoPaso.paso6;    //sku
+            cmbTienda.SelectedValue = prod.idTienda;    //FECHA
+            cmbRubro.SelectedValue = prod.idRubro;    //ACTIVO
 
-            if (objetoPaso.paso4 == "1") { check = true; } else { check = false; };
+            if (objetoPaso.paso7 == "1") { x = 0; } else { x = 1; };
+            cmbEstado.SelectedIndex = x;    //estado
+
+            if (objetoPaso.paso4 == "Si") { check = true; } else { check = false; };
             chDisponiblidad.Checked = check;    //2X1
         }
 
@@ -100,7 +100,7 @@ namespace WindowsFormsApp1
             TiendaDAO tienda = new TiendaDAO();
             cmbTienda.DataSource = tienda.listarTiendas();
             cmbTienda.ValueMember = "IDTIENDA";
-            cmbTienda.DisplayMember = "NOMBRE";
+            cmbTienda.DisplayMember = "NOMBRETIENDA";
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)

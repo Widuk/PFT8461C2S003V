@@ -21,18 +21,19 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void EditarTiendas_Load(object sender, EventArgs e)
         {
-            CargaDatosTienda();
-            cargaCiudades();
-        }
-        void CargaDatosTienda()
-        {
-            txtNombreTienda.Text = objetoPaso.paso1;
-            txtDireccionTienda.Text = objetoPaso.paso2;
-            cmbCiudad.SelectedValue = objetoPaso.paso8;
-            txtTelefonoTienda.Text = objetoPaso.paso3;
-            txtNombreEmpresa.Text = objetoPaso.paso7;
-        }
 
+            cargaCiudades();
+            cargarcmbCiudad();
+            CargaDatosTienda();            
+        }
+        void cargarcmbCiudad()
+        {
+            cmbCiudad.DataSource = null;
+            CiudadDAO listaCiudad = new CiudadDAO();
+            cmbCiudad.DataSource = listaCiudad.listarCiudades();
+            cmbCiudad.ValueMember = "IDCIUDAD";
+            cmbCiudad.DisplayMember = "NOMBRE";
+        }
         void cargaCiudades()
         {
             cmbCiudad.DataSource = null;
@@ -41,6 +42,17 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             cmbCiudad.ValueMember = "IDCIUDAD";
             cmbCiudad.DisplayMember = "NOMBRE";
         }
+        void CargaDatosTienda()
+        {
+            txtNombreTienda.Text = objetoPaso.paso1;
+            txtDireccionTienda.Text = objetoPaso.paso2;
+            Ciudad cd = new Ciudad();
+            cd.idCiudad = long.Parse(objetoPaso.paso9);
+            cmbCiudad.SelectedValue = cd.idCiudad;
+            txtTelefonoTienda.Text = objetoPaso.paso4;
+            txtNombreEmpresa.Text = objetoPaso.paso8;
+        }
+        
         private void txtNombreTienda_Leave(object sender, EventArgs e)
         {
             if (txtNombreTienda.Text == null || txtNombreTienda.Text.Trim().Equals(string.Empty))
@@ -58,7 +70,6 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
                 txtNombreTienda.ForeColor = Color.Black;
             }
         }
-
         private void txtDireccionTienda_Leave(object sender, EventArgs e)
         {
             if (txtDireccionTienda.Text == null || txtDireccionTienda.Text.Trim().Equals(string.Empty))
@@ -137,10 +148,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             try
             {
-                Int16 x = Int16.Parse(objetoPaso.paso0);                        //id
+                long x = long.Parse(objetoPaso.paso0);                        //id
                 TiendaDAO editaTienda = new TiendaDAO();
                 editaTienda.EditarTienda(x, txtNombreTienda.Text, txtDireccionTienda.Text, txtTelefonoTienda.Text, dtFechaIngresoTienda.Value, txtNombreEmpresa.Text, Int16.Parse(cmbCiudad.SelectedValue.ToString()));
                 MessageBox.Show("Modificación de tienda exitosa.");
+                objetoPaso.paso0 = (String)(0.ToString()) ;
                 PortadaMantenedorTienda tiendaView = new PortadaMantenedorTienda();
                 tiendaView.cargaTiendas();
                 this.Visible = false;
@@ -149,6 +161,13 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             {
                 MessageBox.Show("Error al modificar la tienda.");
             }
+        }
+
+        private void btnCancelarTienda_Click(object sender, EventArgs e)
+        {
+            PortadaMantenedorTienda ProductoView = new PortadaMantenedorTienda();
+            ProductoView.cargaTiendas();
+            this.Visible = false;
         }
     }
 }

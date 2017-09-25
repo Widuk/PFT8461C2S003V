@@ -152,6 +152,7 @@
             this.btnCancelarTienda.TabIndex = 52;
             this.btnCancelarTienda.Text = "Cancelar";
             this.btnCancelarTienda.UseVisualStyleBackColor = false;
+            this.btnCancelarTienda.Click += new System.EventHandler(this.btnCancelarTienda_Click);
             // 
             // btnCrearTienda
             // 
