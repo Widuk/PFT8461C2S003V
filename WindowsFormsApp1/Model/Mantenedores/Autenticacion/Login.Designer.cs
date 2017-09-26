@@ -40,17 +40,17 @@
             // 
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblLogin.Location = new System.Drawing.Point(112, 50);
+            this.lblLogin.Location = new System.Drawing.Point(121, 36);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(188, 20);
+            this.lblLogin.Size = new System.Drawing.Size(150, 20);
             this.lblLogin.TabIndex = 0;
-            this.lblLogin.Text = "Login Sistema Ofertas";
+            this.lblLogin.Text = "Login Mis Ofertas";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(48, 105);
+            this.lblUsuario.Location = new System.Drawing.Point(52, 104);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(66, 16);
             this.lblUsuario.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(46, 146);
+            this.lblContraseña.Location = new System.Drawing.Point(52, 146);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(91, 16);
             this.lblContraseña.TabIndex = 2;
@@ -68,10 +68,11 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(170, 191);
+            this.btnLogin.Location = new System.Drawing.Point(141, 199);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 34);
             this.btnLogin.TabIndex = 3;
@@ -83,18 +84,18 @@
             // 
             this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(157, 101);
+            this.txtUsuario.Location = new System.Drawing.Point(156, 101);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(122, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(167, 22);
             this.txtUsuario.TabIndex = 4;
             // 
             // txtContrasena
             // 
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(157, 142);
+            this.txtContrasena.Location = new System.Drawing.Point(156, 143);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
-            this.txtContrasena.Size = new System.Drawing.Size(122, 22);
+            this.txtContrasena.Size = new System.Drawing.Size(167, 22);
             this.txtContrasena.TabIndex = 5;
             // 
             // Login
@@ -108,11 +109,12 @@
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Inicio de Sesión";
             this.ResumeLayout(false);
             this.PerformLayout();
 
