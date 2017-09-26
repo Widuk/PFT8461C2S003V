@@ -76,7 +76,7 @@
             this.btnCrearProducto.Name = "btnCrearProducto";
             this.btnCrearProducto.Size = new System.Drawing.Size(121, 38);
             this.btnCrearProducto.TabIndex = 22;
-            this.btnCrearProducto.Text = "Crear descuento";
+            this.btnCrearProducto.Text = "Crear Descuento";
             this.btnCrearProducto.UseVisualStyleBackColor = false;
             this.btnCrearProducto.Click += new System.EventHandler(this.btnCrearProducto_Click);
             // 
@@ -156,9 +156,9 @@
             this.chkDescuentoPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.chkDescuentoPrecio.Location = new System.Drawing.Point(44, 296);
             this.chkDescuentoPrecio.Name = "chkDescuentoPrecio";
-            this.chkDescuentoPrecio.Size = new System.Drawing.Size(171, 20);
+            this.chkDescuentoPrecio.Size = new System.Drawing.Size(169, 20);
             this.chkDescuentoPrecio.TabIndex = 27;
-            this.chkDescuentoPrecio.Text = "Es Descuento en Precio";
+            this.chkDescuentoPrecio.Text = "Es descuento en Precio";
             this.chkDescuentoPrecio.UseVisualStyleBackColor = true;
             this.chkDescuentoPrecio.CheckedChanged += new System.EventHandler(this.chkDescuentoPrecio_CheckedChanged);
             // 
@@ -189,11 +189,12 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblDescripcionCrear);
             this.Controls.Add(this.lblTituloCrear);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CrearDescuento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrearDescuento";
+            this.Text = "Crear Descuento";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.CrearDescuento_Load);
             this.ResumeLayout(false);

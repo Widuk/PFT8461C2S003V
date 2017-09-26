@@ -64,12 +64,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                     return;
                 } else if (txtApellidoPaterno.Text == null || txtApellidoPaterno.Text.Trim().Equals(string.Empty))
                 {
-                    MessageBox.Show("Error: El Apellido paterno es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: El Apellido Paterno es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtApellidoPaterno.Focus();
                     return;
                 } else if (txtApellidoMaterno.Text == null || txtApellidoMaterno.Text.Trim().Equals(string.Empty))
                 {
-                    MessageBox.Show("Error: El Apellido materno es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: El Apellido Materno es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtApellidoMaterno.Focus();
                     return;
                 } else if (txtRut.Text == null || txtRut.Text.Trim().Equals(string.Empty)) {
@@ -131,7 +131,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
 
                     if (!txtContrasena.Text.Trim().Equals(txtContrasena2.Text.Trim()))
                     {
-                        MessageBox.Show("Error: Las Contraseñas ingresadas no coinciden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error: Las Contraseñas ingresadas no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtContrasena.Text = "";
                         txtContrasena2.Text = "";
                         txtContrasena.Focus();

@@ -47,7 +47,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
                 Int16 Ciudad = Int16.Parse(cmbCiudad.SelectedValue.ToString());
                 TiendaDAO insertarTienda = new TiendaDAO();
                 insertarTienda.InsertaTienda(nombre, direccion, telefono, activo, fechaCreacion, fechaModificacion, empresa, Ciudad);
-                MessageBox.Show("Creación de tienda exitosa.");
+                MessageBox.Show("Tienda registrada exitosamente.");
                 limpiarCampos();
                 PortadaMantenedorTienda TiendaView = new PortadaMantenedorTienda();
                 TiendaView.cargaTiendas();
@@ -55,7 +55,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un problema creando la tienda. Por favor intenta mas tarde o contacta a soporte.");
+                MessageBox.Show("Error: se ha generado un error en el sistema. Por favor intenta mas tarde o contacta al Administrador.");
             }
         }
 

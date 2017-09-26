@@ -68,6 +68,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                 listaUsuarios = new BindingList<UsuarioGridVO>(listaUsuariosFin);
 
                 this.dgvUsuario.DataSource = listaUsuarios;
+                this.dgvUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             }
             catch (Exception ex)

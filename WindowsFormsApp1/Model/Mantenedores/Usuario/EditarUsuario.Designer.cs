@@ -376,9 +376,10 @@
             this.Controls.Add(this.btnEditarUsuario);
             this.Controls.Add(this.lblDescripcionCrear);
             this.Controls.Add(this.lblTituloCrear);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "EditarUsuario";
+            this.Text = "Editar Usuario";
             this.Load += new System.EventHandler(this.EditarUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

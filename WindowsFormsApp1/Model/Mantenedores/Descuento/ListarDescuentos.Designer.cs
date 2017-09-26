@@ -238,9 +238,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNuevo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ListarDescuentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListarDescuentos";
+            this.Text = "Listar Descuentos";
             this.Load += new System.EventHandler(this.ListarDescuentos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescuento)).EndInit();
             this.panel3.ResumeLayout(false);

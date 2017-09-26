@@ -135,6 +135,7 @@
             this.dtFechaIngresoTienda.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFechaIngresoTienda.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dtFechaIngresoTienda.CalendarTitleForeColor = System.Drawing.Color.Gray;
+            this.dtFechaIngresoTienda.Enabled = false;
             this.dtFechaIngresoTienda.Location = new System.Drawing.Point(142, 103);
             this.dtFechaIngresoTienda.Name = "dtFechaIngresoTienda";
             this.dtFechaIngresoTienda.Size = new System.Drawing.Size(267, 20);
@@ -170,6 +171,7 @@
             // 
             // cmbCiudad
             // 
+            this.cmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCiudad.ForeColor = System.Drawing.Color.Gray;
             this.cmbCiudad.FormattingEnabled = true;
@@ -177,7 +179,6 @@
             this.cmbCiudad.Name = "cmbCiudad";
             this.cmbCiudad.Size = new System.Drawing.Size(267, 24);
             this.cmbCiudad.TabIndex = 4;
-            this.cmbCiudad.Text = "Ciudad";
             // 
             // txtDireccionTienda
             // 
@@ -248,9 +249,10 @@
             this.Controls.Add(this.txtNombreEmpresa);
             this.Controls.Add(this.txtNombreTienda);
             this.Controls.Add(this.lblTituloModificar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditarTiendas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditarTiendas";
+            this.Text = "Editar Tienda";
             this.Load += new System.EventHandler(this.EditarTiendas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

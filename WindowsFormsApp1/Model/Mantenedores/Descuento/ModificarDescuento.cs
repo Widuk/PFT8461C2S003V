@@ -148,12 +148,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                 //Validaciones varias
                 if (txtNombre.Text == null || txtNombre.Text.Trim().Equals(string.Empty) || (txtNombre.Text.Trim().Equals("Nombre") && txtNombre.ForeColor == Color.Gray))
                 {
-                    MessageBox.Show("Error: El nombre del descuento es Obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: El nombre del descuento es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtNombre.Focus();
                 }
                 else if (txtDescripcion.Text == null || txtDescripcion.Text.Trim().Equals(string.Empty) || (txtDescripcion.Text.Trim().Equals("Descripción") && txtDescripcion.ForeColor == Color.Gray))
                 {
-                    MessageBox.Show("Error: La Descripción del descuento es Obligatoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: La Descripción del descuento es obligatoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtDescripcion.Focus();
                 }
                 else if (cbxProducto.SelectedIndex == -1)
@@ -202,7 +202,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
 
                     this.Dispose();
 
-                    MessageBox.Show("Descuento editado Exitosamente.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Descuento editado exitosamente.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }

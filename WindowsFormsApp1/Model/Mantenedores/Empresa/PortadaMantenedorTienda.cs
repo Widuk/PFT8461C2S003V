@@ -38,7 +38,8 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             dtgTiendas.Columns[7].HeaderText = "F. Modificación";
             dtgTiendas.Columns[8].HeaderText = "Empresa";
             dtgTiendas.Columns[9].HeaderText = "IdCiudad";
-            dtgTiendas.Columns[9].Visible = false;            
+            dtgTiendas.Columns[9].Visible = false;
+            dtgTiendas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
 

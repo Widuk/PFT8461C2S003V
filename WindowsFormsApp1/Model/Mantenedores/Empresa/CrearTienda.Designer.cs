@@ -70,6 +70,7 @@
             // 
             // cmbCiudad
             // 
+            this.cmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCiudad.ForeColor = System.Drawing.Color.Gray;
             this.cmbCiudad.FormattingEnabled = true;
@@ -77,7 +78,6 @@
             this.cmbCiudad.Name = "cmbCiudad";
             this.cmbCiudad.Size = new System.Drawing.Size(285, 24);
             this.cmbCiudad.TabIndex = 4;
-            this.cmbCiudad.Text = "Ciudad";
             // 
             // txtDireccionTienda
             // 
@@ -132,6 +132,7 @@
             this.dtFechaIngresoTienda.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFechaIngresoTienda.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dtFechaIngresoTienda.CalendarTitleForeColor = System.Drawing.Color.Gray;
+            this.dtFechaIngresoTienda.Enabled = false;
             this.dtFechaIngresoTienda.Location = new System.Drawing.Point(62, 95);
             this.dtFechaIngresoTienda.Name = "dtFechaIngresoTienda";
             this.dtFechaIngresoTienda.Size = new System.Drawing.Size(285, 20);
@@ -176,11 +177,12 @@
             this.Controls.Add(this.txtNombreEmpresa);
             this.Controls.Add(this.txtNombreTienda);
             this.Controls.Add(this.lblTituloCrear);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CrearTienda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrearTienda";
+            this.Text = "Crear Tienda";
             this.Load += new System.EventHandler(this.CrearTienda_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

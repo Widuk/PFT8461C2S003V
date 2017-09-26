@@ -82,13 +82,13 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                 }
                 else if (txtApellidoPaterno.Text == null || txtApellidoPaterno.Text.Trim().Equals(string.Empty))
                 {
-                    MessageBox.Show("Error: El Apellido paterno es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: El Apellido Paterno es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtApellidoPaterno.Focus();
                     return;
                 }
                 else if (txtApellidoMaterno.Text == null || txtApellidoMaterno.Text.Trim().Equals(string.Empty))
                 {
-                    MessageBox.Show("Error: El Apellido materno es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: El Apellido Materno es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtApellidoMaterno.Focus();
                     return;
                 }
@@ -165,7 +165,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
 
                     if (!txtContrasena.Text.Trim().Equals(txtContrasena2.Text.Trim()))
                     {
-                        MessageBox.Show("Error: Las Contraseñas ingresadas no coinciden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error: Las Contraseñas ingresadas no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtContrasena.Text = "";
                         txtContrasena2.Text = "";
                         txtContrasena.Focus();
@@ -201,7 +201,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
 
                     usuarioDAO.editarUsuarioTrabajador(usuarioNuevo, trab);
 
-                    MessageBox.Show("Usuario editado exitosamente.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Usuario modificado exitosamente.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Dispose();
 

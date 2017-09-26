@@ -244,9 +244,10 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNuevaTienda);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PortadaMantenedorTienda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Empresa";
+            this.Text = "Tiendas";
             this.Load += new System.EventHandler(this.Tienda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgTiendas)).EndInit();
             this.panel3.ResumeLayout(false);

@@ -362,9 +362,10 @@
             this.Controls.Add(this.btnCrearUsuario);
             this.Controls.Add(this.lblDescripcionCrear);
             this.Controls.Add(this.lblTituloCrear);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CrearUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CrearUsuario";
+            this.Text = "Crear Usuario";
             this.Load += new System.EventHandler(this.CrearUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -118,7 +118,7 @@
             this.btnEditarDescuento.Name = "btnEditarDescuento";
             this.btnEditarDescuento.Size = new System.Drawing.Size(121, 38);
             this.btnEditarDescuento.TabIndex = 34;
-            this.btnEditarDescuento.Text = "Editar descuento";
+            this.btnEditarDescuento.Text = "Editar Descuento";
             this.btnEditarDescuento.UseVisualStyleBackColor = false;
             this.btnEditarDescuento.Click += new System.EventHandler(this.btnEditarDescuento_Click);
             // 
@@ -253,9 +253,10 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblTituloEditar);
             this.Controls.Add(this.lblDescripcionCrear);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ModificarDescuento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Editar Descuento";
             this.Load += new System.EventHandler(this.ModificarDescuento_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

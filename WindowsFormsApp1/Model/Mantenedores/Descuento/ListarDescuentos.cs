@@ -82,7 +82,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error grave Eliminando Descuento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error grave eliminando Descuento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -92,7 +92,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
             {
                 if (dgvDescuento.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Error: Debe seleccionar un descuento para Editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: Debe seleccionar un descuento para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -117,7 +117,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error grave Editando Descuento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error grave editando Descuento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
