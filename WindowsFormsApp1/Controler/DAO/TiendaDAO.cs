@@ -54,36 +54,25 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
-
-
-        public Usuario buscaTiendaPorNombre(String nombreTienda)
+        
+        public Tienda buscaTiendaPorNombre(String nombreTienda)
         {
             OracleConnection conn = Conexion.Connect();
             try
             {
                 OracleCommand command = conn.CreateCommand();
-                command.CommandText = "SELECT * FROM TIENDA WHERE NOMBRE = :nombreTienda";
-                //command.Parameters.Add(":nombreTienda", OracleDbType.Int32).Value = codigoUsuario;
+                command.CommandText = "SELECT NOMBRE FROM TIENDA WHERE isactivo = 1 and NOMBRE = '"+nombreTienda + "'";
                 OracleDataReader dr = command.ExecuteReader();
-
-                Usuario usu = null;
-
+                Tienda tien = null;
                 while (dr.Read())
                 {
-                    usu = new Usuario();
-                    usu.idUsuario = long.Parse(dr["IDUSUARIO"].ToString());
-                    usu.login = (string)dr["LOGIN"];
-                    usu.password = (string)dr["PASSWORD"];
-                    usu.isActivo = short.Parse(dr["ISACTIVO"].ToString());
-                    usu.fechaCreacion = DateTime.Parse(dr["FECHACREACION"].ToString());
-                    usu.fechaModificacion = DateTime.Parse(dr["FECHAMODIFICACION"].ToString());
-                    usu.idSession = !dr.IsDBNull(6) ? (string)dr["IDSESSION"] : "";
-                    usu.codigoPerfil = long.Parse(dr["PERFIL_IDPERFIL"].ToString());
+                    tien = new Tienda();
+                    tien.nombre = (string)dr["NOMBRE"];
                 }
 
                 dr.Close();
                 command.Dispose();
-                return usu;
+                return tien;
             }
             catch (Exception e)
             {

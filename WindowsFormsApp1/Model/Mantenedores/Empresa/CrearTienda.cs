@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Negocio.Entities;
 
 namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 {
@@ -29,30 +30,41 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         private void btnCrearTienda_Click(object sender, EventArgs e)
         {
             TiendaDAO tiendaPorNombre = new TiendaDAO();
+            Tienda ti = tiendaPorNombre.buscaTiendaPorNombre(txtNombreTienda.Text.Trim().ToUpper());
             if (validaCampos() == true)
             {
-                try
+                if (ti != null)
                 {
-                    TiendaDAO lstTienda = new TiendaDAO();
-                    String nombre = txtNombreTienda.Text;
-                    String direccion = txtDireccionTienda.Text;
-                    String telefono = txtTelefonoTienda.Text;
-                    sbyte activo = 1;
-                    DateTime fechaCreacion = dtFechaIngresoTienda.Value;
-                    DateTime fechaModificacion = DateTime.Now;
-                    String empresa = txtNombreEmpresa.Text;
-                    Int16 Ciudad = Int16.Parse(cmbCiudad.SelectedValue.ToString());
-                    TiendaDAO insertarTienda = new TiendaDAO();
-                    insertarTienda.InsertaTienda(nombre, direccion, telefono, activo, fechaCreacion, fechaModificacion, empresa, Ciudad);
-                    MessageBox.Show("Tienda registrada exitosamente.");
-                    limpiarCampos();
-                    PortadaMantenedorTienda TiendaView = new PortadaMantenedorTienda();
-                    TiendaView.cargaTiendas();
-                    this.Visible = false;
+                    MessageBox.Show("Error: La tienda ya se encuentra ingresada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNombreTienda.Text = "";
+                    txtNombreTienda.Focus();
+                    return;
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error: se ha generado un error en el sistema. Por favor intenta mas tarde o contacta al Administrador.");
+                    try
+                    {
+                        TiendaDAO lstTienda = new TiendaDAO();
+                        String nombre = txtNombreTienda.Text.Trim().ToUpper();
+                        String direccion = txtDireccionTienda.Text;
+                        String telefono = txtTelefonoTienda.Text;
+                        sbyte activo = 1;
+                        DateTime fechaCreacion = dtFechaIngresoTienda.Value;
+                        DateTime fechaModificacion = DateTime.Now;
+                        String empresa = txtNombreEmpresa.Text;
+                        Int16 Ciudad = Int16.Parse(cmbCiudad.SelectedValue.ToString());
+                        TiendaDAO insertarTienda = new TiendaDAO();
+                        insertarTienda.InsertaTienda(nombre, direccion, telefono, activo, fechaCreacion, fechaModificacion, empresa, Ciudad);
+                        MessageBox.Show("Tienda registrada exitosamente.");
+                        limpiarCampos();
+                        PortadaMantenedorTienda TiendaView = new PortadaMantenedorTienda();
+                        TiendaView.cargaTiendas();
+                        this.Visible = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: se ha generado un error en el sistema. Por favor intenta mas tarde o contacta al Administrador.");
+                    }
                 }
             }
         }
