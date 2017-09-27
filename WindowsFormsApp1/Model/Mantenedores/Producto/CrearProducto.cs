@@ -148,32 +148,76 @@ namespace WindowsFormsApp1
 
         private void btnCrearProducto_Click(object sender, EventArgs e)
         {
-            try
+            if (validaCampos() == true)
             {
-                ProductoDAO lstProducto = new ProductoDAO();
-                String sku = txtSKU.Text;
-                String nombre = txtNombre.Text;
-                String precio = txtPrecio.Text;
-                Int16 estado = Int16.Parse(cmbActivo.SelectedIndex.ToString());
-                Int16 tienda = Int16.Parse(cmbTienda.SelectedValue.ToString());
-                Int16 rubro = Int16.Parse(cmbRubro.SelectedValue.ToString());
-                String descripcion = txtDescripcion.Text;
-                String promocion = cbPermitePromocion.Checked.ToString();
-                if (promocion == "True") { promocion = "1"; } else { promocion = "0"; }
-                sbyte activo = 1;
+                try
+                {
+                    ProductoDAO lstProducto = new ProductoDAO();
+                    String sku = txtSKU.Text;
+                    String nombre = txtNombre.Text;
+                    String precio = txtPrecio.Text;
+                    Int16 estado = Int16.Parse(cmbActivo.SelectedIndex.ToString());
+                    Int16 tienda = Int16.Parse(cmbTienda.SelectedValue.ToString());
+                    Int16 rubro = Int16.Parse(cmbRubro.SelectedValue.ToString());
+                    String descripcion = txtDescripcion.Text;
+                    String promocion = cbPermitePromocion.Checked.ToString();
+                    if (promocion == "True") { promocion = "1"; } else { promocion = "0"; }
+                    sbyte activo = 1;
 
-                ProductoDAO insertarProducto = new ProductoDAO();
-                insertarProducto.InsertaProducto(nombre, descripcion, precio, promocion, sku, activo, DateTime.Now, DateTime.Now, tienda, rubro);
-                MessageBox.Show("Creación de producto exitosa.");
-                limpiarCampos();
-                PortadaMantenedorProducto ProductoView = new PortadaMantenedorProducto();
-                ProductoView.Refresh();
-                this.Visible = false;
+                    ProductoDAO insertarProducto = new ProductoDAO();
+                    insertarProducto.InsertaProducto(nombre, descripcion, precio, promocion, sku, activo, DateTime.Now, DateTime.Now, tienda, rubro);
+                    MessageBox.Show("Creación de producto exitosa.");
+                    limpiarCampos();
+                    PortadaMantenedorProducto ProductoView = new PortadaMantenedorProducto();
+                    ProductoView.Refresh();
+                    this.Visible = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un problema creando el producto. Por favor intenta mas tarde o contacta a soporte.");
+                }
             }
-            catch (Exception ex)
+        }
+        Boolean validaCampos()
+        {
+            Boolean valido = false;
+            if (txtSKU.Text == null || txtSKU.Text.Trim().Equals(string.Empty) || txtSKU.Text.Trim().Equals("SKU"))
             {
-                MessageBox.Show("Ocurrió un problema creando el producto. Por favor intenta mas tarde o contacta a soporte.");
+                MessageBox.Show("SKU del producto oligatorio.");
+                txtSKU.Focus();
+                return valido;
             }
+            if (txtNombre.Text == null || txtNombre.Text.Trim().Equals(string.Empty) || txtNombre.Text.Trim().Equals("Nombre"))
+            {
+                MessageBox.Show("Nombre del producto oligatorio.");
+                txtNombre.Focus();
+                return valido;
+            }
+            if (txtPrecio.Text == null || txtPrecio.Text.Trim().Equals(string.Empty) || txtPrecio.Text.Trim().Equals("Precio"))
+            {
+                MessageBox.Show("Precio del producto oligatorio.");
+                txtPrecio.Focus();
+                return valido;
+            }
+            if (cmbActivo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe indicar si el producto estará activo.");
+                cmbActivo.Focus();
+                return valido;
+            }
+            if (cmbTienda.SelectedIndex == -1)
+            {
+                MessageBox.Show("Tienda del producto obligatoria.");
+                cmbTienda.Focus();
+                return valido;
+            }
+            if (cmbRubro.SelectedIndex == -1)
+            {
+                MessageBox.Show("El rubro del producto es oligatorio.");
+                cmbRubro.Focus();
+                return valido;
+            }
+            return valido = true;
         }
     }
 }

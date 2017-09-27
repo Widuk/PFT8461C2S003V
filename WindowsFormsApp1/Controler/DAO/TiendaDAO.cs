@@ -55,6 +55,47 @@ namespace WindowsFormsApp1.Controler.DAO
             }
         }
 
+
+        public Usuario buscaTiendaPorNombre(String nombreTienda)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "SELECT * FROM TIENDA WHERE NOMBRE = :nombreTienda";
+                //command.Parameters.Add(":nombreTienda", OracleDbType.Int32).Value = codigoUsuario;
+                OracleDataReader dr = command.ExecuteReader();
+
+                Usuario usu = null;
+
+                while (dr.Read())
+                {
+                    usu = new Usuario();
+                    usu.idUsuario = long.Parse(dr["IDUSUARIO"].ToString());
+                    usu.login = (string)dr["LOGIN"];
+                    usu.password = (string)dr["PASSWORD"];
+                    usu.isActivo = short.Parse(dr["ISACTIVO"].ToString());
+                    usu.fechaCreacion = DateTime.Parse(dr["FECHACREACION"].ToString());
+                    usu.fechaModificacion = DateTime.Parse(dr["FECHAMODIFICACION"].ToString());
+                    usu.idSession = !dr.IsDBNull(6) ? (string)dr["IDSESSION"] : "";
+                    usu.codigoPerfil = long.Parse(dr["PERFIL_IDPERFIL"].ToString());
+                }
+
+                dr.Close();
+                command.Dispose();
+                return usu;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
         public void InsertaTienda(String nombre, String direccion, String telefono, sbyte isactivo, DateTime fechacreacion, DateTime fechamodificacion, String empresa, Int16 ciudad_idciudad)
         {
             OracleConnection conn = Conexion.Connect();

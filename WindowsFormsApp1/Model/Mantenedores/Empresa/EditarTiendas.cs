@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Negocio.Entities;
@@ -21,7 +15,6 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void EditarTiendas_Load(object sender, EventArgs e)
         {
-
             cargaCiudades();
             cargarcmbCiudad();
             CargaDatosTienda();            
@@ -146,21 +139,60 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void btnCrearTienda_Click(object sender, EventArgs e)
         {
-            try
+            if (validaCampos() == true)
             {
-                long x = long.Parse(objetoPaso.paso0);                        //id
-                TiendaDAO editaTienda = new TiendaDAO();
-                editaTienda.EditarTienda(x, txtNombreTienda.Text, txtDireccionTienda.Text, txtTelefonoTienda.Text, dtFechaIngresoTienda.Value, txtNombreEmpresa.Text, Int16.Parse(cmbCiudad.SelectedValue.ToString()));
-                MessageBox.Show("Modificación de tienda exitosa.");
-                objetoPaso.paso0 = (String)(0.ToString()) ;
-                PortadaMantenedorTienda tiendaView = new PortadaMantenedorTienda();
-                tiendaView.cargaTiendas();
-                this.Visible = false;
+                try
+                {
+                    long x = long.Parse(objetoPaso.paso0);                        //id
+                    TiendaDAO editaTienda = new TiendaDAO();
+                    editaTienda.EditarTienda(x, txtNombreTienda.Text, txtDireccionTienda.Text, txtTelefonoTienda.Text, dtFechaIngresoTienda.Value, txtNombreEmpresa.Text, Int16.Parse(cmbCiudad.SelectedValue.ToString()));
+                    MessageBox.Show("Modificación de tienda exitosa.");
+                    objetoPaso.paso0 = (String)(0.ToString());
+                    PortadaMantenedorTienda tiendaView = new PortadaMantenedorTienda();
+                    tiendaView.cargaTiendas();
+                    this.Visible = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al modificar la tienda.");
+                }
             }
-            catch (Exception ex)
+        }
+
+        Boolean validaCampos()
+        {
+            Boolean valido = false;
+            if (txtNombreTienda.Text == null || txtNombreTienda.Text.Trim().Equals(string.Empty) || txtNombreTienda.Text.Trim().Equals("Nombre de la tienda"))
             {
-                MessageBox.Show("Error al modificar la tienda.");
+                MessageBox.Show("Nombre de la tienda oligatorio.");
+                txtNombreTienda.Focus();
+                return valido;
             }
+            if (txtDireccionTienda.Text == null || txtDireccionTienda.Text.Trim().Equals(string.Empty) || txtDireccionTienda.Text.Trim().Equals("Dirección"))
+            {
+                MessageBox.Show("Dirección de la tienda oligatorio.");
+                txtDireccionTienda.Focus();
+                return valido;
+            }
+            if (cmbCiudad.SelectedIndex == -1)
+            {
+                MessageBox.Show("La comuna es obligatoria.");
+                cmbCiudad.Focus();
+                return valido;
+            }
+            if (txtTelefonoTienda.Text == null || txtTelefonoTienda.Text.Trim().Equals(string.Empty) || txtTelefonoTienda.Text.Trim().Equals("Teléfono ## ### ####"))
+            {
+                MessageBox.Show("El telefono es obligatorio.");
+                txtTelefonoTienda.Focus();
+                return valido;
+            }
+            if (txtNombreEmpresa.Text == null || txtNombreEmpresa.Text.Trim().Equals(string.Empty) || txtNombreEmpresa.Text.Trim().Equals("Nombre de empresa"))
+            {
+                MessageBox.Show("nombre de empresa oligatorio.");
+                txtNombreEmpresa.Focus();
+                return valido;
+            }
+            return valido = true;
         }
 
         private void btnCancelarTienda_Click(object sender, EventArgs e)

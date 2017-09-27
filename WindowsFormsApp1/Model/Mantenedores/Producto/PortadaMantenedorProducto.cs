@@ -42,13 +42,31 @@ namespace WindowsFormsApp1
             dtgListaPreducto.Columns[11].HeaderText = "Rubro";
             dtgListaPreducto.Columns[12].Visible = false;
             dtgListaPreducto.Columns[13].Visible = false;
-            //dtgListaPreducto.Columns[13].Visible = false;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            CrearProducto ct = new CrearProducto();
-            ct.ShowDialog();
+            TiendaDAO listaTiendas = new TiendaDAO();
+            int x = listaTiendas.listarTiendas().Count;
+            RubroDAO listaRubros = new RubroDAO();
+            int j = listaTiendas.listarTiendas().Count;
+            if (x > 0)
+            {
+                if (j > 0) {
+                    CrearProducto ct = new CrearProducto();
+                    ct.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No se econtraron rubros para asociar un producto.");
+                    return;
+                }
+             }
+            else
+            {
+                MessageBox.Show("Debe haber al menos una tienda para ingresar un producto.");
+                return;
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -125,6 +143,11 @@ namespace WindowsFormsApp1
                 mantDesc.Show();
                 this.Hide();
             }
+        }
+
+        private void dtgListaPreducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            return;
         }
     }
 }

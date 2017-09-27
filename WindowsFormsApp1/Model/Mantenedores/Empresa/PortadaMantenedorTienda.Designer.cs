@@ -56,9 +56,11 @@
             this.dtgTiendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgTiendas.Location = new System.Drawing.Point(164, 201);
             this.dtgTiendas.Name = "dtgTiendas";
+            this.dtgTiendas.ReadOnly = true;
             this.dtgTiendas.Size = new System.Drawing.Size(645, 264);
             this.dtgTiendas.TabIndex = 13;
             this.dtgTiendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTiendas_CellClick);
+            this.dtgTiendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTiendas_CellContentClick);
             // 
             // lblDescripcion
             // 
