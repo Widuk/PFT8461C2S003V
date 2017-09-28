@@ -91,7 +91,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
                 TiendaDAO EliminaTienda = new TiendaDAO();
                 Int16 id = Int16.Parse(objetoPaso.paso0);
                 EliminaTienda.EliminarTienda(id);
-                MessageBox.Show("Éxito al eliminar producto.");
+                MessageBox.Show("Éxito al eliminar tienda.");
             }
             catch (Exception ex)
             {
@@ -139,6 +139,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
                 mantProd.Show();
                 this.Hide();
             }
+        }
+
+        private void dtgTiendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            return;
         }
     }
 }

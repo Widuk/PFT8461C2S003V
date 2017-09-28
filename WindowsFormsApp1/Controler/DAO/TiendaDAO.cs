@@ -54,6 +54,36 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
+        
+        public Tienda buscaTiendaPorNombre(String nombreTienda)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "SELECT NOMBRE FROM TIENDA WHERE isactivo = 1 and NOMBRE = '"+nombreTienda + "'";
+                OracleDataReader dr = command.ExecuteReader();
+                Tienda tien = null;
+                while (dr.Read())
+                {
+                    tien = new Tienda();
+                    tien.nombre = (string)dr["NOMBRE"];
+                }
+
+                dr.Close();
+                command.Dispose();
+                return tien;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
 
         public void InsertaTienda(String nombre, String direccion, String telefono, sbyte isactivo, DateTime fechacreacion, DateTime fechamodificacion, String empresa, Int16 ciudad_idciudad)
         {

@@ -15,24 +15,27 @@ namespace WindowsFormsApp1
 
         private void btnCrearTienda_Click(object sender, EventArgs e)
         {
-            try
+            if (validaCampos() == true)
             {
-                Int16 x = Int16.Parse(objetoPaso.paso0);                        //id
-                Int16 j;
-                if (chDisponiblidad.Checked == true) { j = 1; } else { j = 0; }; //2X1
-                Int16 i;
-                if (cmbEstado.Text == "Activo") { i = 1; } else { i = 0; };         //estado
+                try
+                {
+                    Int16 x = Int16.Parse(objetoPaso.paso0);                        //id
+                    Int16 j;
+                    if (chDisponiblidad.Checked == true) { j = 1; } else { j = 0; }; //2X1
+                    Int16 i;
+                    if (cmbEstado.Text == "Activo") { i = 1; } else { i = 0; };         //estado
 
-                ProductoDAO editaProducto = new ProductoDAO();
-                editaProducto.EditarProducto(x, txtNombreTienda.Text, txtDescripcion.Text, Int64.Parse(txtPrecio.Text), j, txtSku.Text, i, DateTime.Now, Int16.Parse(cmbTienda.SelectedValue.ToString()), Int16.Parse(cmbRubro.SelectedValue.ToString()));
-                MessageBox.Show("Modificación de producto exitosa.");
-                PortadaMantenedorProducto ProductoView = new PortadaMantenedorProducto();
-                ProductoView.cargaProductos();
-                this.Visible = false;
-            }
-            catch (Exception E)
-            {
-                MessageBox.Show("Error al modificar el producto.");
+                    ProductoDAO editaProducto = new ProductoDAO();
+                    editaProducto.EditarProducto(x, txtNombreTienda.Text, txtDescripcion.Text, Int64.Parse(txtPrecio.Text), j, txtSku.Text, i, DateTime.Now, Int16.Parse(cmbTienda.SelectedValue.ToString()), Int16.Parse(cmbRubro.SelectedValue.ToString()));
+                    MessageBox.Show("Modificación de producto exitosa.");
+                    PortadaMantenedorProducto ProductoView = new PortadaMantenedorProducto();
+                    ProductoView.cargaProductos();
+                    this.Visible = false;
+                }
+                catch (Exception E)
+                {
+                    MessageBox.Show("Error al modificar el producto.");
+                }
             }
         }
 
@@ -121,6 +124,54 @@ namespace WindowsFormsApp1
             {
                 e.Handled = true;
             }
+        }
+
+        Boolean validaCampos()
+        {
+            Boolean valido = false;
+            if (txtNombreTienda.Text == null || txtNombreTienda.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show("Nombre del producto oligatorio.");
+                txtNombreTienda.Focus();
+                return valido;
+            }
+            //if (txtDescripcion.Text == null || txtDescripcion.Text.Trim().Equals(string.Empty))
+            //{
+            //    MessageBox.Show("Nombre del producto oligatorio.");
+            //    txtDescripcion.Focus();
+            //    return valido;
+            //}
+            if (txtPrecio.Text == null || txtPrecio.Text.Trim().Equals(string.Empty) || txtPrecio.Text.Trim().Equals("1.234.567.890"))
+            {
+                MessageBox.Show("Precio del producto oligatorio.");
+                txtPrecio.Focus();
+                return valido;
+            }
+            if (txtSku.Text == null || txtSku.Text.Trim().Equals(string.Empty) || txtSku.Text.Trim().Equals("SKU"))
+            {
+                MessageBox.Show("SKU del producto oligatorio.");
+                txtSku.Focus();
+                return valido;
+            }
+            if (cmbTienda.SelectedIndex == -1)
+            {
+                MessageBox.Show("Tienda del producto obligatoria.");
+                cmbTienda.Focus();
+                return valido;
+            }
+            if (cmbRubro.SelectedIndex == -1)
+            {
+                MessageBox.Show("El rubro del producto es oligatorio.");
+                cmbRubro.Focus();
+                return valido;
+            }
+            if (cmbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe indicar si el producto estará activo.");
+                cmbEstado.Focus();
+                return valido;
+            }
+            return valido = true;
         }
     }
 }
