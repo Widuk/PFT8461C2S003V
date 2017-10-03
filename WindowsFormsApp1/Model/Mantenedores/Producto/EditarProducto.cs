@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using PresentationControls;
+using System.Data;
+using System.Drawing;
 using WindowsFormsApp1.Model.Negocio.Vo;
 using WindowsFormsApp1.Model.Negocio.Entities;
+using System.Collections.Generic;
 
 namespace WindowsFormsApp1
 {
@@ -14,19 +18,61 @@ namespace WindowsFormsApp1
         }
 
         private void btnCrearTienda_Click(object sender, EventArgs e)
-        {
+        {            
             if (validaCampos() == true)
             {
                 try
                 {
-                    Int16 x = Int16.Parse(objetoPaso.paso0);                        //id
+                    int m = 0;
+                    for (int f = 0; f < cmbTienda.Items.Count; f++)
+                    {
+                        if (cmbTienda.CheckBoxItems[f].Checked == true)
+                        {
+                            m = m + 1;
+                        }
+                    }
+                    if (m == 0)
+                    {
+                        MessageBox.Show("Debe ingresar al menos una tienda."); cmbTienda.Focus();
+                        return;
+                    }
+                    string[] arreglo = new string[m];
+
+                    string s = string.Empty;
+                    int cont = 0;
+                    for (int x = 0; x < cmbTienda.Items.Count; x++)
+                    {
+                        if (cmbTienda.CheckBoxItems[x].Checked == true)
+                        {
+                            s = cmbTienda.CheckBoxItems[x].Text;
+                            s = s.Replace(" [0]", "");
+                            arreglo[cont] = s;
+                            cont = cont + 1;
+                        }
+                    }
+
+                    Int16 h = Int16.Parse(objetoPaso.paso0);                        //id
                     Int16 j;
                     if (chDisponiblidad.Checked == true) { j = 1; } else { j = 0; }; //2X1
                     Int16 i;
                     if (cmbEstado.Text == "Activo") { i = 1; } else { i = 0; };         //estado
 
-                    ProductoDAO editaProducto = new ProductoDAO();
-                    editaProducto.EditarProducto(x, txtNombreTienda.Text, txtDescripcion.Text, Int64.Parse(txtPrecio.Text), j, txtSku.Text, i, DateTime.Now, Int16.Parse(cmbTienda.SelectedValue.ToString()), Int16.Parse(cmbRubro.SelectedValue.ToString()));
+                    ProductoDAO prodDAO = new ProductoDAO();
+                    Boolean skuExistente = prodDAO.buscaProductoPorSku(txtSku.Text);
+
+                    prodDAO.EditarProducto(h, txtNombreProducto.Text, txtDescripcion.Text, Int64.Parse(txtPrecio.Text), j, txtSku.Text, i, DateTime.Now, Int16.Parse(cmbRubro.SelectedValue.ToString()));
+                    
+                    int idProducto = prodDAO.buscaProductoPorNombre(txtNombreProducto.Text, txtSku.Text);
+
+                    prodDAO.eliminaProductoTienda(idProducto);
+
+                    for (int x = 0; x < arreglo.Length; x++)
+                    {
+                        TiendaDAO tiDAO = new TiendaDAO();                        
+                        int idTienda = tiDAO.buscaIdTiendaPorNombre2(arreglo[x]);
+                        prodDAO.guardaProductoTienda(idProducto, idTienda);
+                    }
+                    
                     MessageBox.Show("Modificación de producto exitosa.");
                     PortadaMantenedorProducto ProductoView = new PortadaMantenedorProducto();
                     ProductoView.cargaProductos();
@@ -49,7 +95,7 @@ namespace WindowsFormsApp1
         void limpiarCampos()
         {
             dtFechaIngresoTienda.Value = DateTime.Now;
-            txtNombreTienda.Text = "";
+            txtNombreProducto.Text = "";
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
             txtSku.Text = "";
@@ -64,21 +110,35 @@ namespace WindowsFormsApp1
             cargaRubro();
             cargaTiendas();
             cargaProductosEditar();
+            cmbTienda.Focus();
         }
 
         void cargaProductosEditar()
         {
             ProductoGridVO prod = new ProductoGridVO();
-            prod.idTienda = long.Parse(objetoPaso.paso11);
+            //prod.idTienda = long.Parse(objetoPaso.paso11);
             prod.idRubro = long.Parse(objetoPaso.paso12);
             Boolean check = false;
             int x = 0;
 
-            txtNombreTienda.Text = objetoPaso.paso1;    //nombre
+            txtNombreProducto.Text = objetoPaso.paso1;    //nombre
             txtDescripcion.Text = objetoPaso.paso2;    //descripcion
             txtPrecio.Text = objetoPaso.paso3;    //precio
             txtSku.Text = objetoPaso.paso6;    //sku
-            cmbTienda.SelectedValue = prod.idTienda;    //FECHA
+
+
+            List<String> algo = new List<String>();
+            ProductoDAO producto = new ProductoDAO();
+            
+            String s = String.Empty;
+            algo = producto.buscaTiendaProductoPorID(int.Parse(objetoPaso.paso0));
+            
+            for(int i =0;i < algo.Count;i++)
+            {
+                s = algo[i];
+                cmbTienda.CheckBoxItems["" + s + " [0]"].Checked = !cmbTienda.CheckBoxItems["" + s + " [0]"].Checked;
+            }
+
             cmbRubro.SelectedValue = prod.idRubro;    //ACTIVO
 
             if (objetoPaso.paso7 == "1") { x = 0; } else { x = 1; };
@@ -100,10 +160,13 @@ namespace WindowsFormsApp1
         void cargaTiendas()
         {
             cmbTienda.DataSource = null;
-            TiendaDAO tienda = new TiendaDAO();
-            cmbTienda.DataSource = tienda.listarTiendas();
-            cmbTienda.ValueMember = "IDTIENDA";
-            cmbTienda.DisplayMember = "NOMBRETIENDA";
+            TiendaDAO listaTiendaDT = new TiendaDAO();
+            cmbTienda.DataSource = listaTiendaDT.ListarTiendaDT();
+            DataTable DT = listaTiendaDT.ListarTiendaDT();
+            cmbTienda.DataSource = new ListSelectionWrapper<DataRow>(DT.Rows, true, "NOMBRE");
+            cmbTienda.DisplayMemberSingleItem = "Name";
+            cmbTienda.DisplayMember = "NameConcatenated";
+            cmbTienda.ValueMember = "Selected";
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -129,10 +192,10 @@ namespace WindowsFormsApp1
         Boolean validaCampos()
         {
             Boolean valido = false;
-            if (txtNombreTienda.Text == null || txtNombreTienda.Text.Trim().Equals(string.Empty))
+            if (txtNombreProducto.Text == null || txtNombreProducto.Text.Trim().Equals(string.Empty))
             {
                 MessageBox.Show("Nombre del producto oligatorio.");
-                txtNombreTienda.Focus();
+                txtNombreProducto.Focus();
                 return valido;
             }
             //if (txtDescripcion.Text == null || txtDescripcion.Text.Trim().Equals(string.Empty))
@@ -172,6 +235,16 @@ namespace WindowsFormsApp1
                 return valido;
             }
             return valido = true;
+        }
+
+        public void cmbTienda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("SOLO DE PRUEBA");
+        }
+
+        private void cmbTienda_DropDown(object sender, EventArgs e)
+        {
+            MessageBox.Show("SOLO DE PRUEBA 2");
         }
     }
 }

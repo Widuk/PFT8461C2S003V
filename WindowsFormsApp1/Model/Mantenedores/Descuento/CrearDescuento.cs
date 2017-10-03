@@ -166,7 +166,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                 {
                     ProductoDAO productoDAO = new ProductoDAO();
                     DescuentoDAO descuentoDAO = new DescuentoDAO();
-                    Producto prod = productoDAO.getProductoPorID(long.Parse(cbxProducto.SelectedValue.ToString()));
+                    Productos prod = productoDAO.getProductoPorID(long.Parse(cbxProducto.SelectedValue.ToString()));
 
                     if(chkDescuentoPrecio.Checked && (prod.precio < int.Parse(txtPrecioDescuento.Text)))
                     {

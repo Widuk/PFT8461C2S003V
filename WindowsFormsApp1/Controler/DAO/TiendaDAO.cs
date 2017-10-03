@@ -169,6 +169,92 @@ namespace WindowsFormsApp1.Controler.DAO
             }
         }
 
+        public DataTable ListarTiendaDT()
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand command= conn.CreateCommand();
+                DataTable dataTable = new DataTable("TIENDA");
+                command.CommandText = "SELECT IDTIENDA,NOMBRE FROM TIENDA where isactivo = 1 order by nombre";
+                OracleDataAdapter oda = new OracleDataAdapter(command);
+                dataTable.Columns.AddRange(new DataColumn[]
+                    {
+                        new DataColumn("IDTIENDA", typeof(int)),
+                        new DataColumn("NOMBRE", typeof(string)),
+                    });
+                oda.Fill(dataTable);
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public int buscaIdTiendaPorNombre2(String nombreTienda)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                int id = 0;
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "SELECT IDTIENDA FROM TIENDA WHERE isactivo = 1 and NOMBRE = '" + nombreTienda + "'";
+                OracleDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    id= int.Parse(dr["IDTIENDA"].ToString());
+                }                
+
+                dr.Close();
+                command.Dispose();
+                return id;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+        public Boolean buscaTiendaNoAsociada(int idTienda)
+        {
+            Boolean activo = false;
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                String skuproducto = String.Empty;
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "select p.idproducto from producto p inner join Rl_Prod_Tienda r on R.Producto_Idproducto = P.Idproducto inner join tienda t on T.Idtienda = R.Tienda_Idtienda where P.Isactivo = 1 and T.Idtienda ="+idTienda;
+                OracleDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    activo = true;
+                }
+
+                dr.Close();
+                command.Dispose();
+                return activo;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
         public DataTable getTiendasCbx()
         {
             OracleConnection conn = Conexion.Connect();

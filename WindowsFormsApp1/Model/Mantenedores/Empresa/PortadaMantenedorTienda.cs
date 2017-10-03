@@ -52,18 +52,25 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void dtgTiendas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow filaSeleccionada = dtgTiendas.Rows[index];
-            objetoPaso.paso0 = filaSeleccionada.Cells[0].Value.ToString();  //id
-            objetoPaso.paso1 = filaSeleccionada.Cells[1].Value.ToString();  //nombre
-            objetoPaso.paso2 = filaSeleccionada.Cells[2].Value.ToString();  //dirección
-            objetoPaso.paso3 = filaSeleccionada.Cells[3].Value.ToString();  //ciudad
-            objetoPaso.paso4 = filaSeleccionada.Cells[4].Value.ToString();  //telefono
-            objetoPaso.paso5 = filaSeleccionada.Cells[5].Value.ToString();  //activo
-            objetoPaso.paso6 = filaSeleccionada.Cells[6].Value.ToString();  //creacion
-            objetoPaso.paso7 = filaSeleccionada.Cells[7].Value.ToString();  //modificacion
-            objetoPaso.paso8 = filaSeleccionada.Cells[8].Value.ToString();  //empresa
-            objetoPaso.paso9 = filaSeleccionada.Cells[9].Value.ToString();  //idCiudad
+            try
+            {
+                int index = e.RowIndex;
+                DataGridViewRow filaSeleccionada = dtgTiendas.Rows[index];
+                objetoPaso.paso0 = filaSeleccionada.Cells[0].Value.ToString();  //id
+                objetoPaso.paso1 = filaSeleccionada.Cells[1].Value.ToString();  //nombre
+                objetoPaso.paso2 = filaSeleccionada.Cells[2].Value.ToString();  //dirección
+                objetoPaso.paso3 = filaSeleccionada.Cells[3].Value.ToString();  //ciudad
+                objetoPaso.paso4 = filaSeleccionada.Cells[4].Value.ToString();  //telefono
+                objetoPaso.paso5 = filaSeleccionada.Cells[5].Value.ToString();  //activo
+                objetoPaso.paso6 = filaSeleccionada.Cells[6].Value.ToString();  //creacion
+                objetoPaso.paso7 = filaSeleccionada.Cells[7].Value.ToString();  //modificacion
+                objetoPaso.paso8 = filaSeleccionada.Cells[8].Value.ToString();  //empresa
+                objetoPaso.paso9 = filaSeleccionada.Cells[9].Value.ToString();  //idCiudad
+            }
+            catch (Exception )
+            {
+                return;
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -90,9 +97,15 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             try
             {
                 TiendaDAO EliminaTienda = new TiendaDAO();
+                if (EliminaTienda.buscaTiendaNoAsociada(int.Parse(objetoPaso.paso0)))
+                {
+                    MessageBox.Show("La tienda está asociada a un producto, por lo cual no se puede eliminar.");
+                    return;
+                }                   
                 Int16 id = Int16.Parse(objetoPaso.paso0);
                 EliminaTienda.EliminarTienda(id);
                 MessageBox.Show("Éxito al eliminar tienda.");
+                return;
             }
             catch (Exception ex)
             {
@@ -148,6 +161,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         }
 
         private void dtgTiendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            return;
+        }
+
+        private void dtgTiendas_DoubleClick(object sender, EventArgs e)
         {
             return;
         }

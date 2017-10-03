@@ -43,6 +43,7 @@
             // 
             // cbxProducto
             // 
+            this.cbxProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxProducto.ForeColor = System.Drawing.Color.Black;
             this.cbxProducto.FormattingEnabled = true;
@@ -50,7 +51,6 @@
             this.cbxProducto.Name = "cbxProducto";
             this.cbxProducto.Size = new System.Drawing.Size(285, 24);
             this.cbxProducto.TabIndex = 25;
-            this.cbxProducto.Text = "Producto";
             // 
             // btnCancelarProducto
             // 
