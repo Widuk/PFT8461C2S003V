@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp1.Model.Negocio.Conexion;
 using WindowsFormsApp1.Model.Negocio.Entities;
+using WindowsFormsApp1.Model.Negocio.Vo;
 
 namespace WindowsFormsApp1.Controler.DAO
 {
@@ -51,6 +52,47 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Close();
                 conn.Dispose();
             }
-        }     
+        }
+        
+        public List<OfertaGridVO> getListaOfertasGrid()
+        {
+            OracleConnection conn = Conexion.Connect();
+            List<OfertaGridVO> listaOfertas = new List<OfertaGridVO>();
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "select ofer.IDOFERTA, ofer.FECHAINICIO, ofer.FECHAFIN, ofer.MINIMOPRODUCTOS, ofer.MAXIMOPRODUCTOS, ofer.ISPUBLICADA, prod.NOMBRE, prod.SKU " +
+                                  "from oferta ofer " +
+                                  "inner join producto prod on ofer.PRODUCTO_IDPRODUCTO = prod.IDPRODUCTO";
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    OfertaGridVO ofertaGrid = new OfertaGridVO();
+                    ofertaGrid.idOferta = long.Parse(reader["IDOFERTA"].ToString());
+                    ofertaGrid.fechaInicio = DateTime.Parse(reader["FECHAINICIO"].ToString());
+                    ofertaGrid.fechaFin = DateTime.Parse(reader["FECHAFIN"].ToString());
+                    ofertaGrid.minimoProductos = int.Parse(reader["MINIMOPRODUCTOS"].ToString());
+                    ofertaGrid.maximoProductos = int.Parse(reader["MAXIMOPRODUCTOS"].ToString());
+                    ofertaGrid.estado = short.Parse(reader["ISPUBLICADA"].ToString()) == (short)1 ? "Publicada" : "No Publicada";
+                    ofertaGrid.nombreProducto = reader["NOMBRE"].ToString();
+                    ofertaGrid.skuProducto = reader["SKU"].ToString();
+                    listaOfertas.Add(ofertaGrid);
+                }
+
+                reader.Close();
+                reader.Dispose();
+                cmd.Dispose();
+
+                return listaOfertas;
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }      
     }
 }

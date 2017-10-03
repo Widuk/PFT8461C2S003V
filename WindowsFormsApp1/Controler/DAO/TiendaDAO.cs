@@ -168,5 +168,29 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
+
+        public DataTable getTiendasCbx()
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand comm = conn.CreateCommand();
+                comm.CommandText = "SELECT IDTIENDA, NOMBRE FROM TIENDA WHERE ISACTIVO = 1";
+                OracleDataAdapter oda = new OracleDataAdapter(comm);
+                DataTable dataTable = new DataTable("Tiendas");
+                oda.Fill(dataTable);
+
+                return dataTable;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }

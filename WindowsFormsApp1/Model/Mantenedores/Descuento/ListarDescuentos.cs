@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
+using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.Vo;
@@ -99,7 +100,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                     OfertaDAO ofertaDAO = new OfertaDAO();
                     DescuentoDAO descuentoDAO = new DescuentoDAO();
                     WindowsFormsApp1.Model.Negocio.Entities.Descuento descuentoSeleccionado = descuentoDAO.obtenerDescuentoPorID(long.Parse(dgvDescuento.SelectedRows[0].Cells[0].Value.ToString()));
-                    Oferta oferta = ofertaDAO.getOfertaVigenteByCodigoProducto(descuentoSeleccionado.idProducto);
+                    WindowsFormsApp1.Model.Negocio.Entities.Oferta oferta = ofertaDAO.getOfertaVigenteByCodigoProducto(descuentoSeleccionado.idProducto);
 
                     if(oferta != null)
                     {
@@ -139,6 +140,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
             {
                 PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
                 mantProd.Show();
+                this.Hide();
+            }else if (e.ClickedItem.Name.Equals("ofertasToolStripMenuItem"))
+            {
+                ListarOfertas listarOfertas = new ListarOfertas();
+                listarOfertas.Show();
                 this.Hide();
             }
         }

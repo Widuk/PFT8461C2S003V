@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
+using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
 
@@ -141,6 +142,11 @@ namespace WindowsFormsApp1
             {
                 ListarDescuentos mantDesc = new ListarDescuentos();
                 mantDesc.Show();
+                this.Hide();
+            }else if (e.ClickedItem.Name.Equals("ofertasToolStripMenuItem"))
+            {
+                ListarOfertas listarOfertas = new ListarOfertas();
+                listarOfertas.Show();
                 this.Hide();
             }
         }

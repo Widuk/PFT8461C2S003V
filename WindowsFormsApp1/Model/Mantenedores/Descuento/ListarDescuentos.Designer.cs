@@ -44,6 +44,7 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarDescuento = new System.Windows.Forms.Button();
+            this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescuento)).BeginInit();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -102,7 +103,8 @@
             this.productosToolStripMenuItem,
             this.descuentosToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.descargaArchivoBIToolStripMenuItem});
+            this.descargaArchivoBIToolStripMenuItem,
+            this.ofertasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(141, 494);
@@ -223,6 +225,12 @@
             this.btnEliminarDescuento.UseVisualStyleBackColor = false;
             this.btnEliminarDescuento.Click += new System.EventHandler(this.btnEliminarDescuento_Click);
             // 
+            // ofertasToolStripMenuItem
+            // 
+            this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
+            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(128, 19);
+            this.ofertasToolStripMenuItem.Text = "Ofertas";
+            // 
             // ListarDescuentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,5 +279,6 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminarDescuento;
+        private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
     }
 }

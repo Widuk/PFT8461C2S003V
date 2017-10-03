@@ -137,6 +137,18 @@
     <Compile Include="Model\Mantenedores\Home\Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\CrearOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\CrearOferta.Designer.cs">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\ListarOfertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\ListarOfertas.Designer.cs">
+      <DependentUpon>ListarOfertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Mantenedores\Producto\PortadaMantenedorProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +200,7 @@
     <Compile Include="Model\Negocio\SessionBag\SesionBag.cs" />
     <Compile Include="Model\Negocio\Utils\Utils.cs" />
     <Compile Include="Model\Negocio\Vo\DescuentoGridVO.cs" />
+    <Compile Include="Model\Negocio\Vo\OfertaGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\ProductoGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\TiendaGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\UsuarioGridVO.cs" />
@@ -221,6 +234,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Home\Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Oferta\CrearOferta.resx">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Oferta\ListarOfertas.resx">
+      <DependentUpon>ListarOfertas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Producto\PortadaMantenedorProducto.resx">
       <DependentUpon>PortadaMantenedorProducto.cs</DependentUpon>
