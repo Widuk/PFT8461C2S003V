@@ -71,10 +71,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
         {
             try
             {
-                if(DateTime.Compare(this.dtpFechaInicio.Value, this.dtpFechaFin.Value) < 0 || DateTime.Compare(this.dtpFechaInicio.Value, this.dtpFechaFin.Value) == 0)
-                {
-                    MessageBox.Show("Error: La fecha de inicio de la oferta debe ser menor a la fecha de fin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
             }catch(Exception ex)
             {
                 MessageBox.Show("Error grave Creando Oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
