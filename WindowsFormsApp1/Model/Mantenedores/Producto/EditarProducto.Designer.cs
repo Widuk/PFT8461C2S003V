@@ -342,6 +342,6 @@
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.CheckBox chDisponiblidad;
-        private PresentationControls.CheckBoxComboBox cmbTienda;
+        private CheckBoxComboBox cmbTienda;
     }
 }

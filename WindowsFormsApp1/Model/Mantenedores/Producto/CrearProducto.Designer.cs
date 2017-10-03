@@ -232,6 +232,6 @@
         private System.Windows.Forms.Button btnCrearProducto;
         private System.Windows.Forms.Button btnCancelarProducto;
         private System.Windows.Forms.ComboBox cmbRubro;
-        private PresentationControls.CheckBoxComboBox cmbTienda;
+        private CheckBoxComboBox cmbTienda;
     }
 }
