@@ -74,31 +74,31 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             Boolean valido = false;
             if (txtNombreTienda.Text == null || txtNombreTienda.Text.Trim().Equals(string.Empty) || txtNombreTienda.Text.Trim().Equals("Nombre de la tienda"))
             {
-                MessageBox.Show("Nombre de la tienda oligatorio.");
+                MessageBox.Show("Nombre de la tienda obligatorio.");
                 txtNombreTienda.Focus();
                 return valido;
             }
             if (txtDireccionTienda.Text == null || txtDireccionTienda.Text.Trim().Equals(string.Empty) || txtDireccionTienda.Text.Trim().Equals("Dirección"))
             {
-                MessageBox.Show("Dirección de la tienda oligatorio.");
+                MessageBox.Show("Dirección de la tienda obligatorio.");
                 txtDireccionTienda.Focus();
                 return valido;
             }
             if (cmbCiudad.SelectedIndex == -1)
             {
-                MessageBox.Show("La comuna es obligatoria.");
+                MessageBox.Show("La Ciudad es obligatoria.");
                 cmbCiudad.Focus();
                 return valido;
             }
             if (txtTelefonoTienda.Text == null || txtTelefonoTienda.Text.Trim().Equals(string.Empty) || txtTelefonoTienda.Text.Trim().Equals("Teléfono ## ### ####"))
             {
-                MessageBox.Show("El telefono es obligatorio.");
+                MessageBox.Show("El teléfono es obligatorio.");
                 txtTelefonoTienda.Focus();
                 return valido;
             }
             if (txtNombreEmpresa.Text == null || txtNombreEmpresa.Text.Trim().Equals(string.Empty) || txtNombreEmpresa.Text.Trim().Equals("Nombre de empresa"))
             {
-                MessageBox.Show("nombre de empresa oligatorio.");
+                MessageBox.Show("Nombre de Empresa obligatorio.");
                 txtNombreEmpresa.Focus();
                 return valido;
             }

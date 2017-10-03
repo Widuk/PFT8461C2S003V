@@ -210,6 +210,7 @@
             // 
             // cbxCiudad
             // 
+            this.cbxCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCiudad.FormattingEnabled = true;
             this.cbxCiudad.Location = new System.Drawing.Point(194, 323);
@@ -247,6 +248,7 @@
             // 
             // cbxPerfil
             // 
+            this.cbxPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPerfil.FormattingEnabled = true;
             this.cbxPerfil.Location = new System.Drawing.Point(859, 154);
