@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.Model.Negocio.Entities
 {
-    class Producto
+    class Productos
     {
         public long idProducto { get; set; }
         public string nombreProducto { get; set; }

@@ -61,6 +61,7 @@
             this.dtgTiendas.TabIndex = 13;
             this.dtgTiendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTiendas_CellClick);
             this.dtgTiendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTiendas_CellContentClick);
+            this.dtgTiendas.DoubleClick += new System.EventHandler(this.dtgTiendas_DoubleClick);
             // 
             // lblDescripcion
             // 

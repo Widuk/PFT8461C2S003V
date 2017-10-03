@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
             this.lblTituloCrear = new System.Windows.Forms.Label();
             this.lblDescripcionCrear = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -38,8 +39,8 @@
             this.cbPermitePromocion = new System.Windows.Forms.CheckBox();
             this.btnCrearProducto = new System.Windows.Forms.Button();
             this.btnCancelarProducto = new System.Windows.Forms.Button();
-            this.cmbTienda = new System.Windows.Forms.ComboBox();
             this.cmbRubro = new System.Windows.Forms.ComboBox();
+            this.cmbTienda = new PresentationControls.CheckBoxComboBox();
             this.SuspendLayout();
             // 
             // lblTituloCrear
@@ -166,17 +167,6 @@
             this.btnCancelarProducto.UseVisualStyleBackColor = false;
             this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
             // 
-            // cmbTienda
-            // 
-            this.cmbTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTienda.ForeColor = System.Drawing.Color.Gray;
-            this.cmbTienda.FormattingEnabled = true;
-            this.cmbTienda.Location = new System.Drawing.Point(16, 201);
-            this.cmbTienda.Name = "cmbTienda";
-            this.cmbTienda.Size = new System.Drawing.Size(285, 24);
-            this.cmbTienda.TabIndex = 5;
-            this.cmbTienda.Text = "Tienda asociada";
-            // 
             // cmbRubro
             // 
             this.cmbRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,14 +178,28 @@
             this.cmbRubro.TabIndex = 6;
             this.cmbRubro.Text = "Rubro";
             // 
+            // cmbTienda
+            // 
+            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmbTienda.CheckBoxProperties = checkBoxProperties1;
+            this.cmbTienda.DisplayMemberSingleItem = "";
+            this.cmbTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.cmbTienda.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.cmbTienda.FormattingEnabled = true;
+            this.cmbTienda.Location = new System.Drawing.Point(16, 200);
+            this.cmbTienda.Name = "cmbTienda";
+            this.cmbTienda.Size = new System.Drawing.Size(285, 24);
+            this.cmbTienda.TabIndex = 5;
+            this.cmbTienda.Text = "Tienda";
+            // 
             // CrearProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(319, 442);
-            this.Controls.Add(this.cmbRubro);
             this.Controls.Add(this.cmbTienda);
+            this.Controls.Add(this.cmbRubro);
             this.Controls.Add(this.btnCancelarProducto);
             this.Controls.Add(this.btnCrearProducto);
             this.Controls.Add(this.cbPermitePromocion);
@@ -227,7 +231,7 @@
         private System.Windows.Forms.CheckBox cbPermitePromocion;
         private System.Windows.Forms.Button btnCrearProducto;
         private System.Windows.Forms.Button btnCancelarProducto;
-        private System.Windows.Forms.ComboBox cmbTienda;
         private System.Windows.Forms.ComboBox cmbRubro;
+        private PresentationControls.CheckBoxComboBox cmbTienda;
     }
 }
