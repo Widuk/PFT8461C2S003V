@@ -104,6 +104,36 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
         {
             CrearOferta crearOferta = new CrearOferta();
             crearOferta.ShowDialog();
+            OfertaDAO ofertaDAO = new OfertaDAO();
+            listaOfertas = new BindingList<OfertaGridVO>(ofertaDAO.getListaOfertasGrid());
+            this.dgvOferta.DataSource = listaOfertas;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dgvOferta.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Error: Debe seleccionar una oferta para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    OfertaDAO ofertaDAO = new OfertaDAO();
+                    WindowsFormsApp1.Model.Negocio.Entities.Oferta oferta = ofertaDAO.getOfertaByCodigo(long.Parse(this.dgvOferta.SelectedRows[0].Cells[0].Value.ToString()));
+
+                    EditarOferta modif = new EditarOferta();
+                    modif.ofertaSeleccionada = oferta;
+                    modif.ShowDialog();
+                    listaOfertas = new BindingList<OfertaGridVO>(ofertaDAO.getListaOfertasGrid());
+                    this.dgvOferta.DataSource = listaOfertas;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error grave editando Oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

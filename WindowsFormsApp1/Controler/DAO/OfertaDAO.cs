@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,6 +94,186 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Close();
                 conn.Dispose();
             }
-        }      
+        }   
+        
+        public void crearOferta(Model.Negocio.Entities.Oferta oferta)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "sp_crea_oferta";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("FECHAINICIOPARAM", OracleDbType.Date).Value = oferta.fechaInicio;
+                cmd.Parameters.Add("FECHAFINPARAM", OracleDbType.Date).Value = oferta.fechaFin;
+                cmd.Parameters.Add("RUTAFOTOPARAM", OracleDbType.Varchar2).Value = oferta.rutaFoto;
+                cmd.Parameters.Add("MINIMOPRODUCTOSPARAM", OracleDbType.Int32).Value = (int)oferta.minimoProductos;
+                cmd.Parameters.Add("MAXIMOPRODUCTOSPARAM", OracleDbType.Int32).Value = (int)oferta.maximoProductos;
+                cmd.Parameters.Add("ISPUBLICADAPARAM", OracleDbType.Int32).Value = (int)oferta.isPublicada;
+                cmd.Parameters.Add("IDPRODUCTOPARAM", OracleDbType.Int32).Value = (int)oferta.idProducto;
+                cmd.Parameters.Add("IDOFERTAPARAM", OracleDbType.Int32).Direction = ParameterDirection.Output;
+                cmd.ExecuteNonQuery();
+                oferta.idOferta = long.Parse(cmd.Parameters["IDOFERTAPARAM"].Value.ToString());
+                cmd.Dispose();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+        
+        public void creaRelacionOfertaProducto(long idOferta, long codigoTienda)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "INSERT INTO RL_OFERTA_TIENDA VALUES(:codigoOferta, :codigoTienda)";
+                cmd.Parameters.Add(":codigoOferta", OracleDbType.Int32).Value = idOferta;
+                cmd.Parameters.Add(":codigoTienda", OracleDbType.Int32).Value = codigoTienda;
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public List<RlOFertaTienda> getOfertasTiendas(long idOFerta)
+        {
+            OracleConnection conn = Conexion.Connect();
+            List<RlOFertaTienda> listaOfertas = new List<RlOFertaTienda>();
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM RL_OFERTA_TIENDA WHERE OFERTA_IDOFERTA = :idOFerta";
+                cmd.Parameters.Add(":idOferta", OracleDbType.Int32).Value = idOFerta;
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    RlOFertaTienda rlOfertaTienda = new RlOFertaTienda();
+                    rlOfertaTienda.idOFerta = long.Parse(reader["OFERTA_IDOFERTA"].ToString());
+                    rlOfertaTienda.idTienda = long.Parse(reader["TIENDA_IDTIENDA"].ToString());
+                    listaOfertas.Add(rlOfertaTienda);
+                }
+
+                cmd.Dispose();
+                reader.Close();
+                reader.Dispose();
+
+                return listaOfertas;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public Oferta getOfertaByCodigo(long codigoOferta)
+        {
+            OracleConnection conn = Conexion.Connect();
+            Oferta oferta = null;
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Oferta WHERE IDOFERTA = :codigoOferta";
+                cmd.Parameters.Add(":codigoOferta", OracleDbType.Int32).Value = codigoOferta;
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    oferta = new Oferta();
+                    oferta.idOferta = long.Parse(reader["IDOFERTA"].ToString());
+                    oferta.fechaInicio = DateTime.Parse(reader["FECHAINICIO"].ToString());
+                    oferta.fechaFin = DateTime.Parse(reader["FECHAFIN"].ToString());
+                    oferta.rutaFoto = reader["RUTAFOTO"].ToString();
+                    oferta.minimoProductos = int.Parse(reader["MINIMOPRODUCTOS"].ToString());
+                    oferta.maximoProductos = int.Parse(reader["MAXIMOPRODUCTOS"].ToString());
+                    oferta.isPublicada = short.Parse(reader["ISPUBLICADA"].ToString());
+                    oferta.idProducto = long.Parse(reader["PRODUCTO_IDPRODUCTO"].ToString());
+                }
+
+                cmd.Dispose();
+                reader.Close();
+                reader.Dispose();
+
+                return oferta;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public void actualizarOferta(Oferta oferta)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "sp_modifica_oferta";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("IDOFERTAPARAM", OracleDbType.Int32).Value = oferta.idOferta;
+                cmd.Parameters.Add("FECHAINICIOPARAM", OracleDbType.Date).Value = oferta.fechaInicio;
+                cmd.Parameters.Add("FECHAFINPARAM", OracleDbType.Date).Value = oferta.fechaFin;
+                cmd.Parameters.Add("RUTAFOTOPARAM", OracleDbType.Varchar2).Value = oferta.rutaFoto;
+                cmd.Parameters.Add("MINIMOPRODUCTOSPARAM", OracleDbType.Int32).Value = (int)oferta.minimoProductos;
+                cmd.Parameters.Add("MAXIMOPRODUCTOSPARAM", OracleDbType.Int32).Value = (int)oferta.maximoProductos;
+                //cmd.Parameters.Add("ISPUBLICADAPARAM", OracleDbType.Int32).Value = (int)oferta.isPublicada;
+                cmd.Parameters.Add("IDPRODUCTOPARAM", OracleDbType.Int32).Value = (int)oferta.idProducto;
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public void eliminarRelacionOfertaTienda(long codigoOferta)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM RL_OFERTA_TIENDA WHERE OFERTA_IDOFERTA = :idOferta";
+                cmd.Parameters.Add(":idOferta", OracleDbType.Int32).Value = codigoOferta;
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }

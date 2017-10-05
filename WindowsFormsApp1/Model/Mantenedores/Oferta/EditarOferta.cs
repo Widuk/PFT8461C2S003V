@@ -9,22 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Negocio.Constantes;
+using WindowsFormsApp1.Model.Negocio.Entities;
 
 namespace WindowsFormsApp1.Model.Mantenedores.Oferta
 {
-    public partial class CrearOferta : Form
+    public partial class EditarOferta : Form
     {
-        public CrearOferta()
+        public Negocio.Entities.Oferta ofertaSeleccionada { get; set; }
+        public EditarOferta()
         {
             InitializeComponent();
         }
 
-        private void btnCancelarTienda_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void CrearOferta_Load(object sender, EventArgs e)
+        private void EditarOferta_Load(object sender, EventArgs e)
         {
             try
             {
@@ -39,8 +36,25 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                 ((ListBox)this.chkListBoxTiendas).DataSource = dtTienda;
                 ((ListBox)this.chkListBoxTiendas).DisplayMember = "NOMBRE";
                 ((ListBox)this.chkListBoxTiendas).ValueMember = "IDTIENDA";
+
+                OfertaDAO ofertaDAO = new OfertaDAO();
+                //Carga de datos de oferta
+                List<RlOFertaTienda> listaOfertas = ofertaDAO.getOfertasTiendas(this.ofertaSeleccionada.idOferta);
+
+                this.dtpFechaFin.Value = this.ofertaSeleccionada.fechaFin;
+                this.dtpFechaInicio.Value = this.ofertaSeleccionada.fechaInicio;
+                this.cbxProducto.SelectedValue = this.ofertaSeleccionada.idProducto;
+                this.txtUrlImagen.Text = this.ofertaSeleccionada.rutaFoto;
+                this.nudCantMinProd.Value = this.ofertaSeleccionada.minimoProductos;
+                this.nudCantMaxProd.Value = this.ofertaSeleccionada.maximoProductos;
+
+                foreach(RlOFertaTienda rlofer in listaOfertas)
+                {
+                    //this.chkListBoxTiendas.SetItemChecked
+                }
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error grave Cargando datos para creación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -62,32 +76,37 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                     this.txtUrlImagen.Text = open.FileName;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error grave Cargando imagen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnCrearOferta_Click(object sender, EventArgs e)
+        private void btnEditarOferta_Click(object sender, EventArgs e)
         {
             try
             {
                 if (DateTime.Compare(this.dtpFechaInicio.Value.Date, this.dtpFechaFin.Value.Date) > 0 || DateTime.Compare(this.dtpFechaInicio.Value.Date, this.dtpFechaFin.Value.Date) == 0)
                 {
                     MessageBox.Show("Error: La fecha de inicio debe ser anterior a la fecha de fin de la Oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } else if (this.txtUrlImagen.Text == null || this.txtUrlImagen.Text.Trim().Equals(string.Empty))
+                }
+                else if (this.txtUrlImagen.Text == null || this.txtUrlImagen.Text.Trim().Equals(string.Empty))
                 {
                     MessageBox.Show("Error: Se debe adjuntar una imagen a la Oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } else if (this.nudCantMaxProd.Value < this.nudCantMinProd.Value)
+                }
+                else if (this.nudCantMaxProd.Value < this.nudCantMinProd.Value)
                 {
                     MessageBox.Show("Error: La cantidad máxima de productos debe ser mayor a la cantidad mínima.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } else if (this.nudCantMaxProd.Value == 0 || this.nudCantMinProd.Value == 0)
+                }
+                else if (this.nudCantMaxProd.Value == 0 || this.nudCantMinProd.Value == 0)
                 {
                     MessageBox.Show("Error: La cantidad de productos mínimos y máximos debe ser mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } else if (this.chkListBoxTiendas.CheckedItems.Count == 0)
+                }
+                else if (this.chkListBoxTiendas.CheckedItems.Count == 0)
                 {
                     MessageBox.Show("Error: Se debe seleccionar al menos una Tienda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } else
+                }
+                else
                 {
                     OfertaDAO ofertaDAO = new OfertaDAO();
                     Negocio.Entities.Oferta ofer = ofertaDAO.getOfertaVigenteByCodigoProducto(int.Parse(cbxProducto.SelectedValue.ToString()));
@@ -107,29 +126,33 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                     nuevaOferta.minimoProductos = (int)this.nudCantMinProd.Value;
                     nuevaOferta.maximoProductos = (int)this.nudCantMaxProd.Value;
                     nuevaOferta.rutaFoto = Constantes.rutaBaseFotos + this.txtUrlImagen.Text.Split('\\')[this.txtUrlImagen.Text.Split('\\').Length - 1];
+                    nuevaOferta.idOferta = this.ofertaSeleccionada.idOferta;
 
                     List<long> listaTiendas = new List<long>();
 
-                    for(int i = 0; i < this.chkListBoxTiendas.CheckedItems.Count; i++)
+                    for (int i = 0; i < this.chkListBoxTiendas.CheckedItems.Count; i++)
                     {
-                        listaTiendas.Add(long.Parse(((DataRowView)this.chkListBoxTiendas.CheckedItems[i])["IDTIENDA"].ToString()));   
+                        listaTiendas.Add(long.Parse(((DataRowView)this.chkListBoxTiendas.CheckedItems[i])["IDTIENDA"].ToString()));
                     }
 
-                    ofertaDAO.crearOferta(nuevaOferta);
-                    
-                    foreach(long l in listaTiendas)
+                    ofertaDAO.actualizarOferta(nuevaOferta);
+                    ofertaDAO.eliminarRelacionOfertaTienda(nuevaOferta.idOferta);
+
+                    foreach (long l in listaTiendas)
                     {
                         ofertaDAO.creaRelacionOfertaProducto(nuevaOferta.idOferta, l);
-                    }           
+                    }
 
                     this.Dispose();
 
-                    MessageBox.Show("Oferta creada exitosamente.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Oferta editada exitosamente.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error grave Creando Oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }finally
+            }
+            finally
             {
 
             }
