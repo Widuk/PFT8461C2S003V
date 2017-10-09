@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Mantenedores.BI;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
+using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
 
@@ -151,6 +152,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             {
                 PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
                 mantProd.Show();
+                this.Hide();
+            }else if (e.ClickedItem.Name.Equals("ofertasToolStripMenuItem"))
+            {
+                ListarOfertas listarOfertas = new ListarOfertas();
+                listarOfertas.Show();
                 this.Hide();
             }
             else if (e.ClickedItem.Name.Equals("biToolStripMenuItem"))

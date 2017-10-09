@@ -38,13 +38,14 @@
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descuentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.biToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.descargaArchivoBIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.dtgListaPreducto = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarDescuento = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -112,7 +113,8 @@
             this.productosToolStripMenuItem,
             this.descuentosToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.biToolStripMenuItem});
+            this.descargaArchivoBIToolStripMenuItem,
+            this.ofertasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(141, 487);
@@ -148,12 +150,12 @@
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
-            // biToolStripMenuItem
+            // descargaArchivoBIToolStripMenuItem
             // 
-            this.biToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.biToolStripMenuItem.Name = "biToolStripMenuItem";
-            this.biToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
-            this.biToolStripMenuItem.Text = "Descarga archivo BI";
+            this.descargaArchivoBIToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descargaArchivoBIToolStripMenuItem.Name = "descargaArchivoBIToolStripMenuItem";
+            this.descargaArchivoBIToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
+            this.descargaArchivoBIToolStripMenuItem.Text = "Descarga archivo BI";
             // 
             // lblTitulo
             // 
@@ -232,6 +234,12 @@
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // ofertasToolStripMenuItem
+            // 
+            this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
+            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(128, 19);
+            this.ofertasToolStripMenuItem.Text = "Ofertas";
+            // 
             // PortadaMantenedorProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,7 +258,7 @@
             this.Controls.Add(this.btnNuevo);
             this.Name = "PortadaMantenedorProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista Productos";
+            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -282,7 +290,8 @@
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem descuentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem biToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem descargaArchivoBIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
     }
 }
 

@@ -255,67 +255,22 @@ namespace WindowsFormsApp1.Controler.DAO
             }
         }
 
-        public DataTable ListarTiendaDT2()
+        public DataTable getTiendasCbx()
         {
             OracleConnection conn = Conexion.Connect();
             try
             {
-                OracleCommand command = conn.CreateCommand();
-                DataTable dataTable = new DataTable("TIENDA");
-                command.CommandText = "SELECT NOMBRE FROM TIENDA where isactivo = 1 order by nombre";
-                OracleDataAdapter oda = new OracleDataAdapter(command);
-                dataTable.Columns.AddRange(new DataColumn[]
-                    {
-                        new DataColumn("NOMBRE", typeof(string)),
-                    });
+                OracleCommand comm = conn.CreateCommand();
+                comm.CommandText = "SELECT IDTIENDA, NOMBRE FROM TIENDA WHERE ISACTIVO = 1";
+                OracleDataAdapter oda = new OracleDataAdapter(comm);
+                DataTable dataTable = new DataTable("Tiendas");
                 oda.Fill(dataTable);
+
                 return dataTable;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw new Exception(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-                conn.Dispose();
-            }
-        }
-
-        public List<TiendaGridVO> lt()
-        {
-            OracleConnection conn = Conexion.Connect();
-            try
-            {
-                OracleCommand command = conn.CreateCommand();
-                command.CommandText = "SELECT t.IDTIENDA,t.NOMBRE,t.DIRECCION,t.TELEFONO,t.ISACTIVO,t.FECHACREACION,t.FECHAMODIFICACION,t.EMPRESA,t.ciudad_idciudad as idciudad,c.NOMBRE AS NOMBRECIUDAD FROM TIENDA t inner join ciudad c on c.idciudad = t.ciudad_idciudad where t.isactivo = 1 order by t.nombre";
-                OracleDataReader dr = command.ExecuteReader();
-
-                List<TiendaGridVO> lstTienda = new List<TiendaGridVO>();
-
-                while (dr.Read())
-                {
-                    TiendaGridVO entTienda = new TiendaGridVO();
-                    entTienda.idTienda = int.Parse(dr["IDTIENDA"].ToString());
-                    entTienda.nombreTienda = (string)dr["NOMBRE"];
-                    entTienda.direccion = (string)dr["DIRECCION"];
-                    entTienda.telefono = (string)(dr["TELEFONO"]);
-                    entTienda.isActivo = sbyte.Parse(dr["ISACTIVO"].ToString());
-                    entTienda.fechaCreacion = DateTime.Parse(dr["FECHACREACION"].ToString());
-                    entTienda.fechaModificacion = DateTime.Parse(dr["FECHAMODIFICACION"].ToString());
-                    entTienda.empresa = (String)(dr["EMPRESA"].ToString());
-                    entTienda.idCiudad = int.Parse(dr["IDCIUDAD"].ToString());
-                    entTienda.nombreCiudad = (string)dr["NOMBRECIUDAD"];
-                    lstTienda.Add(entTienda);
-                }
-
-                dr.Close();
-                command.Dispose();
-                return lstTienda;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
             }
             finally
             {

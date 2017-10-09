@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>WindowsFormsApp1</RootNamespace>
     <AssemblyName>WindowsFormsApp1</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publicar\</PublishUrl>
     <Install>true</Install>
@@ -25,6 +25,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,13 +48,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CheckBoxComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="CheckBoxComboBox">
       <HintPath>CheckBoxComboBox\bin\Debug\CheckBoxComboBox.dll</HintPath>
-    </Reference>
-    <Reference Include="CheckComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.CheckComboBox.1.0.0\lib\CheckComboBox.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -151,6 +147,24 @@
     <Compile Include="Model\Mantenedores\Home\Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\CrearOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\CrearOferta.Designer.cs">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\EditarOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\EditarOferta.Designer.cs">
+      <DependentUpon>EditarOferta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\ListarOfertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\ListarOfertas.Designer.cs">
+      <DependentUpon>ListarOfertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Mantenedores\Producto\PortadaMantenedorProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +202,7 @@
       <DependentUpon>ListarUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Negocio\Conexion\Conexion.cs" />
+    <Compile Include="Model\Negocio\Constantes\Constantes.cs" />
     <Compile Include="Model\Negocio\Entities\Ciudad.cs" />
     <Compile Include="Model\Negocio\Entities\Consumidor.cs" />
     <Compile Include="Model\Negocio\Entities\Descuento.cs" />
@@ -195,6 +210,7 @@
     <Compile Include="Model\Negocio\Entities\Oferta.cs" />
     <Compile Include="Model\Negocio\Entities\Perfil.cs" />
     <Compile Include="Model\Negocio\Entities\Productos.cs" />
+    <Compile Include="Model\Negocio\Entities\RlOFertaTienda.cs" />
     <Compile Include="Model\Negocio\Entities\Rubro.cs" />
     <Compile Include="Model\Negocio\Entities\Tienda.cs" />
     <Compile Include="Model\Negocio\Entities\Trabajador.cs" />
@@ -202,6 +218,7 @@
     <Compile Include="Model\Negocio\SessionBag\SesionBag.cs" />
     <Compile Include="Model\Negocio\Utils\Utils.cs" />
     <Compile Include="Model\Negocio\Vo\DescuentoGridVO.cs" />
+    <Compile Include="Model\Negocio\Vo\OfertaGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\ProductoGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\TiendaGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\UsuarioGridVO.cs" />
@@ -243,6 +260,15 @@
     <EmbeddedResource Include="Model\Mantenedores\Home\Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Oferta\CrearOferta.resx">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Oferta\EditarOferta.resx">
+      <DependentUpon>EditarOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Oferta\ListarOfertas.resx">
+      <DependentUpon>ListarOfertas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Producto\PortadaMantenedorProducto.resx">
       <DependentUpon>PortadaMantenedorProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +295,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
