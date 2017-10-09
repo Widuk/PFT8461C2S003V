@@ -47,8 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CheckBoxComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="CheckBoxComboBox">
       <HintPath>CheckBoxComboBox\bin\Debug\CheckBoxComboBox.dll</HintPath>
     </Reference>
     <Reference Include="CheckComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

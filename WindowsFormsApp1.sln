@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaOfertas", "WindowsFormsApp1\SistemaOfertas.csproj", "{52642BBE-E8FD-4B45-8CB8-F9D1DD33C408}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxComboBox", "..\..\CheckBoxComboBox\CheckBoxComboBox\CheckBoxComboBox.csproj", "{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxComboBox", "WindowsFormsApp1\CheckBoxComboBox\CheckBoxComboBox.csproj", "{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

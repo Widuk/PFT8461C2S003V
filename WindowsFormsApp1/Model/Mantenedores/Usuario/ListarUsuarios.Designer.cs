@@ -40,10 +40,10 @@
             this.descuentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.biToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).BeginInit();
             this.panel3.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -176,6 +176,12 @@
             this.biToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
             this.biToolStripMenuItem.Text = "Descarga archivo BI";
             // 
+            // ofertasToolStripMenuItem
+            // 
+            this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
+            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(128, 19);
+            this.ofertasToolStripMenuItem.Text = "Ofertas";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -209,12 +215,6 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // ofertasToolStripMenuItem
-            // 
-            this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
-            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(128, 19);
-            this.ofertasToolStripMenuItem.Text = "Ofertas";
-            // 
             // ListarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,7 +229,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNuevo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ListarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Usuarios";
