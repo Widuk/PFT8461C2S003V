@@ -38,7 +38,7 @@
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descuentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.descargaArchivoBIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.biToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNuevaTienda = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -111,7 +111,7 @@
             this.productosToolStripMenuItem,
             this.descuentosToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.descargaArchivoBIToolStripMenuItem});
+            this.biToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(141, 523);
@@ -147,12 +147,12 @@
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
-            // descargaArchivoBIToolStripMenuItem
+            // biToolStripMenuItem
             // 
-            this.descargaArchivoBIToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descargaArchivoBIToolStripMenuItem.Name = "descargaArchivoBIToolStripMenuItem";
-            this.descargaArchivoBIToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
-            this.descargaArchivoBIToolStripMenuItem.Text = "Descarga archivo BI";
+            this.biToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.biToolStripMenuItem.Name = "biToolStripMenuItem";
+            this.biToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
+            this.biToolStripMenuItem.Text = "Descarga archivo BI";
             // 
             // panel1
             // 
@@ -250,7 +250,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PortadaMantenedorTienda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tiendas";
+            this.Text = "Lista Tiendas";
             this.Load += new System.EventHandler(this.Tienda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgTiendas)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -280,6 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem descuentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem descargaArchivoBIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem biToolStripMenuItem;
     }
 }

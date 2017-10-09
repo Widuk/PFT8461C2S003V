@@ -280,8 +280,6 @@
             this.cmbTienda.Name = "cmbTienda";
             this.cmbTienda.Size = new System.Drawing.Size(267, 24);
             this.cmbTienda.TabIndex = 84;
-            this.cmbTienda.DropDown += new System.EventHandler(this.cmbTienda_DropDown);
-            this.cmbTienda.Click += new System.EventHandler(this.cmbTienda_Click);
             // 
             // EditarProducto
             // 
