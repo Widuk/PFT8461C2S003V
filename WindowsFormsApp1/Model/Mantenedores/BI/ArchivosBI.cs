@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
+using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Vo;
 
@@ -73,7 +74,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
             biToolStripMenuItem.ForeColor = Color.Gray;
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (e.ClickedItem.Name.Equals("descuentosToolStripMenuItem"))
             {
@@ -97,6 +98,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
             {
                 ListarUsuarios listarUsu = new ListarUsuarios();
                 listarUsu.Show();
+                this.Hide();
+            }
+            else if (e.ClickedItem.Name.Equals("ofertasToolStripMenuItem"))
+            {
+                ListarOfertas listarOfertas = new ListarOfertas();
+                listarOfertas.Show();
                 this.Hide();
             }
         }

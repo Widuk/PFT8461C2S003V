@@ -29,13 +29,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnDescarga = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.tiendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descuentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.biToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblDescripcion
@@ -136,22 +137,23 @@
             this.btnDescarga.UseVisualStyleBackColor = false;
             this.btnDescarga.Click += new System.EventHandler(this.btnDescarga_Click);
             // 
-            // menuStrip1
+            // menuStrip2
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tiendasToolStripMenuItem,
             this.productosToolStripMenuItem,
             this.descuentosToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.biToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 37);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(141, 523);
-            this.menuStrip1.TabIndex = 26;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            this.biToolStripMenuItem,
+            this.ofertasToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 37);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(141, 523);
+            this.menuStrip2.TabIndex = 26;
+            this.menuStrip2.Text = "menuStrip2";
+            this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
             // 
             // tiendasToolStripMenuItem
             // 
@@ -188,10 +190,16 @@
             this.biToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
             this.biToolStripMenuItem.Text = "Descarga archivo BI";
             // 
+            // ofertasToolStripMenuItem
+            // 
+            this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
+            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(128, 19);
+            this.ofertasToolStripMenuItem.Text = "Ofertas";
+            // 
             // ArchivosBI
             // 
             this.ClientSize = new System.Drawing.Size(829, 560);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel5);
@@ -200,8 +208,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Descarga archivo BI";
             this.Load += new System.EventHandler(this.ArchivosBI_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,11 +226,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnDescarga;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem tiendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem descuentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem biToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
     }
 }

@@ -143,7 +143,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                 listarOfertas.Show();
                 this.Hide();
             }
-            else if (e.ClickedItem.Name.Equals("biToolStripMenuItem"))
+            else if (e.ClickedItem.Name.Equals("descargaArchivoBIToolStripMenuItem"))
             {
                 ArchivosBI mantBI = new ArchivosBI();
                 mantBI.Show();

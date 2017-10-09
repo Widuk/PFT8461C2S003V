@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Mantenedores.BI;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
-using WindowsFormsApp1.Model.Mantenedores.Producto;
 using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
@@ -158,17 +158,18 @@ namespace WindowsFormsApp1
                 listarOfertas.Show();
                 this.Hide();
             }
+            else if (e.ClickedItem.Name.Equals("descargaArchivoBIToolStripMenuItem"))
+            {
+                ArchivosBI mantBI = new ArchivosBI();
+                mantBI.Show();
+                this.Hide();
+            }
         }
 
         private void dtgListaPreducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             return;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            PRUEBA cp = new PRUEBA();
-            cp.ShowDialog();
-        }
+        
     }
 }
