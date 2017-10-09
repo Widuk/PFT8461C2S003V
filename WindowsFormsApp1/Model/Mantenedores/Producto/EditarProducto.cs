@@ -236,15 +236,5 @@ namespace WindowsFormsApp1
             }
             return valido = true;
         }
-
-        public void cmbTienda_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("SOLO DE PRUEBA");
-        }
-
-        private void cmbTienda_DropDown(object sender, EventArgs e)
-        {
-            MessageBox.Show("SOLO DE PRUEBA 2");
-        }
     }
 }

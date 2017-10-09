@@ -115,10 +115,12 @@
             // 
             this.dtpFechaInicio.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInicio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dtpFechaInicio.Location = new System.Drawing.Point(154, 112);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(258, 22);
             this.dtpFechaInicio.TabIndex = 40;
+            this.dtpFechaInicio.Value = new System.DateTime(2017, 10, 3, 20, 21, 13, 0);
             // 
             // label2
             // 

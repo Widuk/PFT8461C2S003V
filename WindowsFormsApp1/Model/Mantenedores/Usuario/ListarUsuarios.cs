@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Mantenedores.BI;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Mantenedores.Oferta;
@@ -169,6 +166,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
             {
                 ListarOfertas listarOfertas = new ListarOfertas();
                 listarOfertas.Show();
+                this.Hide();
+            }
+            else if (e.ClickedItem.Name.Equals("biToolStripMenuItem"))
+            {
+                ArchivosBI mantBI = new ArchivosBI();
+                mantBI.Show();
                 this.Hide();
             }
         }
