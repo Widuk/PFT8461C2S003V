@@ -85,14 +85,14 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             if (txtTelefonoTienda.Text == null || txtTelefonoTienda.Text.Trim().Equals(string.Empty))
             {
-                txtTelefonoTienda.Text = "Telefono ## ### ####";
+                txtTelefonoTienda.Text = "Teléfono ## ### ####";
                 txtTelefonoTienda.ForeColor = Color.Gray;
             }
         }
 
         private void txtTelefonoTienda_Enter(object sender, EventArgs e)
         {
-            if (txtTelefonoTienda.Text.Equals("Telefono ## ### ####"))
+            if (txtTelefonoTienda.Text.Equals("Teléfono ## ### ####"))
             {
                 txtTelefonoTienda.Text = "";
                 txtTelefonoTienda.ForeColor = Color.Black;

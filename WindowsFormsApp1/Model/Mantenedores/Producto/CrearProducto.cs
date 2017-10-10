@@ -192,12 +192,12 @@ namespace WindowsFormsApp1
                     String sku = txtSKU.Text;
                     String nombre = txtNombre.Text.ToUpper();
                     String precio = txtPrecio.Text;
-                    Int16 estado = Int16.Parse(cmbActivo.SelectedIndex.ToString());
+                    sbyte activo = 0;
+                    if (cmbActivo.Text.Equals("Activo")) { activo = 1; activo = 0; }
                     Int16 rubro = Int16.Parse(cmbRubro.SelectedValue.ToString());
                     String descripcion = txtDescripcion.Text;
                     String promocion = cbPermitePromocion.Checked.ToString();
                     if (promocion == "True") { promocion = "1"; } else { promocion = "0"; }
-                    sbyte activo = 1;
 
                     Boolean skuExistente = prodDao.buscaProductoPorSku(sku);
                     if (!skuExistente)

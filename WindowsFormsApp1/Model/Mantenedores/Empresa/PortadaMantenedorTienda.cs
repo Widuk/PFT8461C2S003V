@@ -106,6 +106,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
                 Int16 id = Int16.Parse(objetoPaso.paso0);
                 EliminaTienda.EliminarTienda(id);
                 MessageBox.Show("Éxito al eliminar tienda.");
+                cargaTiendas();
                 return;
             }
             catch (Exception ex)

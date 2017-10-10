@@ -23,6 +23,13 @@ namespace WindowsFormsApp1
         {
             objetoPaso.limpiaPaso();
             cargaProductos();
+            ProductoDAO listaProductos = new ProductoDAO();
+            int cuentaTiendas = listaProductos.listarProducto().Count;
+            if (cuentaTiendas == 0)
+            {
+                MessageBox.Show("No se econtraron productos para listar.");
+            }
+
         }
 
         public void cargaProductos()

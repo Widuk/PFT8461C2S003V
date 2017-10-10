@@ -18,7 +18,9 @@ namespace WindowsFormsApp1
         }
 
         private void btnCrearTienda_Click(object sender, EventArgs e)
-        {            
+        {
+            cmbTienda.DroppedDown = true;
+            cmbTienda.DroppedDown = false;
             if (validaCampos() == true)
             {
                 try
@@ -110,7 +112,6 @@ namespace WindowsFormsApp1
             cargaRubro();
             cargaTiendas();
             cargaProductosEditar();
-            cmbTienda.Focus();
         }
 
         void cargaProductosEditar()
