@@ -104,6 +104,7 @@
             // 
             // cmbActivo
             // 
+            this.cmbActivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbActivo.ForeColor = System.Drawing.Color.Gray;
             this.cmbActivo.FormattingEnabled = true;
@@ -114,7 +115,6 @@
             this.cmbActivo.Name = "cmbActivo";
             this.cmbActivo.Size = new System.Drawing.Size(285, 24);
             this.cmbActivo.TabIndex = 4;
-            this.cmbActivo.Text = "Estado";
             // 
             // txtSKU
             // 
@@ -134,9 +134,9 @@
             this.cbPermitePromocion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPermitePromocion.Location = new System.Drawing.Point(16, 345);
             this.cbPermitePromocion.Name = "cbPermitePromocion";
-            this.cbPermitePromocion.Size = new System.Drawing.Size(242, 20);
+            this.cbPermitePromocion.Size = new System.Drawing.Size(245, 20);
             this.cbPermitePromocion.TabIndex = 8;
-            this.cbPermitePromocion.Text = "Permite propociones 2x1 y similares";
+            this.cbPermitePromocion.Text = "Permite promociones 2x1 y similares";
             this.cbPermitePromocion.UseVisualStyleBackColor = true;
             // 
             // btnCrearProducto
@@ -149,7 +149,7 @@
             this.btnCrearProducto.Name = "btnCrearProducto";
             this.btnCrearProducto.Size = new System.Drawing.Size(121, 38);
             this.btnCrearProducto.TabIndex = 9;
-            this.btnCrearProducto.Text = "Crear producto";
+            this.btnCrearProducto.Text = "Crear Producto";
             this.btnCrearProducto.UseVisualStyleBackColor = false;
             this.btnCrearProducto.Click += new System.EventHandler(this.btnCrearProducto_Click);
             // 
@@ -169,6 +169,7 @@
             // 
             // cmbRubro
             // 
+            this.cmbRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRubro.ForeColor = System.Drawing.Color.Gray;
             this.cmbRubro.FormattingEnabled = true;
@@ -176,13 +177,13 @@
             this.cmbRubro.Name = "cmbRubro";
             this.cmbRubro.Size = new System.Drawing.Size(285, 24);
             this.cmbRubro.TabIndex = 6;
-            this.cmbRubro.Text = "Rubro";
             // 
             // cmbTienda
             // 
             checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cmbTienda.CheckBoxProperties = checkBoxProperties1;
             this.cmbTienda.DisplayMemberSingleItem = "";
+            this.cmbTienda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cmbTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbTienda.ForeColor = System.Drawing.SystemColors.GrayText;
             this.cmbTienda.FormattingEnabled = true;
@@ -190,7 +191,6 @@
             this.cmbTienda.Name = "cmbTienda";
             this.cmbTienda.Size = new System.Drawing.Size(285, 24);
             this.cmbTienda.TabIndex = 5;
-            this.cmbTienda.Text = "Tienda";
             // 
             // CrearProducto
             // 
@@ -210,9 +210,10 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblDescripcionCrear);
             this.Controls.Add(this.lblTituloCrear);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CrearProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "Crear Producto";
             this.Load += new System.EventHandler(this.CrearProducto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
