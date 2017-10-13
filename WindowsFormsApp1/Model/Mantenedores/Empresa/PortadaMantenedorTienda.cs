@@ -26,22 +26,29 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         public void cargaTiendas()
         {
-            TiendaDAO listarTiendas = new TiendaDAO();
-            dtgTiendas.DataSource = listarTiendas.listarTiendas();
+            try
+            {
+                TiendaDAO listarTiendas = new TiendaDAO();
+                dtgTiendas.DataSource = listarTiendas.listarTiendas();
 
-            dtgTiendas.Columns[0].HeaderText = "N°";
-            dtgTiendas.Columns[1].HeaderText = "Nombre";
-            dtgTiendas.Columns[2].HeaderText = "Dirección";
-            dtgTiendas.Columns[3].HeaderText = "Ciudad";
-            dtgTiendas.Columns[4].HeaderText = "Telefono";
-            dtgTiendas.Columns[5].HeaderText = "activo";
-            dtgTiendas.Columns[5].Visible = false;
-            dtgTiendas.Columns[6].HeaderText = "F. Creación";
-            dtgTiendas.Columns[7].HeaderText = "F. Modificación";
-            dtgTiendas.Columns[8].HeaderText = "Empresa";
-            dtgTiendas.Columns[9].HeaderText = "IdCiudad";
-            dtgTiendas.Columns[9].Visible = false;
-            dtgTiendas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dtgTiendas.Columns[0].HeaderText = "N°";
+                dtgTiendas.Columns[1].HeaderText = "Nombre";
+                dtgTiendas.Columns[2].HeaderText = "Dirección";
+                dtgTiendas.Columns[3].HeaderText = "Ciudad";
+                dtgTiendas.Columns[4].HeaderText = "Telefono";
+                dtgTiendas.Columns[5].HeaderText = "activo";
+                dtgTiendas.Columns[5].Visible = false;
+                dtgTiendas.Columns[6].HeaderText = "F. Creación";
+                dtgTiendas.Columns[7].HeaderText = "F. Modificación";
+                dtgTiendas.Columns[8].HeaderText = "Empresa";
+                dtgTiendas.Columns[9].HeaderText = "IdCiudad";
+                dtgTiendas.Columns[9].Visible = false;
+                dtgTiendas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de sistema al cargar tiendas.");
+            }
         }
 
 

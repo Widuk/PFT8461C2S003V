@@ -139,35 +139,42 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void btnCrearTienda_Click(object sender, EventArgs e)
         {
-            TiendaDAO tiendaPorNombre = new TiendaDAO();
-            Tienda ti = tiendaPorNombre.buscaTiendaPorNombre(txtNombreTienda.Text.Trim().ToUpper());
-            if (validaCampos() == true)
+            try
             {
-                if (ti != null)
+                TiendaDAO tiendaPorNombre = new TiendaDAO();
+                Tienda ti = tiendaPorNombre.buscaTiendaPorNombre(txtNombreTienda.Text.Trim().ToUpper());
+                if (validaCampos() == true)
                 {
-                    MessageBox.Show("Error: La tienda ya se encuentra ingresada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtNombreTienda.Text = "";
-                    txtNombreTienda.Focus();
-                    return;
-                }
-                else
-                {
-                    try
+                    if (ti != null)
                     {
-                        long x = long.Parse(objetoPaso.paso0);                        //id
-                        TiendaDAO editaTienda = new TiendaDAO();
-                        editaTienda.EditarTienda(x, txtNombreTienda.Text.Trim().ToUpper(), txtDireccionTienda.Text, txtTelefonoTienda.Text, dtFechaIngresoTienda.Value, txtNombreEmpresa.Text, Int16.Parse(cmbCiudad.SelectedValue.ToString()));
-                        MessageBox.Show("Modificación de tienda exitosa.");
-                        objetoPaso.paso0 = (String)(0.ToString());
-                        PortadaMantenedorTienda tiendaView = new PortadaMantenedorTienda();
-                        tiendaView.cargaTiendas();
-                        this.Visible = false;
+                        MessageBox.Show("Error: La tienda ya se encuentra ingresada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtNombreTienda.Text = "";
+                        txtNombreTienda.Focus();
+                        return;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("Error al modificar la tienda.");
+                        try
+                        {
+                            long x = long.Parse(objetoPaso.paso0);                        //id
+                            TiendaDAO editaTienda = new TiendaDAO();
+                            editaTienda.EditarTienda(x, txtNombreTienda.Text.Trim().ToUpper(), txtDireccionTienda.Text, txtTelefonoTienda.Text, dtFechaIngresoTienda.Value, txtNombreEmpresa.Text, Int16.Parse(cmbCiudad.SelectedValue.ToString()));
+                            MessageBox.Show("Modificación de tienda exitosa.");
+                            objetoPaso.paso0 = (String)(0.ToString());
+                            PortadaMantenedorTienda tiendaView = new PortadaMantenedorTienda();
+                            tiendaView.cargaTiendas();
+                            this.Visible = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al modificar la tienda.");
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de sistema al editar la tienda.");
             }
         }
 

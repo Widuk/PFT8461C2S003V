@@ -108,7 +108,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                     return;
                 } else if (!Utils.ValidaRut(txtRut.Text.Trim()))
                 {
-                    MessageBox.Show("Error: El Rut ingresado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: El Rut ingresado no es válido. Debe ser sin puntos y con guión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtRut.Focus();
                     return;
                 } else if (!Utils.IsValidEmail(txtEmail.Text.Trim()))

@@ -166,9 +166,9 @@
             this.lblRut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRut.Location = new System.Drawing.Point(42, 244);
             this.lblRut.Name = "lblRut";
-            this.lblRut.Size = new System.Drawing.Size(35, 16);
+            this.lblRut.Size = new System.Drawing.Size(127, 16);
             this.lblRut.TabIndex = 42;
-            this.lblRut.Text = "Rut:";
+            this.lblRut.Text = "Rut (12345678-K):";
             // 
             // txtRut
             // 
