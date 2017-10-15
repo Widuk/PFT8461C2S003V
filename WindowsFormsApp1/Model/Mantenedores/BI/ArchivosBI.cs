@@ -9,6 +9,8 @@ using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
+using WindowsFormsApp1.Model.Negocio.Entities;
+using WindowsFormsApp1.Model.Negocio.SessionBag;
 using WindowsFormsApp1.Model.Negocio.Vo;
 
 namespace WindowsFormsApp1.Model.Mantenedores.BI
@@ -71,39 +73,51 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
         {
             TiendaDAO Tiendas = new TiendaDAO();
             listaTienda = Tiendas.lt();
-            biToolStripMenuItem.ForeColor = Color.Gray;
+            foreach (Funcionalidad func in SesionBag.usuarioSesionado.funcionalidadesUsuario)
+            {
+                ToolStripMenuItem itm = new ToolStripMenuItem(func.nombre);
+                itm.Click += new EventHandler(genericHandler);
+                itm.Name = func.idFuncionalidad.ToString();
+                if (itm.Name.Equals("11"))
+                {
+                    itm.ForeColor = Color.Gray;
+                }
+                this.menuStrip1.Items.Add(itm);
+            }
         }
 
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void genericHandler(object sender, EventArgs e)
         {
-            if (e.ClickedItem.Name.Equals("descuentosToolStripMenuItem"))
-            {
-                ListarDescuentos listardesc = new ListarDescuentos();
-                listardesc.Show();
-                this.Hide();
-            }
-            else if (e.ClickedItem.Name.Equals("tiendasToolStripMenuItem"))
-            {
-                PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
-                mantTienda.Show();
-                this.Hide();
-            }
-            else if (e.ClickedItem.Name.Equals("productosToolStripMenuItem"))
-            {
-                PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
-                mantProd.Show();
-                this.Hide();
-            }
-            else if (e.ClickedItem.Name.Equals("usuariosToolStripMenuItem"))
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+
+            if (clickedItem.Name.Equals("5"))
             {
                 ListarUsuarios listarUsu = new ListarUsuarios();
                 listarUsu.Show();
                 this.Hide();
             }
-            else if (e.ClickedItem.Name.Equals("ofertasToolStripMenuItem"))
+            else if (clickedItem.Name.Equals("1"))
+            {
+                PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
+                mantTienda.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("2"))
+            {
+                PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
+                mantProd.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("6"))
             {
                 ListarOfertas listarOfertas = new ListarOfertas();
                 listarOfertas.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("4"))
+            {
+                ListarDescuentos listardesc = new ListarDescuentos();
+                listardesc.Show();
                 this.Hide();
             }
         }

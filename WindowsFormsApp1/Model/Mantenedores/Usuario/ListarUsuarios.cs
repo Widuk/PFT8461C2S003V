@@ -9,6 +9,7 @@ using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Negocio.Entities;
+using WindowsFormsApp1.Model.Negocio.SessionBag;
 using WindowsFormsApp1.Model.Negocio.Vo;
 
 namespace WindowsFormsApp1.Model.Mantenedores.Usuario
@@ -31,7 +32,17 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                 listaUsuarios =  new BindingList<UsuarioGridVO>(listaUsuariosFin);
                 this.dgvUsuario.DataSource = listaUsuarios;
 
-                usuariosToolStripMenuItem.ForeColor = Color.Gray;
+                foreach (Funcionalidad func in SesionBag.usuarioSesionado.funcionalidadesUsuario)
+                {
+                    ToolStripMenuItem itm = new ToolStripMenuItem(func.nombre);
+                    itm.Click += new EventHandler(genericHandler);
+                    itm.Name = func.idFuncionalidad.ToString();
+                    if (itm.Name.Equals("5"))
+                    {
+                        itm.ForeColor = Color.Gray;
+                    }
+                    this.menuStrip1.Items.Add(itm);
+                }
             }
             catch(Exception ex)
             {
@@ -143,32 +154,35 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
             }
         }
 
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void genericHandler(object sender, EventArgs e)
         {
-            if (e.ClickedItem.Name.Equals("descuentosToolStripMenuItem"))
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+
+            if (clickedItem.Name.Equals("4"))
             {
-                ListarDescuentos listardesc = new ListarDescuentos();
-                listardesc.Show();
+                ListarDescuentos listarUsu = new ListarDescuentos();
+                listarUsu.Show();
                 this.Hide();
             }
-            else if (e.ClickedItem.Name.Equals("tiendasToolStripMenuItem"))
+            else if (clickedItem.Name.Equals("1"))
             {
                 PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
                 mantTienda.Show();
                 this.Hide();
             }
-            else if (e.ClickedItem.Name.Equals("productosToolStripMenuItem"))
+            else if (clickedItem.Name.Equals("2"))
             {
                 PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
                 mantProd.Show();
                 this.Hide();
-            }else if (e.ClickedItem.Name.Equals("ofertasToolStripMenuItem"))
+            }
+            else if (clickedItem.Name.Equals("6"))
             {
                 ListarOfertas listarOfertas = new ListarOfertas();
                 listarOfertas.Show();
                 this.Hide();
             }
-            else if (e.ClickedItem.Name.Equals("biToolStripMenuItem"))
+            else if (clickedItem.Name.Equals("11"))
             {
                 ArchivosBI mantBI = new ArchivosBI();
                 mantBI.Show();

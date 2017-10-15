@@ -48,6 +48,8 @@ namespace WindowsFormsApp1.Model.Autenticacion
                     {
                         UsuarioDAO usuarioDAO = new UsuarioDAO();
                         ConsumidorDAO consumidorDAO = new ConsumidorDAO();
+                        FuncionalidadDAO funcionalidadDAO = new FuncionalidadDAO();
+
                         Usuario usu = usuarioDAO.getUsuarioPorCodigo(loginResponse.codigoUsuario);
 
                         if(usu.isActivo == 0)
@@ -63,8 +65,11 @@ namespace WindowsFormsApp1.Model.Autenticacion
                             MessageBox.Show("Error: El usuario ingresado pertenece a un Consumidor, no es posible ingresar a la aplicación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+                     
+                        List<Funcionalidad> funcionalidadesUsuario = funcionalidadDAO.getFuncionalidadesPorPerfil(usu.codigoPerfil);
+                        usu.funcionalidadesUsuario = funcionalidadesUsuario;
                         SesionBag.usuarioSesionado = usu;
-                        ListarDescuentos homeView = new ListarDescuentos();
+                        Index homeView = new Index();
                         homeView.Visible = true;
                         this.Visible = false;
                     }

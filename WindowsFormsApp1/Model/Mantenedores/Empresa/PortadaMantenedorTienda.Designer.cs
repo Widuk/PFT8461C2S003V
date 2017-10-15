@@ -31,31 +31,22 @@
             this.dtgTiendas = new System.Windows.Forms.DataGridView();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tiendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.descuentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.descargaArchivoBIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNuevaTienda = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarDescuento = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTiendas)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgTiendas
             // 
             this.dtgTiendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgTiendas.Location = new System.Drawing.Point(164, 201);
+            this.dtgTiendas.Location = new System.Drawing.Point(255, 201);
             this.dtgTiendas.Name = "dtgTiendas";
             this.dtgTiendas.ReadOnly = true;
             this.dtgTiendas.Size = new System.Drawing.Size(645, 264);
@@ -68,7 +59,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(162, 142);
+            this.lblDescripcion.Location = new System.Drawing.Point(253, 126);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(493, 16);
             this.lblDescripcion.TabIndex = 12;
@@ -79,82 +70,11 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(161, 91);
+            this.lblTitulo.Location = new System.Drawing.Point(252, 75);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(198, 20);
             this.lblTitulo.TabIndex = 11;
             this.lblTitulo.Text = "Mantenedor de Tiendas";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 37);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(130, 523);
-            this.panel3.TabIndex = 10;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.menuStrip1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(155, 523);
-            this.panel4.TabIndex = 33;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tiendaToolStripMenuItem,
-            this.productosToolStripMenuItem,
-            this.descuentosToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
-            this.descargaArchivoBIToolStripMenuItem,
-            this.ofertasToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(141, 523);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // tiendaToolStripMenuItem
-            // 
-            this.tiendaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tiendaToolStripMenuItem.Name = "tiendaToolStripMenuItem";
-            this.tiendaToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
-            this.tiendaToolStripMenuItem.Text = "Tiendas";
-            // 
-            // productosToolStripMenuItem
-            // 
-            this.productosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
-            this.productosToolStripMenuItem.Text = "Productos";
-            // 
-            // descuentosToolStripMenuItem
-            // 
-            this.descuentosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descuentosToolStripMenuItem.Name = "descuentosToolStripMenuItem";
-            this.descuentosToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
-            this.descuentosToolStripMenuItem.Text = "Descuentos";
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            // 
-            // descargaArchivoBIToolStripMenuItem
-            // 
-            this.descargaArchivoBIToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descargaArchivoBIToolStripMenuItem.Name = "descargaArchivoBIToolStripMenuItem";
-            this.descargaArchivoBIToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
-            this.descargaArchivoBIToolStripMenuItem.Text = "Descarga archivo BI";
             // 
             // panel1
             // 
@@ -163,7 +83,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel1.Size = new System.Drawing.Size(829, 37);
+            this.panel1.Size = new System.Drawing.Size(937, 37);
             this.panel1.TabIndex = 9;
             // 
             // btnNuevaTienda
@@ -172,7 +92,7 @@
             this.btnNuevaTienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevaTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevaTienda.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaTienda.Location = new System.Drawing.Point(624, 89);
+            this.btnNuevaTienda.Location = new System.Drawing.Point(767, 168);
             this.btnNuevaTienda.Name = "btnNuevaTienda";
             this.btnNuevaTienda.Size = new System.Drawing.Size(133, 27);
             this.btnNuevaTienda.TabIndex = 8;
@@ -186,7 +106,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(537, 481);
+            this.btnModificar.Location = new System.Drawing.Point(628, 481);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnModificar.Size = new System.Drawing.Size(133, 27);
@@ -201,7 +121,7 @@
             this.btnEliminarDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarDescuento.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarDescuento.Location = new System.Drawing.Point(676, 481);
+            this.btnEliminarDescuento.Location = new System.Drawing.Point(767, 481);
             this.btnEliminarDescuento.Name = "btnEliminarDescuento";
             this.btnEliminarDescuento.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnEliminarDescuento.Size = new System.Drawing.Size(133, 27);
@@ -216,7 +136,7 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(398, 481);
+            this.btnActualizar.Location = new System.Drawing.Point(489, 481);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnActualizar.Size = new System.Drawing.Size(133, 27);
@@ -229,22 +149,39 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(130, 523);
+            this.panel2.Location = new System.Drawing.Point(0, 523);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(699, 37);
+            this.panel2.Size = new System.Drawing.Size(937, 37);
             this.panel2.TabIndex = 21;
             // 
-            // ofertasToolStripMenuItem
+            // panel3
             // 
-            this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
-            this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(128, 19);
-            this.ofertasToolStripMenuItem.Text = "Ofertas";
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.menuStrip1);
+            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(24, 72);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(178, 412);
+            this.panel3.TabIndex = 22;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(30, 412);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // PortadaMantenedorTienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 560);
+            this.ClientSize = new System.Drawing.Size(937, 560);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminarDescuento);
@@ -252,7 +189,6 @@
             this.Controls.Add(this.dtgTiendas);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNuevaTienda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -262,10 +198,7 @@
             this.Load += new System.EventHandler(this.Tienda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgTiendas)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,7 +207,6 @@
         #endregion
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnNuevaTienda;
         public System.Windows.Forms.DataGridView dtgTiendas;
@@ -282,13 +214,7 @@
         private System.Windows.Forms.Button btnEliminarDescuento;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem tiendaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem descuentosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem descargaArchivoBIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
     }
 }
