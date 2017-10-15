@@ -32,7 +32,7 @@ namespace WindowsFormsApp1.Controler.DAO
                     oferta.idOferta = long.Parse(reader["IDOFERTA"].ToString());
                     oferta.fechaInicio = DateTime.Parse(reader["FECHAINICIO"].ToString());
                     oferta.fechaFin = DateTime.Parse(reader["FECHAFIN"].ToString());
-                    oferta.rutaFoto = reader["RUTAFOTO"].ToString();
+                    oferta.fotografia = (byte[])reader["FOTOGRAFIA"];
                     oferta.minimoProductos = int.Parse(reader["MINIMOPRODUCTOS"].ToString());
                     oferta.maximoProductos = int.Parse(reader["MAXIMOPRODUCTOS"].ToString());
                     oferta.isPublicada = short.Parse(reader["ISPUBLICADA"].ToString());
@@ -106,7 +106,7 @@ namespace WindowsFormsApp1.Controler.DAO
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("FECHAINICIOPARAM", OracleDbType.Date).Value = oferta.fechaInicio;
                 cmd.Parameters.Add("FECHAFINPARAM", OracleDbType.Date).Value = oferta.fechaFin;
-                cmd.Parameters.Add("RUTAFOTOPARAM", OracleDbType.Varchar2).Value = oferta.rutaFoto;
+                cmd.Parameters.Add("FOTOGRAFIAPARAM", OracleDbType.Blob).Value = oferta.fotografia;
                 cmd.Parameters.Add("MINIMOPRODUCTOSPARAM", OracleDbType.Int32).Value = (int)oferta.minimoProductos;
                 cmd.Parameters.Add("MAXIMOPRODUCTOSPARAM", OracleDbType.Int32).Value = (int)oferta.maximoProductos;
                 cmd.Parameters.Add("ISPUBLICADAPARAM", OracleDbType.Int32).Value = (int)oferta.isPublicada;
@@ -156,7 +156,7 @@ namespace WindowsFormsApp1.Controler.DAO
             try
             {
                 OracleCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT * FROM RL_OFERTA_TIENDA WHERE OFERTA_IDOFERTA = :idOFerta";
+                cmd.CommandText = "SELECT ot.OFERTA_IDOFERTA, ot.TIENDA_IDTIENDA, t.NOMBRE FROM RL_OFERTA_TIENDA ot INNER JOIN TIENDA t ON ot.TIENDA_IDTIENDA = t.IDTIENDA WHERE OFERTA_IDOFERTA = :idOFerta";
                 cmd.Parameters.Add(":idOferta", OracleDbType.Int32).Value = idOFerta;
                 OracleDataReader reader = cmd.ExecuteReader();
 
@@ -165,6 +165,7 @@ namespace WindowsFormsApp1.Controler.DAO
                     RlOFertaTienda rlOfertaTienda = new RlOFertaTienda();
                     rlOfertaTienda.idOFerta = long.Parse(reader["OFERTA_IDOFERTA"].ToString());
                     rlOfertaTienda.idTienda = long.Parse(reader["TIENDA_IDTIENDA"].ToString());
+                    rlOfertaTienda.nombreTienda = reader["NOMBRE"].ToString();
                     listaOfertas.Add(rlOfertaTienda);
                 }
 
@@ -201,7 +202,7 @@ namespace WindowsFormsApp1.Controler.DAO
                     oferta.idOferta = long.Parse(reader["IDOFERTA"].ToString());
                     oferta.fechaInicio = DateTime.Parse(reader["FECHAINICIO"].ToString());
                     oferta.fechaFin = DateTime.Parse(reader["FECHAFIN"].ToString());
-                    oferta.rutaFoto = reader["RUTAFOTO"].ToString();
+                    oferta.fotografia = (byte[])reader["FOTOGRAFIA"];
                     oferta.minimoProductos = int.Parse(reader["MINIMOPRODUCTOS"].ToString());
                     oferta.maximoProductos = int.Parse(reader["MAXIMOPRODUCTOS"].ToString());
                     oferta.isPublicada = short.Parse(reader["ISPUBLICADA"].ToString());
@@ -236,7 +237,7 @@ namespace WindowsFormsApp1.Controler.DAO
                 cmd.Parameters.Add("IDOFERTAPARAM", OracleDbType.Int32).Value = oferta.idOferta;
                 cmd.Parameters.Add("FECHAINICIOPARAM", OracleDbType.Date).Value = oferta.fechaInicio;
                 cmd.Parameters.Add("FECHAFINPARAM", OracleDbType.Date).Value = oferta.fechaFin;
-                cmd.Parameters.Add("RUTAFOTOPARAM", OracleDbType.Varchar2).Value = oferta.rutaFoto;
+                cmd.Parameters.Add("FOTOGRAFIAPARAM", OracleDbType.Blob).Value = oferta.fotografia;
                 cmd.Parameters.Add("MINIMOPRODUCTOSPARAM", OracleDbType.Int32).Value = (int)oferta.minimoProductos;
                 cmd.Parameters.Add("MAXIMOPRODUCTOSPARAM", OracleDbType.Int32).Value = (int)oferta.maximoProductos;
                 //cmd.Parameters.Add("ISPUBLICADAPARAM", OracleDbType.Int32).Value = (int)oferta.isPublicada;

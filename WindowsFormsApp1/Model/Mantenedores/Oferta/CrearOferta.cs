@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
 {
     public partial class CrearOferta : Form
     {
+        //private byte[] foto;
         public CrearOferta()
         {
             InitializeComponent();
@@ -106,7 +108,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                     nuevaOferta.isPublicada = 0;
                     nuevaOferta.minimoProductos = (int)this.nudCantMinProd.Value;
                     nuevaOferta.maximoProductos = (int)this.nudCantMaxProd.Value;
-                    nuevaOferta.rutaFoto = Constantes.rutaBaseFotos + this.txtUrlImagen.Text.Split('\\')[this.txtUrlImagen.Text.Split('\\').Length - 1];
+                    FileStream fs = new FileStream(this.txtUrlImagen.Text, FileMode.Open, FileAccess.Read);
+                    byte[] blobValue = new byte[fs.Length];
+                    fs.Read(blobValue, 0, System.Convert.ToInt32(fs.Length));
+                    fs.Close();
+                    nuevaOferta.fotografia = blobValue;
+
 
                     List<long> listaTiendas = new List<long>();
 

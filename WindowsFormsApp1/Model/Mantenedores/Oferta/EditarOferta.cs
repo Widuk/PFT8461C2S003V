@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,13 +45,19 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                 this.dtpFechaFin.Value = this.ofertaSeleccionada.fechaFin;
                 this.dtpFechaInicio.Value = this.ofertaSeleccionada.fechaInicio;
                 this.cbxProducto.SelectedValue = this.ofertaSeleccionada.idProducto;
-                this.txtUrlImagen.Text = this.ofertaSeleccionada.rutaFoto;
+                //this.txtUrlImagen.Text = this.ofertaSeleccionada.rutaFoto;
                 this.nudCantMinProd.Value = this.ofertaSeleccionada.minimoProductos;
                 this.nudCantMaxProd.Value = this.ofertaSeleccionada.maximoProductos;
+                this.pictureBox1.Image = Image.FromStream(new MemoryStream(this.ofertaSeleccionada.fotografia));
 
                 foreach(RlOFertaTienda rlofer in listaOfertas)
                 {
-                    //this.chkListBoxTiendas.SetItemChecked
+                    for (var i = 0; i < this.chkListBoxTiendas.Items.Count; i++)
+                    {
+                        DataRowView item = (DataRowView)chkListBoxTiendas.Items[i];
+                        chkListBoxTiendas.SetItemChecked(i, rlofer.nombreTienda.Trim().Equals(((DataRowView)item).Row["NOMBRE"].ToString()));
+
+                    }
                 }
 
             }
@@ -90,7 +97,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                 {
                     MessageBox.Show("Error: La fecha de inicio debe ser anterior a la fecha de fin de la Oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (this.txtUrlImagen.Text == null || this.txtUrlImagen.Text.Trim().Equals(string.Empty))
+                else if ((this.txtUrlImagen.Text == null || this.txtUrlImagen.Text.Trim().Equals(string.Empty)) && this.pictureBox1.Image == null)
                 {
                     MessageBox.Show("Error: Se debe adjuntar una imagen a la Oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -125,8 +132,19 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                     nuevaOferta.isPublicada = 0;
                     nuevaOferta.minimoProductos = (int)this.nudCantMinProd.Value;
                     nuevaOferta.maximoProductos = (int)this.nudCantMaxProd.Value;
-                    nuevaOferta.rutaFoto = Constantes.rutaBaseFotos + this.txtUrlImagen.Text.Split('\\')[this.txtUrlImagen.Text.Split('\\').Length - 1];
                     nuevaOferta.idOferta = this.ofertaSeleccionada.idOferta;
+
+                    if(txtUrlImagen.Text == null || txtUrlImagen.Text.Equals(string.Empty))
+                    {
+                        nuevaOferta.fotografia = this.ofertaSeleccionada.fotografia;
+                    }else
+                    {
+                        FileStream fs = new FileStream(this.txtUrlImagen.Text, FileMode.Open, FileAccess.Read);
+                        byte[] blobValue = new byte[fs.Length];
+                        fs.Read(blobValue, 0, System.Convert.ToInt32(fs.Length));
+                        fs.Close();
+                        nuevaOferta.fotografia = blobValue;
+                    }
 
                     List<long> listaTiendas = new List<long>();
 
@@ -156,6 +174,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
             {
 
             }
+        }
+
+        private void btnCancelarTienda_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
