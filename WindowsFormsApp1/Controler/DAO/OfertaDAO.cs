@@ -276,5 +276,61 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
+
+        public void publicarOferta(long codigoOferta)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "update Oferta set ispublicada = 1 WHERE IDOFERTA = :codigoOferta";
+                cmd.Parameters.Add(":codigoOferta", OracleDbType.Int32).Value = codigoOferta;
+                cmd.ExecuteReader();
+                cmd.Dispose();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        public Oferta ofertaPublicada(long codigoOferta)
+        {
+            OracleConnection conn = Conexion.Connect();
+            Oferta oferta = null;
+            try
+            {
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Oferta WHERE IDOFERTA = :codigoOferta";
+                cmd.Parameters.Add(":codigoOferta", OracleDbType.Int32).Value = codigoOferta;
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    oferta = new Oferta();
+                    oferta.isPublicada = short.Parse(reader["ISPUBLICADA"].ToString());
+                }
+
+                cmd.Dispose();
+                reader.Close();
+                reader.Dispose();
+
+                return oferta;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }

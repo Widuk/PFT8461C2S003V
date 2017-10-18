@@ -156,13 +156,7 @@ namespace WindowsFormsApp1
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-            if (clickedItem.Name.Equals("5"))
-            {
-                ListarUsuarios listarUsu = new ListarUsuarios();
-                listarUsu.Show();
-                this.Hide();
-            }
-            else if (clickedItem.Name.Equals("1"))
+            if (clickedItem.Name.Equals("1"))
             {
                 PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
                 mantTienda.Show();
@@ -172,6 +166,12 @@ namespace WindowsFormsApp1
             {
                 ListarDescuentos listarDesc = new ListarDescuentos();
                 listarDesc.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("5"))
+            {
+                ListarUsuarios listarUsu = new ListarUsuarios();
+                listarUsu.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("6"))

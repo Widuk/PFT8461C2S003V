@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Mantenedores.BI;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
+using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.SessionBag;
@@ -111,10 +112,16 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-            if (clickedItem.Name.Equals("5"))
+            if (clickedItem.Name.Equals("1"))
             {
-                ListarUsuarios listarUsu = new ListarUsuarios();
-                listarUsu.Show();
+                PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
+                mantTienda.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("2"))
+            {
+                PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
+                mantProd.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("4"))
@@ -123,10 +130,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                 listarDesc.Show();
                 this.Hide();
             }
-            else if (clickedItem.Name.Equals("2"))
+            if (clickedItem.Name.Equals("5"))
             {
-                PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
-                mantProd.Show();
+                ListarUsuarios listarUsu = new ListarUsuarios();
+                listarUsu.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("6"))
@@ -190,6 +197,39 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
             catch (Exception ex)
             {
                 MessageBox.Show("Error grave editando Oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPublicar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dgvOferta.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Error: Debe seleccionar una oferta a publicar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    OfertaDAO ofertaDao = new OfertaDAO();
+                    WindowsFormsApp1.Model.Negocio.Entities.Oferta oferta = ofertaDao.getOfertaByCodigo(long.Parse(this.dgvOferta.SelectedRows[0].Cells[0].Value.ToString()));
+                    WindowsFormsApp1.Model.Negocio.Entities.Oferta ofertaPublicada = ofertaDao.ofertaPublicada(oferta.isPublicada);
+                    if (ofertaPublicada.isPublicada == 1)
+                    {
+                        MessageBox.Show("La oferta ya se encuentra publicada.");
+                        return;
+                    } else {
+                    DialogResult result = MessageBox.Show("¿Está seguro que desea publicar la oferta " + oferta + "?", "Publicar " + oferta, MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        ofertaDao.publicarOferta(oferta.idOferta);
+                        MessageBox.Show("Oferta publicada exitosamente.");
+                    }
+                }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error grave editando usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

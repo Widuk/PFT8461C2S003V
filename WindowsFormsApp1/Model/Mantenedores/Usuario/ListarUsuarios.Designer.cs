@@ -84,6 +84,7 @@
             this.dgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuario.Size = new System.Drawing.Size(641, 257);
             this.dgvUsuario.TabIndex = 24;
+            this.dgvUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellContentClick);
             this.dgvUsuario.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvUsuario_DataBindingComplete);
             // 
             // lblDescripcion

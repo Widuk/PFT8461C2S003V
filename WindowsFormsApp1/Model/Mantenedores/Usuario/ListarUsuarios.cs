@@ -158,13 +158,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-            if (clickedItem.Name.Equals("4"))
-            {
-                ListarDescuentos listarUsu = new ListarDescuentos();
-                listarUsu.Show();
-                this.Hide();
-            }
-            else if (clickedItem.Name.Equals("1"))
+            if (clickedItem.Name.Equals("1"))
             {
                 PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
                 mantTienda.Show();
@@ -174,6 +168,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
             {
                 PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
                 mantProd.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("4"))
+            {
+                ListarDescuentos listarUsu = new ListarDescuentos();
+                listarUsu.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("6"))
@@ -188,6 +188,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                 mantBI.Show();
                 this.Hide();
             }
+        }
+
+        private void dgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            return;
         }
     }
 }

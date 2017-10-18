@@ -38,6 +38,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnPublicar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOferta)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(756, 473);
+            this.btnModificar.Location = new System.Drawing.Point(608, 471);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnModificar.Size = new System.Drawing.Size(133, 27);
@@ -63,7 +64,7 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(608, 473);
+            this.btnActualizar.Location = new System.Drawing.Point(460, 471);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnActualizar.Size = new System.Drawing.Size(133, 27);
@@ -81,6 +82,7 @@
             this.dgvOferta.Location = new System.Drawing.Point(248, 193);
             this.dgvOferta.MultiSelect = false;
             this.dgvOferta.Name = "dgvOferta";
+            this.dgvOferta.ReadOnly = true;
             this.dgvOferta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOferta.Size = new System.Drawing.Size(641, 257);
             this.dgvOferta.TabIndex = 34;
@@ -161,11 +163,27 @@
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // btnPublicar
+            // 
+            this.btnPublicar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnPublicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPublicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPublicar.ForeColor = System.Drawing.Color.White;
+            this.btnPublicar.Location = new System.Drawing.Point(756, 471);
+            this.btnPublicar.Name = "btnPublicar";
+            this.btnPublicar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnPublicar.Size = new System.Drawing.Size(133, 27);
+            this.btnPublicar.TabIndex = 38;
+            this.btnPublicar.Text = "Publicar";
+            this.btnPublicar.UseVisualStyleBackColor = false;
+            this.btnPublicar.Click += new System.EventHandler(this.btnPublicar_Click);
+            // 
             // ListarOfertas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 550);
+            this.Controls.Add(this.btnPublicar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnActualizar);
@@ -199,5 +217,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Button btnPublicar;
     }
 }

@@ -26,13 +26,29 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
 
         private void btnDescarga_Click(object sender, EventArgs e)
         {
+            CargaTiendas();
             try
             {
                 if (listaTienda.Count == 0)
                 {
                     MessageBox.Show("No existen tiendas para descargar.");
                     return;
-                }                
+                }
+
+                try
+                {
+                    FolderBrowserDialog pathDescargaArchivo = new FolderBrowserDialog();
+                    pathDescargaArchivo.Description = "Seleccione donde quiere descargar el archivo";
+                    if (pathDescargaArchivo.ShowDialog() == DialogResult.OK)
+                    {
+                        MessageBox.Show("Usted seleccionó: " + pathDescargaArchivo.SelectedPath);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error grave Cargando imagen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 String csvpath = "C:\\Users\\"+ Environment.UserName + "\\Desktop\\Lista_de_tiendas.csv";
 
                 if (File.Exists(csvpath))
@@ -71,8 +87,6 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
 
         private void ArchivosBI_Load(object sender, EventArgs e)
         {
-            TiendaDAO Tiendas = new TiendaDAO();
-            listaTienda = Tiendas.lt();
             foreach (Funcionalidad func in SesionBag.usuarioSesionado.funcionalidadesUsuario)
             {
                 ToolStripMenuItem itm = new ToolStripMenuItem(func.nombre);
@@ -86,17 +100,24 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
             }
         }
 
+        private void CargaTiendas()
+        {
+            try
+            {
+                TiendaDAO Tiendas = new TiendaDAO();
+                listaTienda = Tiendas.lt();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al listarlas tiendas. Favor comunique a soporte.");
+                return;
+            }
+        }
+
         private void genericHandler(object sender, EventArgs e)
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-            if (clickedItem.Name.Equals("5"))
-            {
-                ListarUsuarios listarUsu = new ListarUsuarios();
-                listarUsu.Show();
-                this.Hide();
-            }
-            else if (clickedItem.Name.Equals("1"))
+            if (clickedItem.Name.Equals("1"))
             {
                 PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
                 mantTienda.Show();
@@ -108,16 +129,22 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
                 mantProd.Show();
                 this.Hide();
             }
-            else if (clickedItem.Name.Equals("6"))
-            {
-                ListarOfertas listarOfertas = new ListarOfertas();
-                listarOfertas.Show();
-                this.Hide();
-            }
             else if (clickedItem.Name.Equals("4"))
             {
                 ListarDescuentos listardesc = new ListarDescuentos();
                 listardesc.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("5"))
+            {
+                ListarUsuarios listarUsu = new ListarUsuarios();
+                listarUsu.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("6"))
+            {
+                ListarOfertas listarOfertas = new ListarOfertas();
+                listarOfertas.Show();
                 this.Hide();
             }
         }

@@ -137,10 +137,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-            if (clickedItem.Name.Equals("5"))
+            if (clickedItem.Name.Equals("2"))
             {
-                ListarUsuarios listarUsu = new ListarUsuarios();
-                listarUsu.Show();
+                PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
+                mantProd.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("4"))
@@ -149,12 +149,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
                 listarDesc.Show();
                 this.Hide();
             }
-            else if (clickedItem.Name.Equals("2"))
+            else if (clickedItem.Name.Equals("5"))
             {
-                PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
-                mantProd.Show();
+                ListarUsuarios listarUsu = new ListarUsuarios();
+                listarUsu.Show();
                 this.Hide();
-            }
+            }            
             else if (clickedItem.Name.Equals("6"))
             {
                 ListarOfertas listarOfertas = new ListarOfertas();
@@ -178,5 +178,6 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             return;
         }
+        
     }
 }
