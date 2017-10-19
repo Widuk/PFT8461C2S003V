@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
                     Int16 j;
                     if (chDisponiblidad.Checked == true) { j = 1; } else { j = 0; }; //2X1
                     Int16 i;
-                    if (cmbEstado.Text == "Activo") { i = 1; } else { i = 0; };         //estado
+                    if (cmbEstado.Text.Equals("Activo")) { i = 1; } else { i = 0; };         //estado
 
                     ProductoDAO prodDAO = new ProductoDAO();
                     Boolean skuExistente = prodDAO.buscaProductoPorSku(txtSku.Text);
@@ -137,7 +137,7 @@ namespace WindowsFormsApp1
             for(int i =0;i < algo.Count;i++)
             {
                 s = algo[i];
-                cmbTienda.CheckBoxItems["" + s + " [0]"].Checked = !cmbTienda.CheckBoxItems["" + s + " [0]"].Checked;
+                cmbTienda.CheckBoxItems[s].Checked = !cmbTienda.CheckBoxItems[s].Checked;
             }
 
             cmbRubro.SelectedValue = prod.idRubro;    //ACTIVO
@@ -164,7 +164,7 @@ namespace WindowsFormsApp1
             TiendaDAO listaTiendaDT = new TiendaDAO();
             cmbTienda.DataSource = listaTiendaDT.ListarTiendaDT();
             DataTable DT = listaTiendaDT.ListarTiendaDT();
-            cmbTienda.DataSource = new ListSelectionWrapper<DataRow>(DT.Rows, true, "NOMBRE");
+            cmbTienda.DataSource = new ListSelectionWrapper<DataRow>(DT.Rows, false, "NOMBRE");
             cmbTienda.DisplayMemberSingleItem = "Name";
             cmbTienda.DisplayMember = "NameConcatenated";
             cmbTienda.ValueMember = "Selected";
