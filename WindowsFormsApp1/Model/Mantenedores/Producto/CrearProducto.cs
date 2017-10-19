@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
             TiendaDAO listaTiendaDT = new TiendaDAO();
             cmbTienda.DataSource = listaTiendaDT.ListarTiendaDT();
             DataTable DT = listaTiendaDT.ListarTiendaDT();
-            cmbTienda.DataSource = new ListSelectionWrapper<DataRow>(DT.Rows,true, "NOMBRE");
+            cmbTienda.DataSource = new ListSelectionWrapper<DataRow>(DT.Rows,false, "NOMBRE");
             cmbTienda.DisplayMemberSingleItem = "Name";
             cmbTienda.DisplayMember = "NameConcatenated";
             cmbTienda.ValueMember = "Selected";
@@ -182,7 +182,7 @@ namespace WindowsFormsApp1
                         if (cmbTienda.CheckBoxItems[x].Checked == true)
                         {
                             s = cmbTienda.CheckBoxItems[x].Text;
-                            s = s.Replace(" [0]", "");
+                            //s = s.Replace(" [0]", "");
                             arreglo[cont] = s;
                             cont = cont + 1;
                         }
@@ -193,11 +193,11 @@ namespace WindowsFormsApp1
                     String nombre = txtNombre.Text.ToUpper();
                     String precio = txtPrecio.Text;
                     sbyte activo = 0;
-                    if (cmbActivo.Text.Equals("Activo")) { activo = 1; activo = 0; }
+                    if (cmbActivo.Text.Equals("Activo")) { activo = 1; } else { activo = 0; }
                     Int16 rubro = Int16.Parse(cmbRubro.SelectedValue.ToString());
                     String descripcion = txtDescripcion.Text;
                     String promocion = cbPermitePromocion.Checked.ToString();
-                    if (promocion == "True") { promocion = "1"; } else { promocion = "0"; }
+                    if (promocion.Equals("True")) { promocion = "1"; } else { promocion = "0"; }
 
                     Boolean skuExistente = prodDao.buscaProductoPorSku(sku);
                     if (!skuExistente)

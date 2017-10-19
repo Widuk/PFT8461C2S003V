@@ -183,14 +183,11 @@
             checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cmbTienda.CheckBoxProperties = checkBoxProperties1;
             this.cmbTienda.DisplayMemberSingleItem = "";
-            this.cmbTienda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmbTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.cmbTienda.ForeColor = System.Drawing.SystemColors.GrayText;
             this.cmbTienda.FormattingEnabled = true;
-            this.cmbTienda.Location = new System.Drawing.Point(16, 200);
+            this.cmbTienda.Location = new System.Drawing.Point(16, 201);
             this.cmbTienda.Name = "cmbTienda";
-            this.cmbTienda.Size = new System.Drawing.Size(285, 24);
-            this.cmbTienda.TabIndex = 5;
+            this.cmbTienda.Size = new System.Drawing.Size(285, 21);
+            this.cmbTienda.TabIndex = 11;
             // 
             // CrearProducto
             // 

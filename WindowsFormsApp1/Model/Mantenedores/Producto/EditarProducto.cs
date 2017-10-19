@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
                         if (cmbTienda.CheckBoxItems[x].Checked == true)
                         {
                             s = cmbTienda.CheckBoxItems[x].Text;
-                            s = s.Replace(" [0]", "");
+                            //s = s.Replace(" [0]", "");
                             arreglo[cont] = s;
                             cont = cont + 1;
                         }

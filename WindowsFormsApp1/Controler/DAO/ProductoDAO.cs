@@ -257,7 +257,7 @@ namespace WindowsFormsApp1.Controler.DAO
             {
                 int id = 0;
                 OracleCommand command = conn.CreateCommand();
-                command.CommandText = "SELECT IDPRODUCTO FROM PRODUCTO WHERE isactivo = 1 and NOMBRE = '" + nombreProducto + "' and SKU = '"+ sku + "'";
+                command.CommandText = "SELECT IDPRODUCTO FROM PRODUCTO WHERE isactivo = 1 and NOMBRE = '" + nombreProducto.ToUpper() + "' and SKU = '"+ sku.ToUpper() + "'";
                 OracleDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
@@ -285,7 +285,7 @@ namespace WindowsFormsApp1.Controler.DAO
             OracleConnection conn = Conexion.Connect();
             try
             {
-                String skuproducto = String.Empty;
+                String skuproducto = string.Empty;
                 OracleCommand command = conn.CreateCommand();
                 command.CommandText = "SELECT IDPRODUCTO FROM PRODUCTO WHERE isactivo = 1 and SKU = '" + sku + "'";
                 OracleDataReader dr = command.ExecuteReader();
