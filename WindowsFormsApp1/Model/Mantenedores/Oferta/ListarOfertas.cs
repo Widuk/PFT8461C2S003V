@@ -212,24 +212,25 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                 {
                     OfertaDAO ofertaDao = new OfertaDAO();
                     WindowsFormsApp1.Model.Negocio.Entities.Oferta oferta = ofertaDao.getOfertaByCodigo(long.Parse(this.dgvOferta.SelectedRows[0].Cells[0].Value.ToString()));
-                    WindowsFormsApp1.Model.Negocio.Entities.Oferta ofertaPublicada = ofertaDao.ofertaPublicada(oferta.isPublicada);
-                    if (ofertaPublicada.isPublicada == 1)
+                    if (oferta.isPublicada.Equals(1))
                     {
                         MessageBox.Show("La oferta ya se encuentra publicada.");
                         return;
-                    } else {
-                    DialogResult result = MessageBox.Show("¿Está seguro que desea publicar la oferta " + oferta + "?", "Publicar " + oferta, MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        ofertaDao.publicarOferta(oferta.idOferta);
-                        MessageBox.Show("Oferta publicada exitosamente.");
                     }
-                }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Está seguro que desea publicar la oferta seleccionada?", "Publicar " + oferta, MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            ofertaDao.publicarOferta(oferta.idOferta);
+                            MessageBox.Show("Oferta publicada exitosamente.");
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error grave editando usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error grave publicando oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
