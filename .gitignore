@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/ModelingProject1
+/WindowsFormsApp1/ClassDiagram1.cd
+/WindowsFormsApp1/Delegate1.cs

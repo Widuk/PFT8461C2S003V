@@ -47,9 +47,10 @@
             this.cbxProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxProducto.ForeColor = System.Drawing.Color.Black;
             this.cbxProducto.FormattingEnabled = true;
-            this.cbxProducto.Location = new System.Drawing.Point(44, 211);
+            this.cbxProducto.Location = new System.Drawing.Point(66, 325);
+            this.cbxProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxProducto.Name = "cbxProducto";
-            this.cbxProducto.Size = new System.Drawing.Size(285, 24);
+            this.cbxProducto.Size = new System.Drawing.Size(426, 33);
             this.cbxProducto.TabIndex = 25;
             // 
             // btnCancelarProducto
@@ -58,9 +59,10 @@
             this.btnCancelarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarProducto.Location = new System.Drawing.Point(44, 370);
+            this.btnCancelarProducto.Location = new System.Drawing.Point(66, 569);
+            this.btnCancelarProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelarProducto.Name = "btnCancelarProducto";
-            this.btnCancelarProducto.Size = new System.Drawing.Size(121, 38);
+            this.btnCancelarProducto.Size = new System.Drawing.Size(182, 58);
             this.btnCancelarProducto.TabIndex = 23;
             this.btnCancelarProducto.Text = "Cancelar";
             this.btnCancelarProducto.UseVisualStyleBackColor = false;
@@ -72,9 +74,10 @@
             this.btnCrearProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearProducto.ForeColor = System.Drawing.Color.White;
-            this.btnCrearProducto.Location = new System.Drawing.Point(208, 370);
+            this.btnCrearProducto.Location = new System.Drawing.Point(312, 569);
+            this.btnCrearProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrearProducto.Name = "btnCrearProducto";
-            this.btnCrearProducto.Size = new System.Drawing.Size(121, 38);
+            this.btnCrearProducto.Size = new System.Drawing.Size(182, 58);
             this.btnCrearProducto.TabIndex = 22;
             this.btnCrearProducto.Text = "Crear Descuento";
             this.btnCrearProducto.UseVisualStyleBackColor = false;
@@ -84,9 +87,10 @@
             // 
             this.chkDescuentoPorcentaje.AutoSize = true;
             this.chkDescuentoPorcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDescuentoPorcentaje.Location = new System.Drawing.Point(44, 241);
+            this.chkDescuentoPorcentaje.Location = new System.Drawing.Point(66, 371);
+            this.chkDescuentoPorcentaje.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkDescuentoPorcentaje.Name = "chkDescuentoPorcentaje";
-            this.chkDescuentoPorcentaje.Size = new System.Drawing.Size(195, 20);
+            this.chkDescuentoPorcentaje.Size = new System.Drawing.Size(282, 29);
             this.chkDescuentoPorcentaje.TabIndex = 21;
             this.chkDescuentoPorcentaje.Text = "Es descuento en Porcentaje";
             this.chkDescuentoPorcentaje.UseVisualStyleBackColor = true;
@@ -96,10 +100,11 @@
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.ForeColor = System.Drawing.Color.Gray;
-            this.txtDescripcion.Location = new System.Drawing.Point(44, 132);
+            this.txtDescripcion.Location = new System.Drawing.Point(66, 203);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(285, 73);
+            this.txtDescripcion.Size = new System.Drawing.Size(426, 110);
             this.txtDescripcion.TabIndex = 17;
             this.txtDescripcion.Text = "Descripción";
             this.txtDescripcion.Enter += new System.EventHandler(this.txtDescripcion_Enter);
@@ -109,10 +114,11 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.ForeColor = System.Drawing.Color.Gray;
-            this.txtNombre.Location = new System.Drawing.Point(44, 104);
+            this.txtNombre.Location = new System.Drawing.Point(66, 160);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtNombre.Size = new System.Drawing.Size(285, 22);
+            this.txtNombre.Size = new System.Drawing.Size(426, 30);
             this.txtNombre.TabIndex = 16;
             this.txtNombre.Text = "Nombre";
             this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
@@ -122,9 +128,10 @@
             // 
             this.lblDescripcionCrear.AutoSize = true;
             this.lblDescripcionCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcionCrear.Location = new System.Drawing.Point(41, 56);
+            this.lblDescripcionCrear.Location = new System.Drawing.Point(62, 86);
+            this.lblDescripcionCrear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcionCrear.Name = "lblDescripcionCrear";
-            this.lblDescripcionCrear.Size = new System.Drawing.Size(281, 32);
+            this.lblDescripcionCrear.Size = new System.Drawing.Size(404, 50);
             this.lblDescripcionCrear.TabIndex = 15;
             this.lblDescripcionCrear.Text = "Ingrese los datos solicitados para agregar un \r\nnuevo descuento al sistema:";
             // 
@@ -132,9 +139,10 @@
             // 
             this.lblTituloCrear.AutoSize = true;
             this.lblTituloCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloCrear.Location = new System.Drawing.Point(40, 25);
+            this.lblTituloCrear.Location = new System.Drawing.Point(60, 38);
+            this.lblTituloCrear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTituloCrear.Name = "lblTituloCrear";
-            this.lblTituloCrear.Size = new System.Drawing.Size(151, 20);
+            this.lblTituloCrear.Size = new System.Drawing.Size(219, 29);
             this.lblTituloCrear.TabIndex = 14;
             this.lblTituloCrear.Text = "Nuevo Descuento";
             // 
@@ -142,10 +150,11 @@
             // 
             this.txtPorcentajeDescuento.Enabled = false;
             this.txtPorcentajeDescuento.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtPorcentajeDescuento.Location = new System.Drawing.Point(44, 267);
+            this.txtPorcentajeDescuento.Location = new System.Drawing.Point(66, 411);
+            this.txtPorcentajeDescuento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPorcentajeDescuento.Multiline = true;
             this.txtPorcentajeDescuento.Name = "txtPorcentajeDescuento";
-            this.txtPorcentajeDescuento.Size = new System.Drawing.Size(285, 22);
+            this.txtPorcentajeDescuento.Size = new System.Drawing.Size(426, 32);
             this.txtPorcentajeDescuento.TabIndex = 26;
             this.txtPorcentajeDescuento.Text = "0%";
             this.txtPorcentajeDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentajeDescuento_KeyPress);
@@ -154,9 +163,10 @@
             // 
             this.chkDescuentoPrecio.AutoSize = true;
             this.chkDescuentoPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.chkDescuentoPrecio.Location = new System.Drawing.Point(44, 296);
+            this.chkDescuentoPrecio.Location = new System.Drawing.Point(66, 455);
+            this.chkDescuentoPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkDescuentoPrecio.Name = "chkDescuentoPrecio";
-            this.chkDescuentoPrecio.Size = new System.Drawing.Size(169, 20);
+            this.chkDescuentoPrecio.Size = new System.Drawing.Size(244, 29);
             this.chkDescuentoPrecio.TabIndex = 27;
             this.chkDescuentoPrecio.Text = "Es descuento en Precio";
             this.chkDescuentoPrecio.UseVisualStyleBackColor = true;
@@ -166,18 +176,20 @@
             // 
             this.txtPrecioDescuento.Enabled = false;
             this.txtPrecioDescuento.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtPrecioDescuento.Location = new System.Drawing.Point(44, 323);
+            this.txtPrecioDescuento.Location = new System.Drawing.Point(66, 497);
+            this.txtPrecioDescuento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrecioDescuento.Name = "txtPrecioDescuento";
-            this.txtPrecioDescuento.Size = new System.Drawing.Size(285, 20);
+            this.txtPrecioDescuento.Size = new System.Drawing.Size(426, 26);
             this.txtPrecioDescuento.TabIndex = 28;
             this.txtPrecioDescuento.Text = "$0";
             this.txtPrecioDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioDescuento_KeyPress);
             // 
             // CrearDescuento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 443);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(560, 682);
             this.Controls.Add(this.txtPrecioDescuento);
             this.Controls.Add(this.chkDescuentoPrecio);
             this.Controls.Add(this.txtPorcentajeDescuento);
@@ -190,6 +202,7 @@
             this.Controls.Add(this.lblDescripcionCrear);
             this.Controls.Add(this.lblTituloCrear);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CrearDescuento";

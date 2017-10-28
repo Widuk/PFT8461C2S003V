@@ -46,9 +46,10 @@
             this.btnCancelarTienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarTienda.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarTienda.Location = new System.Drawing.Point(62, 332);
+            this.btnCancelarTienda.Location = new System.Drawing.Point(93, 511);
+            this.btnCancelarTienda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelarTienda.Name = "btnCancelarTienda";
-            this.btnCancelarTienda.Size = new System.Drawing.Size(121, 38);
+            this.btnCancelarTienda.Size = new System.Drawing.Size(182, 58);
             this.btnCancelarTienda.TabIndex = 23;
             this.btnCancelarTienda.Text = "Cancelar";
             this.btnCancelarTienda.UseVisualStyleBackColor = false;
@@ -60,9 +61,10 @@
             this.btnCrearTienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearTienda.ForeColor = System.Drawing.Color.White;
-            this.btnCrearTienda.Location = new System.Drawing.Point(226, 332);
+            this.btnCrearTienda.Location = new System.Drawing.Point(339, 511);
+            this.btnCrearTienda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrearTienda.Name = "btnCrearTienda";
-            this.btnCrearTienda.Size = new System.Drawing.Size(121, 38);
+            this.btnCrearTienda.Size = new System.Drawing.Size(182, 58);
             this.btnCrearTienda.TabIndex = 22;
             this.btnCrearTienda.Text = "Crear tienda";
             this.btnCrearTienda.UseVisualStyleBackColor = false;
@@ -74,18 +76,20 @@
             this.cmbCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCiudad.ForeColor = System.Drawing.Color.Gray;
             this.cmbCiudad.FormattingEnabled = true;
-            this.cmbCiudad.Location = new System.Drawing.Point(62, 205);
+            this.cmbCiudad.Location = new System.Drawing.Point(93, 315);
+            this.cmbCiudad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbCiudad.Name = "cmbCiudad";
-            this.cmbCiudad.Size = new System.Drawing.Size(285, 24);
+            this.cmbCiudad.Size = new System.Drawing.Size(426, 33);
             this.cmbCiudad.TabIndex = 4;
             // 
             // txtDireccionTienda
             // 
             this.txtDireccionTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccionTienda.ForeColor = System.Drawing.Color.Gray;
-            this.txtDireccionTienda.Location = new System.Drawing.Point(62, 167);
+            this.txtDireccionTienda.Location = new System.Drawing.Point(93, 257);
+            this.txtDireccionTienda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDireccionTienda.Name = "txtDireccionTienda";
-            this.txtDireccionTienda.Size = new System.Drawing.Size(285, 22);
+            this.txtDireccionTienda.Size = new System.Drawing.Size(426, 30);
             this.txtDireccionTienda.TabIndex = 3;
             this.txtDireccionTienda.Text = "Dirección";
             this.txtDireccionTienda.Enter += new System.EventHandler(this.txtDireccionTienda_Enter);
@@ -95,10 +99,11 @@
             // 
             this.txtNombreEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreEmpresa.ForeColor = System.Drawing.Color.Gray;
-            this.txtNombreEmpresa.Location = new System.Drawing.Point(62, 285);
+            this.txtNombreEmpresa.Location = new System.Drawing.Point(93, 438);
+            this.txtNombreEmpresa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombreEmpresa.Multiline = true;
             this.txtNombreEmpresa.Name = "txtNombreEmpresa";
-            this.txtNombreEmpresa.Size = new System.Drawing.Size(285, 25);
+            this.txtNombreEmpresa.Size = new System.Drawing.Size(426, 36);
             this.txtNombreEmpresa.TabIndex = 6;
             this.txtNombreEmpresa.Text = "Nombre de empresa";
             this.txtNombreEmpresa.Enter += new System.EventHandler(this.txtNombreEmpresa_Enter);
@@ -108,10 +113,11 @@
             // 
             this.txtNombreTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreTienda.ForeColor = System.Drawing.Color.Gray;
-            this.txtNombreTienda.Location = new System.Drawing.Point(62, 130);
+            this.txtNombreTienda.Location = new System.Drawing.Point(93, 200);
+            this.txtNombreTienda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombreTienda.Name = "txtNombreTienda";
             this.txtNombreTienda.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtNombreTienda.Size = new System.Drawing.Size(285, 22);
+            this.txtNombreTienda.Size = new System.Drawing.Size(426, 30);
             this.txtNombreTienda.TabIndex = 2;
             this.txtNombreTienda.Text = "Nombre de la tienda";
             this.txtNombreTienda.Enter += new System.EventHandler(this.txtNombreTienda_Enter);
@@ -121,9 +127,10 @@
             // 
             this.lblTituloCrear.AutoSize = true;
             this.lblTituloCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloCrear.Location = new System.Drawing.Point(58, 16);
+            this.lblTituloCrear.Location = new System.Drawing.Point(87, 25);
+            this.lblTituloCrear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTituloCrear.Name = "lblTituloCrear";
-            this.lblTituloCrear.Size = new System.Drawing.Size(118, 20);
+            this.lblTituloCrear.Size = new System.Drawing.Size(176, 29);
             this.lblTituloCrear.TabIndex = 14;
             this.lblTituloCrear.Text = "Nueva Tienda";
             // 
@@ -133,18 +140,20 @@
             this.dtFechaIngresoTienda.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dtFechaIngresoTienda.CalendarTitleForeColor = System.Drawing.Color.Gray;
             this.dtFechaIngresoTienda.Enabled = false;
-            this.dtFechaIngresoTienda.Location = new System.Drawing.Point(62, 95);
+            this.dtFechaIngresoTienda.Location = new System.Drawing.Point(93, 146);
+            this.dtFechaIngresoTienda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtFechaIngresoTienda.Name = "dtFechaIngresoTienda";
-            this.dtFechaIngresoTienda.Size = new System.Drawing.Size(285, 20);
+            this.dtFechaIngresoTienda.Size = new System.Drawing.Size(426, 26);
             this.dtFechaIngresoTienda.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 47);
+            this.label1.Location = new System.Drawing.Point(99, 72);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(289, 32);
+            this.label1.Size = new System.Drawing.Size(415, 50);
             this.label1.TabIndex = 28;
             this.label1.Text = "Ingrese los datos solicitados para agregar una \r\nnueva tienda al sistema:";
             // 
@@ -152,10 +161,11 @@
             // 
             this.txtTelefonoTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefonoTienda.ForeColor = System.Drawing.Color.Gray;
-            this.txtTelefonoTienda.Location = new System.Drawing.Point(62, 245);
+            this.txtTelefonoTienda.Location = new System.Drawing.Point(93, 377);
+            this.txtTelefonoTienda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTelefonoTienda.MaxLength = 9;
             this.txtTelefonoTienda.Name = "txtTelefonoTienda";
-            this.txtTelefonoTienda.Size = new System.Drawing.Size(285, 22);
+            this.txtTelefonoTienda.Size = new System.Drawing.Size(426, 30);
             this.txtTelefonoTienda.TabIndex = 5;
             this.txtTelefonoTienda.Text = "Teléfono ## ### ####";
             this.txtTelefonoTienda.Enter += new System.EventHandler(this.txtTelefonoTienda_Enter);
@@ -164,9 +174,10 @@
             // 
             // CrearTienda
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 402);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(630, 618);
             this.Controls.Add(this.txtTelefonoTienda);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtFechaIngresoTienda);
@@ -178,6 +189,7 @@
             this.Controls.Add(this.txtNombreTienda);
             this.Controls.Add(this.lblTituloCrear);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CrearTienda";

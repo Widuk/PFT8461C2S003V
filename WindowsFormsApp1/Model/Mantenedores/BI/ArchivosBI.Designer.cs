@@ -94,7 +94,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(256, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(430, 32);
+            this.label1.Size = new System.Drawing.Size(629, 50);
             this.label1.TabIndex = 25;
             this.label1.Text = "El archivo BI es un documento de texto plano con todas las ofertas que \r\nfueron a" +
     "ccedidas por los consumidores.";
@@ -105,7 +105,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(255, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 20);
+            this.label2.Size = new System.Drawing.Size(283, 29);
             this.label2.TabIndex = 24;
             this.label2.Text = "Descarga de archivo BI";
             // 
@@ -158,6 +158,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(30, 412);
@@ -166,6 +167,7 @@
             // 
             // ArchivosBI
             // 
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(829, 560);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
