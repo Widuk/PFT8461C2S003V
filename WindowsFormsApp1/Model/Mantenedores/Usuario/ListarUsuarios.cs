@@ -24,6 +24,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
 
         private void ListarUsuarios_Load(object sender, EventArgs e)
         {
+            lblUsuarioIngreso.Text = "Bienvenido(a): " + objetoPaso.pasoUsuario;
             try
             {
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -193,6 +194,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
         private void dgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             return;
+        }
+
+        private void btnCerrarCesion_Click(object sender, EventArgs e)
+        {
+            Close();
+            Application.Exit();
         }
     }
 }

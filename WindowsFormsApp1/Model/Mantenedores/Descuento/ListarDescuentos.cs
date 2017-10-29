@@ -24,6 +24,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
 
         private void ListarDescuentos_Load(object sender, EventArgs e)
         {
+            lblUsuarioIngreso.Text = "Bienvenido(a): " + objetoPaso.pasoUsuario;
             DescuentoDAO descDAO = new DescuentoDAO();
             listaDescuentos = new BindingList<DescuentoGridVO>(descDAO.getAllDescuentosGrid());
             this.dgvDescuento.DataSource = listaDescuentos;
@@ -163,6 +164,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
                 mantBI.Show();
                 this.Hide();
             }
+        }
+
+        private void btnCerrarCesion_Click(object sender, EventArgs e)
+        {
+            Close();
+            Application.Exit();
         }
     }
 }

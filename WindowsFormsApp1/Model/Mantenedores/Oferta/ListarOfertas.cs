@@ -28,6 +28,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
 
         private void ListarOfertas_Load(object sender, EventArgs e)
         {
+            lblUsuarioIngreso.Text = "Bienvenido(a): " + objetoPaso.pasoUsuario;
             try
             {
                 OfertaDAO ofertaDAO = new OfertaDAO();
@@ -232,6 +233,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
             {
                 MessageBox.Show("Error grave publicando oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCerrarCesion_Click(object sender, EventArgs e)
+        {
+            Close();
+            Application.Exit();
         }
     }
 }

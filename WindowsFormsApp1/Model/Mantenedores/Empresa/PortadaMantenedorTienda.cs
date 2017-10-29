@@ -20,8 +20,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
 
         private void Tienda_Load(object sender, EventArgs e)
         {
+            lblUsuarioIngreso.Text = "Bienvenido(a): " + objetoPaso.pasoUsuario;
             objetoPaso.limpiaPaso();
             cargaTiendas();
+
             foreach (Funcionalidad func in SesionBag.usuarioSesionado.funcionalidadesUsuario)
             {
                 ToolStripMenuItem itm = new ToolStripMenuItem(func.nombre);
@@ -49,8 +51,8 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
                 dtgTiendas.Columns[4].HeaderText = "Telefono";
                 dtgTiendas.Columns[5].HeaderText = "activo";
                 dtgTiendas.Columns[5].Visible = false;
-                dtgTiendas.Columns[6].HeaderText = "F. Creación";
-                dtgTiendas.Columns[7].HeaderText = "F. Modificación";
+                dtgTiendas.Columns[6].HeaderText = "Fecha de Creación";
+                dtgTiendas.Columns[7].HeaderText = "Fecha de Modificación";
                 dtgTiendas.Columns[8].HeaderText = "Empresa";
                 dtgTiendas.Columns[9].HeaderText = "IdCiudad";
                 dtgTiendas.Columns[9].Visible = false;
@@ -178,6 +180,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             return;
         }
-        
+
+        private void btnCerrarCesion_Click(object sender, EventArgs e)
+        {
+            Close();
+            Application.Exit();
+        }
     }
 }

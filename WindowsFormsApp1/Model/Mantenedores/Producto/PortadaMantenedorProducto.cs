@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lblUsuarioIngreso.Text = "Bienvenido(a): " + objetoPaso.pasoUsuario;
             objetoPaso.limpiaPaso();
             cargaProductos();
             ProductoDAO listaProductos = new ProductoDAO();
@@ -57,8 +58,8 @@ namespace WindowsFormsApp1
             dtgListaPreducto.Columns[5].Visible = false;    //id2X1
             dtgListaPreducto.Columns[6].HeaderText = "SKU";
             dtgListaPreducto.Columns[7].Visible = false;    //isactivo
-            dtgListaPreducto.Columns[8].HeaderText = "F.Creación";
-            dtgListaPreducto.Columns[9].HeaderText = "F.Modificación";
+            dtgListaPreducto.Columns[8].HeaderText = "Fecha de Creación";
+            dtgListaPreducto.Columns[9].HeaderText = "Fecha de Modificación";
             dtgListaPreducto.Columns[10].HeaderText = "Tienda";
             dtgListaPreducto.Columns[10].Visible = false;
             dtgListaPreducto.Columns[11].HeaderText = "Rubro";
@@ -192,6 +193,11 @@ namespace WindowsFormsApp1
         {
             return;
         }
-        
+
+        private void btnCerrarCesion_Click(object sender, EventArgs e)
+        {
+            Close();
+            Application.Exit();
+        }
     }
 }

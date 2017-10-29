@@ -17,7 +17,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
 {
     public partial class ArchivosBI : Form
     {
-        List<TiendaGridVO> listaTienda = new List<TiendaGridVO>();
+        List<OfertaGridVO> listaOferta = new List<OfertaGridVO>();
 
         public ArchivosBI()
         {
@@ -26,10 +26,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
 
         private void btnDescarga_Click(object sender, EventArgs e)
         {
-            CargaTiendas();
+            CargaOfertas();
             try
             {
-                if (listaTienda.Count == 0)
+                if (listaOferta.Count == 0)
                 {
                     MessageBox.Show("No existen tiendas para descargar.");
                     return;
@@ -42,6 +42,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
                     if (pathDescargaArchivo.ShowDialog() == DialogResult.OK)
                     {
                         MessageBox.Show("Usted seleccionó: " + pathDescargaArchivo.SelectedPath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se canceló la descarga del archivo.");
+                        return;
                     }
                 }
                 catch (Exception ex)
@@ -71,9 +76,9 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
                 
                 StringBuilder csvcontent = new StringBuilder();
                 csvcontent.AppendLine("Nombre de tienda;Direccion;Ciudad;Empresa;Fecha creacion;Fecha modificacion");
-                foreach (TiendaGridVO t in listaTienda)
+                foreach (OfertaGridVO o in listaOferta)
                 {
-                    csvcontent.AppendLine(t.nombreTienda+";"+t.direccion + ";" + t.nombreCiudad + ";" + t.empresa + ";" + t.fechaCreacion + ";" + t.fechaModificacion);
+                    csvcontent.AppendLine(o.skuProducto + ";" + o.nombreProducto + ";" + o.estado + ";" + o.minimoProductos + ";" + o.maximoProductos + ";" + o.fechaInicio + ";" + o.fechaFin);
                 }
                 File.AppendAllText(csvpath, csvcontent.ToString());
                 MessageBox.Show("El archivo fue descargado con éxito.");
@@ -87,6 +92,8 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
 
         private void ArchivosBI_Load(object sender, EventArgs e)
         {
+            lblUsuarioIngreso.Text = "Bienvenido(a): " + objetoPaso.pasoUsuario;
+            objetoPaso.limpiaPaso();
             foreach (Funcionalidad func in SesionBag.usuarioSesionado.funcionalidadesUsuario)
             {
                 ToolStripMenuItem itm = new ToolStripMenuItem(func.nombre);
@@ -100,15 +107,16 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
             }
         }
 
-        private void CargaTiendas()
+        private void CargaOfertas()
         {
             try
             {
-                TiendaDAO Tiendas = new TiendaDAO();
-                listaTienda = Tiendas.lt();
-            }catch (Exception ex)
+                OfertaDAO Oferta = new OfertaDAO();
+                listaOferta = Oferta.getListaOfertasGrid();
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error al listarlas tiendas. Favor comunique a soporte.");
+                MessageBox.Show("Ha ocurrido un error al listar las ofertas. Favor comunique a soporte.");
                 return;
             }
         }
@@ -147,6 +155,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
                 listarOfertas.Show();
                 this.Hide();
             }
+        }
+
+        private void btnCerrarCesion_Click(object sender, EventArgs e)
+        {
+            Close();
+            Application.Exit();
         }
     }
 }

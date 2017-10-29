@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.OfertasWS;
 using WindowsFormsApp1.Model.Home;
@@ -13,7 +7,7 @@ using WindowsFormsApp1.Model.Negocio.Conexion;
 using WindowsFormsApp1.Controler.DAO;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.SessionBag;
-using WindowsFormsApp1.Model.Mantenedores.Descuento;
+using WindowsFormsApp1.Model.Negocio.Entities;
 
 namespace WindowsFormsApp1.Model.Autenticacion
 {
@@ -69,6 +63,7 @@ namespace WindowsFormsApp1.Model.Autenticacion
                         List<Funcionalidad> funcionalidadesUsuario = funcionalidadDAO.getFuncionalidadesPorPerfil(usu.codigoPerfil);
                         usu.funcionalidadesUsuario = funcionalidadesUsuario;
                         SesionBag.usuarioSesionado = usu;
+                        objetoPaso.pasoUsuario = txtUsuario.Text;
                         Index homeView = new Index();
                         homeView.Visible = true;
                         this.Visible = false;
