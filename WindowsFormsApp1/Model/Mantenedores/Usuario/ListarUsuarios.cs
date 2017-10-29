@@ -183,7 +183,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                 listarOfertas.Show();
                 this.Hide();
             }
-            else if (clickedItem.Name.Equals("11"))
+            else if (clickedItem.Name.Equals("10"))
             {
                 ArchivosBI mantBI = new ArchivosBI();
                 mantBI.Show();

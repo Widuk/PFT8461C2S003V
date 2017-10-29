@@ -99,7 +99,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
                 ToolStripMenuItem itm = new ToolStripMenuItem(func.nombre);
                 itm.Click += new EventHandler(genericHandler);
                 itm.Name = func.idFuncionalidad.ToString();
-                if (itm.Name.Equals("11"))
+                if (itm.Name.Equals("10"))
                 {
                     itm.ForeColor = Color.Gray;
                 }
