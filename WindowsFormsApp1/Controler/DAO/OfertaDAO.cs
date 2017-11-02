@@ -20,10 +20,11 @@ namespace WindowsFormsApp1.Controler.DAO
             try
             {
                 OracleCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Oferta WHERE PRODUCTO_IDPRODUCTO = :codigoProducto AND FECHAFIN > :fechaActualFin AND FECHAINICIO < :fechaActualInicio";
+                //cmd.CommandText = "SELECT * FROM Oferta WHERE PRODUCTO_IDPRODUCTO = :codigoProducto AND FECHAFIN > :fechaActualFin AND FECHAINICIO < :fechaActualInicio";
+                cmd.CommandText = "SELECT * FROM Oferta WHERE PRODUCTO_IDPRODUCTO = :codigoProducto";
                 cmd.Parameters.Add(":codigoProducto", OracleDbType.Int32).Value = codigoProducto;
-                cmd.Parameters.Add(":fechaActualFin", OracleDbType.Date).Value = new DateTime();
-                cmd.Parameters.Add(":fechaActualInicio", OracleDbType.Date).Value = new DateTime();
+                //cmd.Parameters.Add(":fechaActualFin", OracleDbType.Date).Value = new DateTime();
+                //cmd.Parameters.Add(":fechaActualInicio", OracleDbType.Date).Value = new DateTime();
                 OracleDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
