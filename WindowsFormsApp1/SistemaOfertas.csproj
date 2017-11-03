@@ -94,6 +94,7 @@
     <Compile Include="Controler\DAO\TiendaDAO.cs" />
     <Compile Include="Controler\DAO\TrabajadorDAO.cs" />
     <Compile Include="Controler\DAO\UsuarioDAO.cs" />
+    <Compile Include="Controler\DAO\ValoracionDAO.cs" />
     <Compile Include="Model\Mantenedores\Autenticacion\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +203,12 @@
     <Compile Include="Model\Mantenedores\Usuario\ListarUsuarios.Designer.cs">
       <DependentUpon>ListarUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Mantenedores\Valoracion\ConsultaValoracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Valoracion\ConsultaValoracion.Designer.cs">
+      <DependentUpon>ConsultaValoracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Negocio\Conexion\Conexion.cs" />
     <Compile Include="Model\Negocio\Constantes\Constantes.cs" />
     <Compile Include="Model\Negocio\Entities\Ciudad.cs" />
@@ -222,6 +229,7 @@
     <Compile Include="Model\Negocio\Vo\DescuentoGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\OfertaGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\ProductoGridVO.cs" />
+    <Compile Include="Model\Negocio\Vo\ReporteValoracionVO.cs" />
     <Compile Include="Model\Negocio\Vo\TiendaGridVO.cs" />
     <Compile Include="Model\Negocio\Vo\UsuarioGridVO.cs" />
     <Compile Include="Program.cs" />
@@ -288,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Usuario\ListarUsuarios.resx">
       <DependentUpon>ListarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Valoracion\ConsultaValoracion.resx">
+      <DependentUpon>ConsultaValoracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
