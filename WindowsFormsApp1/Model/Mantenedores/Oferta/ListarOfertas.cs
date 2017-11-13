@@ -13,6 +13,7 @@ using WindowsFormsApp1.Model.Mantenedores.BI;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
+using WindowsFormsApp1.Model.Mantenedores.Valoracion;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.SessionBag;
 using WindowsFormsApp1.Model.Negocio.Vo;
@@ -32,10 +33,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
             lblUsuarioIngreso.Text = "Bienvenido(a): " + objetoPaso.pasoUsuario;
             try
             {
-                OfertaDAO ofertaDAO = new OfertaDAO();
-                listaOfertas = new BindingList<OfertaGridVO>(ofertaDAO.getListaOfertasGrid());
-                this.dgvOferta.DataSource = listaOfertas;
-
+                cargaGrilla();
                 foreach (Funcionalidad func in SesionBag.usuarioSesionado.funcionalidadesUsuario)
                 {
                     ToolStripMenuItem itm = new ToolStripMenuItem(func.nombre);
@@ -150,6 +148,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                 mantBI.Show();
                 this.Hide();
             }
+            else if (clickedItem.Name.Equals("11"))
+            {
+                ConsultaValoracion consultaValoracion = new ConsultaValoracion();
+                consultaValoracion.Show();
+                this.Hide();
+            }
             else if (clickedItem.Name.Equals("12"))
             {
                 ResumenPorTienda rpt = new ResumenPorTienda();
@@ -232,6 +236,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                         {
                             ofertaDao.publicarOferta(oferta.idOferta);
                             MessageBox.Show("Oferta publicada exitosamente.");
+                            cargaGrilla();
                         }
                     }
                 }
@@ -240,6 +245,13 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
             {
                 MessageBox.Show("Error grave publicando oferta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cargaGrilla()
+        {
+            OfertaDAO ofertaDAO = new OfertaDAO();
+            listaOfertas = new BindingList<OfertaGridVO>(ofertaDAO.getListaOfertasGrid());
+            this.dgvOferta.DataSource = listaOfertas;
         }
 
         private void btnCerrarCesion_Click(object sender, EventArgs e)

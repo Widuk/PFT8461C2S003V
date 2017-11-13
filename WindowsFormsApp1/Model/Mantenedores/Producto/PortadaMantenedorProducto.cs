@@ -10,6 +10,7 @@ using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
 using WindowsFormsApp1.Model.Negocio.SessionBag;
+using WindowsFormsApp1.Model.Mantenedores.Valoracion;
 
 namespace WindowsFormsApp1
 {
@@ -186,6 +187,12 @@ namespace WindowsFormsApp1
             {
                 ArchivosBI mantBI = new ArchivosBI();
                 mantBI.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("11"))
+            {
+                ConsultaValoracion consultaValoracion = new ConsultaValoracion();
+                consultaValoracion.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("12"))
