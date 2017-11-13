@@ -57,5 +57,38 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
+
+        public int getTotalTrabajadoresRegistrados()
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "SELECT COUNT(*) FROM TRABAJADOR";
+                OracleDataReader reader = command.ExecuteReader();
+
+                int countTrabajadores = 0;
+
+                while (reader.Read())
+                {
+                    countTrabajadores = Convert.ToInt32(reader["COUNT(*)"]);
+                }
+
+                command.Dispose();
+                reader.Close();
+                reader.Dispose();
+
+                return countTrabajadores;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }

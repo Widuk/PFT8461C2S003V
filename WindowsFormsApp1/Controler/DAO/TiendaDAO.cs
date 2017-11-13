@@ -319,5 +319,61 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
+
+        public LinkedList< String> obtenerReportePorTienda(String tienda)
+        {
+            OracleConnection conn = Conexion.Connect();
+            StringBuilder queryTienda = new StringBuilder();
+            StringBuilder queryUsuarios = new StringBuilder();
+            StringBuilder queryOfertasEnviadas = new StringBuilder();
+            StringBuilder queryValoraciones = new StringBuilder();
+            StringBuilder queryDescuentosPorRubro = new StringBuilder();
+            try
+            {
+                OracleCommand command = conn.CreateCommand();
+
+                queryTienda.Append("SELECT COUNT(*) FROM tienda t WHERE t.nombre LIKE ");
+                queryTienda.Append(tienda);
+
+                command.CommandText = queryTienda.ToString();
+
+                OracleDataReader dr = command.ExecuteReader();
+
+                List<TiendaGridVO> lstTienda = new List<TiendaGridVO>();
+                int count = 0;
+                while (dr.Read())
+                {
+                    count = Int32.Parse(dr["count"].ToString());
+                    count = Convert.ToInt32(dr["count"]);
+                    TiendaGridVO entTienda = new TiendaGridVO();
+                    entTienda.idTienda = int.Parse(dr["IDTIENDA"].ToString());
+                    entTienda.nombreTienda = (string)dr["NOMBRE"];
+                    entTienda.direccion = (string)dr["DIRECCION"];
+                    entTienda.telefono = (string)(dr["TELEFONO"]);
+                    entTienda.isActivo = sbyte.Parse(dr["ISACTIVO"].ToString());
+                    entTienda.fechaCreacion = DateTime.Parse(dr["FECHACREACION"].ToString());
+                    entTienda.fechaModificacion = DateTime.Parse(dr["FECHAMODIFICACION"].ToString());
+                    entTienda.empresa = (String)(dr["EMPRESA"].ToString());
+                    entTienda.idCiudad = int.Parse(dr["IDCIUDAD"].ToString());
+                    entTienda.nombreCiudad = (string)dr["NOMBRECIUDAD"];                    
+
+                    lstTienda.Add(entTienda);
+                }
+
+                dr.Close();
+                command.Dispose();
+
+                return new LinkedList<String>();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }

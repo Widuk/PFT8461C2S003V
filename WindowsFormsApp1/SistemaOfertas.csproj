@@ -87,6 +87,7 @@
     <Compile Include="Controler\DAO\ConsumidorDAO.cs" />
     <Compile Include="Controler\DAO\DescuentoDAO.cs" />
     <Compile Include="Controler\DAO\FuncionalidadDAO.cs" />
+    <Compile Include="Controler\DAO\LogEmailDAO.cs" />
     <Compile Include="Controler\DAO\OfertaDAO.cs" />
     <Compile Include="Controler\DAO\PerfilDAO.cs" />
     <Compile Include="Controler\DAO\ProductoDAO.cs" />
@@ -94,6 +95,13 @@
     <Compile Include="Controler\DAO\TiendaDAO.cs" />
     <Compile Include="Controler\DAO\TrabajadorDAO.cs" />
     <Compile Include="Controler\DAO\UsuarioDAO.cs" />
+    <Compile Include="Controler\DAO\ValoracionDAO.cs" />
+    <Compile Include="Model\Investigacion\Reportes\ResumenPorTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Investigacion\Reportes\ResumenPorTienda.Designer.cs">
+      <DependentUpon>ResumenPorTienda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Mantenedores\Autenticacion\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +239,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Model\Investigacion\Reportes\ResumenPorTienda.resx">
+      <DependentUpon>ResumenPorTienda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\Mantenedores\Autenticacion\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -326,7 +337,6 @@
   <ItemGroup>
     <Folder Include="Controler\Router\" />
     <Folder Include="Model\Integracion\" />
-    <Folder Include="Model\Investigacion\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

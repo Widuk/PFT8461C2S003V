@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Investigacion.Reportes;
 using WindowsFormsApp1.Model.Mantenedores.BI;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Oferta;
@@ -167,6 +168,12 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             {
                 ArchivosBI mantBI = new ArchivosBI();
                 mantBI.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("12"))
+            {
+                ResumenPorTienda rpt = new ResumenPorTienda();
+                rpt.Show();
                 this.Hide();
             }
         }

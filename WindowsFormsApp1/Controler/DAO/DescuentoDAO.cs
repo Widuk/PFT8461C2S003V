@@ -213,5 +213,40 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
+
+        public int getTotalDescuentosRegistradosPorRubro(long idRubro)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand command = conn.CreateCommand();
+                //Debe ser total de descuentos por rubro.
+                command.CommandText = "SELECT COUNT(*) FROM DESCUENTO d INNER JOIN PRODUCTO p ON d.PRODUCTO_IDPRODUCTO = p.IDPRODUCTO INNER JOIN RUBRO r ON p.RUBRO_IDRUBRO = r.IDRUBRO";
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                int countValoracion = 0;
+
+                while (reader.Read())
+                {
+                    countValoracion = Convert.ToInt32(reader["COUNT(*)"]);
+                }
+
+                command.Dispose();
+                reader.Close();
+                reader.Dispose();
+
+                return countValoracion;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }

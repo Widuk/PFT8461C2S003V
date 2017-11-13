@@ -58,5 +58,38 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
+
+        public int getTotalConsumidoresRegistrados()
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "SELECT COUNT(*) FROM CONSUMIDOR";
+                OracleDataReader reader = command.ExecuteReader();
+
+                int countConsumidores = 0;
+
+                while (reader.Read())
+                {
+                    countConsumidores = Convert.ToInt32(reader["COUNT(*)"]);
+                }
+
+                command.Dispose();
+                reader.Close();
+                reader.Dispose();
+
+                return countConsumidores;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }
