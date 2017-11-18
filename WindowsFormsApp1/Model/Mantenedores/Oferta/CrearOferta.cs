@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -127,7 +129,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                     foreach(long l in listaTiendas)
                     {
                         ofertaDAO.creaRelacionOfertaProducto(nuevaOferta.idOferta, l);
-                    }           
+                    }
+
+                    //Envío de email
+                    ConsumidorDAO.enviarEMailNuevaOferta(this.cbxProducto.GetItemText(this.cbxProducto.SelectedItem));
 
                     this.Dispose();
 

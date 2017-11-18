@@ -91,5 +91,34 @@ namespace WindowsFormsApp1.Controler.DAO
                 conn.Dispose();
             }
         }
+
+        public static void enviarEMailNuevaOferta(string nombreProducto)
+        {
+            OracleConnection conn = Conexion.Connect();
+            try
+            {
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "SELECT NOMBRE, EMAIL FROM consumidor WHERE ISACTIVO = 1 AND ISRECIBEOFERTAS = 1";
+                OracleDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Model.Negocio.Utils.Email.enviarMailOferta(reader["NOMBRE"].ToString(), reader["EMAIL"].ToString(), nombreProducto);
+                }
+
+                command.Dispose();
+                reader.Close();
+                reader.Dispose();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }
