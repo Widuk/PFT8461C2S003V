@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaOfertas", "WindowsFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxComboBox", "WindowsFormsApp1\CheckBoxComboBox\CheckBoxComboBox.csproj", "{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSSMTPSendEmail", "..\..\..\Documents\Visual Studio 2015\Projects\C#\CSSMTPSendEmail\CSSMTPSendEmail.csproj", "{C1B31B3F-BBCE-4D83-9FF7-3622C8DBF832}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1B31B3F-BBCE-4D83-9FF7-3622C8DBF832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1B31B3F-BBCE-4D83-9FF7-3622C8DBF832}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1B31B3F-BBCE-4D83-9FF7-3622C8DBF832}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1B31B3F-BBCE-4D83-9FF7-3622C8DBF832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
