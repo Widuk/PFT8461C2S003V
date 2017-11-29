@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Model.Investigacion.Reportes;
 using WindowsFormsApp1.Model.Mantenedores.BI;
+using WindowsFormsApp1.Model.Mantenedores.Descuento;
 using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
@@ -40,13 +41,7 @@ namespace WindowsFormsApp1.Model.Home
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-            if (clickedItem.Text.Equals("5"))
-            {
-                ListarUsuarios listarUsu = new ListarUsuarios();
-                listarUsu.Show();
-                this.Hide();
-            }
-            else if (clickedItem.Name.Equals("1"))
+            if (clickedItem.Name.Equals("1"))
             {
                 PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
                 mantTienda.Show();
@@ -56,6 +51,18 @@ namespace WindowsFormsApp1.Model.Home
             {
                 PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
                 mantProd.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("4"))
+            {
+                ListarDescuentos listarDesc = new ListarDescuentos();
+                listarDesc.Show();
+                this.Hide();
+            }
+            if (clickedItem.Name.Equals("5"))
+            {
+                ListarUsuarios listarUsu = new ListarUsuarios();
+                listarUsu.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("6"))
@@ -69,7 +76,8 @@ namespace WindowsFormsApp1.Model.Home
                 ArchivosBI mantBI = new ArchivosBI();
                 mantBI.Show();
                 this.Hide();
-            }else if (clickedItem.Name.Equals("11"))
+            }
+            else if (clickedItem.Name.Equals("11"))
             {
                 ConsultaValoracion consultaValoracion = new ConsultaValoracion();
                 consultaValoracion.Show();
@@ -79,6 +87,12 @@ namespace WindowsFormsApp1.Model.Home
             {
                 ResumenPorTienda rpt = new ResumenPorTienda();
                 rpt.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("6"))
+            {
+                ListarOfertas listarOfertas = new ListarOfertas();
+                listarOfertas.Show();
                 this.Hide();
             }
         }

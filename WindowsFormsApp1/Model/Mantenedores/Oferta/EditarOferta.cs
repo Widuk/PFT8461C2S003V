@@ -118,11 +118,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
                     OfertaDAO ofertaDAO = new OfertaDAO();
                     Negocio.Entities.Oferta ofer = ofertaDAO.getOfertaVigenteByCodigoProducto(int.Parse(cbxProducto.SelectedValue.ToString()));
 
-                    if (ofer != null)
-                    {
-                        MessageBox.Show("Error: Ya existe una oferta creada para el producto seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    //if (ofer != null)
+                    //{
+                        //MessageBox.Show("Error: Ya existe una oferta creada para el producto seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //return;
+                    //}
 
                     //Creamos los objetos.
                     Negocio.Entities.Oferta nuevaOferta = new Negocio.Entities.Oferta();
