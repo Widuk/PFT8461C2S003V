@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52642BBE-E8FD-4B45-8CB8-F9D1DD33C408}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp1</RootNamespace>
+    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CheckBoxComboBox">
+      <HintPath>CheckBoxComboBox\bin\Debug\CheckBoxComboBox.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.2.1100\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controler\DAO\CiudadDAO.cs" />
+    <Compile Include="Controler\DAO\ConsumidorDAO.cs" />
+    <Compile Include="Controler\DAO\DescuentoDAO.cs" />
+    <Compile Include="Controler\DAO\FuncionalidadDAO.cs" />
+    <Compile Include="Controler\DAO\LogEmailDAO.cs" />
+    <Compile Include="Controler\DAO\OfertaDAO.cs" />
+    <Compile Include="Controler\DAO\PerfilDAO.cs" />
+    <Compile Include="Controler\DAO\ProductoDAO.cs" />
+    <Compile Include="Controler\DAO\RubroDAO.cs" />
+    <Compile Include="Controler\DAO\TiendaDAO.cs" />
+    <Compile Include="Controler\DAO\TrabajadorDAO.cs" />
+    <Compile Include="Controler\DAO\UsuarioDAO.cs" />
+    <Compile Include="Controler\DAO\ValoracionDAO.cs" />
+    <Compile Include="Model\Investigacion\Reportes\ResumenPorTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Investigacion\Reportes\ResumenPorTienda.Designer.cs">
+      <DependentUpon>ResumenPorTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Autenticacion\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Autenticacion\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\BI\ArchivosBI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\BI\ArchivosBI.Designer.cs">
+      <DependentUpon>ArchivosBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Descuento\CrearDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Descuento\CrearDescuento.Designer.cs">
+      <DependentUpon>CrearDescuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Descuento\ListarDescuentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Descuento\ListarDescuentos.Designer.cs">
+      <DependentUpon>ListarDescuentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Descuento\ModificarDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Descuento\ModificarDescuento.Designer.cs">
+      <DependentUpon>ModificarDescuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\CrearTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\CrearTienda.Designer.cs">
+      <DependentUpon>CrearTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\EditarTiendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\EditarTiendas.Designer.cs">
+      <DependentUpon>EditarTiendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\PortadaMantenedorTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Empresa\PortadaMantenedorTienda.Designer.cs">
+      <DependentUpon>PortadaMantenedorTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Home\Index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Home\Index.Designer.cs">
+      <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\CrearOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\CrearOferta.Designer.cs">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\EditarOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\EditarOferta.Designer.cs">
+      <DependentUpon>EditarOferta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\ListarOfertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Oferta\ListarOfertas.Designer.cs">
+      <DependentUpon>ListarOfertas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Producto\PortadaMantenedorProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Producto\PortadaMantenedorProducto.Designer.cs">
+      <DependentUpon>PortadaMantenedorProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Producto\CrearProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Producto\CrearProducto.Designer.cs">
+      <DependentUpon>CrearProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Producto\EditarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Producto\EditarProducto.Designer.cs">
+      <DependentUpon>EditarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Usuario\CrearUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Usuario\CrearUsuario.Designer.cs">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Usuario\EditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Usuario\EditarUsuario.Designer.cs">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Usuario\ListarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Usuario\ListarUsuarios.Designer.cs">
+      <DependentUpon>ListarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Valoracion\ConsultaValoracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Mantenedores\Valoracion\ConsultaValoracion.Designer.cs">
+      <DependentUpon>ConsultaValoracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Negocio\Conexion\Conexion.cs" />
+    <Compile Include="Model\Negocio\Constantes\Constantes.cs" />
+    <Compile Include="Model\Negocio\Entities\Ciudad.cs" />
+    <Compile Include="Model\Negocio\Entities\Consumidor.cs" />
+    <Compile Include="Model\Negocio\Entities\Descuento.cs" />
+    <Compile Include="Model\Negocio\Entities\Funcionalidad.cs" />
+    <Compile Include="Model\Negocio\Entities\objetoPaso.cs" />
+    <Compile Include="Model\Negocio\Entities\Oferta.cs" />
+    <Compile Include="Model\Negocio\Entities\Perfil.cs" />
+    <Compile Include="Model\Negocio\Entities\Productos.cs" />
+    <Compile Include="Model\Negocio\Entities\RlOFertaTienda.cs" />
+    <Compile Include="Model\Negocio\Entities\Rubro.cs" />
+    <Compile Include="Model\Negocio\Entities\Tienda.cs" />
+    <Compile Include="Model\Negocio\Entities\Trabajador.cs" />
+    <Compile Include="Model\Negocio\Entities\Usuario.cs" />
+    <Compile Include="Model\Negocio\SessionBag\SesionBag.cs" />
+    <Compile Include="Model\Negocio\Utils\Email.cs" />
+    <Compile Include="Model\Negocio\Utils\Utils.cs" />
+    <Compile Include="Model\Negocio\Vo\DescuentoGridVO.cs" />
+    <Compile Include="Model\Negocio\Vo\OfertaGridVO.cs" />
+    <Compile Include="Model\Negocio\Vo\ProductoGridVO.cs" />
+    <Compile Include="Model\Negocio\Vo\ReporteValoracionVO.cs" />
+    <Compile Include="Model\Negocio\Vo\TiendaGridVO.cs" />
+    <Compile Include="Model\Negocio\Vo\UsuarioGridVO.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\OfertasWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Model\Investigacion\Reportes\ResumenPorTienda.resx">
+      <DependentUpon>ResumenPorTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Autenticacion\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\BI\ArchivosBI.resx">
+      <DependentUpon>ArchivosBI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Descuento\CrearDescuento.resx">
+      <DependentUpon>CrearDescuento.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Descuento\ListarDescuentos.resx">
+      <DependentUpon>ListarDescuentos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Descuento\ModificarDescuento.resx">
+      <DependentUpon>ModificarDescuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Empresa\CrearTienda.resx">
+      <DependentUpon>CrearTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Empresa\EditarTiendas.resx">
+      <DependentUpon>EditarTiendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Empresa\PortadaMantenedorTienda.resx">
+      <DependentUpon>PortadaMantenedorTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Home\Index.resx">
+      <DependentUpon>Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Oferta\CrearOferta.resx">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Oferta\EditarOferta.resx">
+      <DependentUpon>EditarOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Oferta\ListarOfertas.resx">
+      <DependentUpon>ListarOfertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Producto\PortadaMantenedorProducto.resx">
+      <DependentUpon>PortadaMantenedorProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Producto\CrearProducto.resx">
+      <DependentUpon>CrearProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Producto\EditarProducto.resx">
+      <DependentUpon>EditarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Usuario\CrearUsuario.resx">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Usuario\EditarUsuario.resx">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Usuario\ListarUsuarios.resx">
+      <DependentUpon>ListarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Mantenedores\Valoracion\ConsultaValoracion.resx">
+      <DependentUpon>ConsultaValoracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\OfertasWS\OfertasWS.wsdl" />
+    <None Include="Service References\OfertasWS\OfertasWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OfertasWS\WindowsFormsApp1.OfertasWS.loginResponseVO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OfertasWS\WindowsFormsApp1.OfertasWS.procesarLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controler\Router\" />
+    <Folder Include="Model\Integracion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\OfertasWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OfertasWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OfertasWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OfertasWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
