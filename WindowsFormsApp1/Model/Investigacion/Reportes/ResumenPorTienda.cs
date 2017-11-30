@@ -1,8 +1,11 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +30,19 @@ namespace WindowsFormsApp1.Model.Investigacion.Reportes
 
         private void btnDescargaResumen_Click(object sender, EventArgs e)
         {
-            obtenerResumen();
+            String resumen = obtenerResumen();
+            SaveFileDialog svg = new SaveFileDialog();
+            svg.ShowDialog();
+
+            using (FileStream stream = new FileStream(svg.FileName + ".pdf", FileMode.Create))
+            {
+                Document pdfDoc = new Document(PageSize.A1, 10f, 10f, 10f, 0f);
+                PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                pdfDoc.Add(new Paragraph(resumen));
+                pdfDoc.Close();
+                stream.Close();
+            }
 
         }
 
