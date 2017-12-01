@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDescargaResumen = new System.Windows.Forms.Button();
+            this.cmbTiendaBI = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -124,10 +125,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(261, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(430, 32);
+            this.label1.Size = new System.Drawing.Size(374, 16);
             this.label1.TabIndex = 36;
-            this.label1.Text = "El archivo BI es un documento de texto plano con todas las ofertas que \r\nfueron a" +
-    "ccedidas por los consumidores.";
+            this.label1.Text = "Seleccione una tienda para descargar la información de esta.";
             // 
             // label2
             // 
@@ -153,12 +153,21 @@
             this.btnDescargaResumen.UseVisualStyleBackColor = false;
             this.btnDescargaResumen.Click += new System.EventHandler(this.btnDescargaResumen_Click);
             // 
+            // cmbTiendaBI
+            // 
+            this.cmbTiendaBI.FormattingEnabled = true;
+            this.cmbTiendaBI.Location = new System.Drawing.Point(440, 189);
+            this.cmbTiendaBI.Name = "cmbTiendaBI";
+            this.cmbTiendaBI.Size = new System.Drawing.Size(155, 21);
+            this.cmbTiendaBI.TabIndex = 37;
+            // 
             // ResumenPorTienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(936, 561);
+            this.Controls.Add(this.cmbTiendaBI);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDescargaResumen);
@@ -169,6 +178,7 @@
             this.Name = "ResumenPorTienda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ResumenPorTienda";
+            this.Load += new System.EventHandler(this.ResumenPorTienda_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -190,5 +200,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDescargaResumen;
+        private System.Windows.Forms.ComboBox cmbTiendaBI;
     }
 }

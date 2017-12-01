@@ -189,7 +189,7 @@ namespace WindowsFormsApp1
                     }
 
                     ProductoDAO prodDao = new ProductoDAO();
-                    String sku = txtSKU.Text;
+                    String sku = txtSKU.Text.ToUpper();
                     String nombre = txtNombre.Text.ToUpper();
                     String precio = txtPrecio.Text;
                     sbyte activo = 0;
@@ -217,8 +217,7 @@ namespace WindowsFormsApp1
                         TiendaDAO tiDAO = new TiendaDAO();
                         int idTienda = tiDAO.buscaIdTiendaPorNombre2(arreglo[x]);
                         prodDao.guardaProductoTienda(idProducto, idTienda);
-                    }
-                    
+                    }                    
 
                     MessageBox.Show("Creación de producto exitosa.");
                     limpiarCampos();
