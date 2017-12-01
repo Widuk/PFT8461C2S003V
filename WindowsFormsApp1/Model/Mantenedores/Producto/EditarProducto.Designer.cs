@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
+            PresentationControls.CheckBoxProperties checkBoxProperties2 = new PresentationControls.CheckBoxProperties();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -158,7 +158,7 @@
             this.btnCrearTienda.Name = "btnCrearTienda";
             this.btnCrearTienda.Size = new System.Drawing.Size(121, 38);
             this.btnCrearTienda.TabIndex = 67;
-            this.btnCrearTienda.Text = "Editar producto";
+            this.btnCrearTienda.Text = "Editar Producto";
             this.btnCrearTienda.UseVisualStyleBackColor = false;
             this.btnCrearTienda.Click += new System.EventHandler(this.btnCrearTienda_Click);
             // 
@@ -270,8 +270,8 @@
             // 
             // cmbTienda
             // 
-            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmbTienda.CheckBoxProperties = checkBoxProperties1;
+            checkBoxProperties2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmbTienda.CheckBoxProperties = checkBoxProperties2;
             this.cmbTienda.DisplayMemberSingleItem = "";
             this.cmbTienda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbTienda.ForeColor = System.Drawing.SystemColors.GrayText;
@@ -312,7 +312,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditarProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form3";
+            this.Text = "Editar Producto";
             this.Load += new System.EventHandler(this.EditarProducto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
