@@ -58,7 +58,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(34, 260);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 20);
+            this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 76;
             this.label5.Text = "SKU:";
             // 
@@ -68,7 +68,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(438, 143);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 75;
             this.label4.Text = "Rubro:";
             // 
@@ -78,7 +78,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(34, 182);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 20);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 74;
             this.label3.Text = "Descripción:";
             // 
@@ -88,7 +88,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(34, 145);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 20);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 73;
             this.label2.Text = "Nombre:";
             // 
@@ -98,7 +98,7 @@
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(34, 105);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(66, 20);
+            this.lblFecha.Size = new System.Drawing.Size(46, 13);
             this.lblFecha.TabIndex = 72;
             this.lblFecha.Text = "Fecha:";
             // 
@@ -110,7 +110,7 @@
             this.txtSku.MaxLength = 9;
             this.txtSku.Name = "txtSku";
             this.txtSku.ReadOnly = true;
-            this.txtSku.Size = new System.Drawing.Size(267, 30);
+            this.txtSku.Size = new System.Drawing.Size(267, 22);
             this.txtSku.TabIndex = 5;
             this.txtSku.Text = "SKU";
             // 
@@ -120,7 +120,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(34, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(570, 25);
+            this.label1.Size = new System.Drawing.Size(395, 16);
             this.label1.TabIndex = 70;
             this.label1.Text = "Ingrese los datos solicitados para editar un producto del sistema:";
             // 
@@ -131,7 +131,7 @@
             this.dtFechaIngresoTienda.CalendarTitleForeColor = System.Drawing.Color.Gray;
             this.dtFechaIngresoTienda.Location = new System.Drawing.Point(123, 105);
             this.dtFechaIngresoTienda.Name = "dtFechaIngresoTienda";
-            this.dtFechaIngresoTienda.Size = new System.Drawing.Size(267, 30);
+            this.dtFechaIngresoTienda.Size = new System.Drawing.Size(267, 22);
             this.dtFechaIngresoTienda.TabIndex = 1;
             // 
             // btnCancelarTienda
@@ -158,7 +158,7 @@
             this.btnCrearTienda.Name = "btnCrearTienda";
             this.btnCrearTienda.Size = new System.Drawing.Size(121, 38);
             this.btnCrearTienda.TabIndex = 67;
-            this.btnCrearTienda.Text = "Editar tienda";
+            this.btnCrearTienda.Text = "Editar producto";
             this.btnCrearTienda.UseVisualStyleBackColor = false;
             this.btnCrearTienda.Click += new System.EventHandler(this.btnCrearTienda_Click);
             // 
@@ -169,7 +169,7 @@
             this.cmbRubro.FormattingEnabled = true;
             this.cmbRubro.Location = new System.Drawing.Point(517, 138);
             this.cmbRubro.Name = "cmbRubro";
-            this.cmbRubro.Size = new System.Drawing.Size(267, 33);
+            this.cmbRubro.Size = new System.Drawing.Size(267, 24);
             this.cmbRubro.TabIndex = 7;
             this.cmbRubro.Text = "Rubro";
             // 
@@ -179,7 +179,7 @@
             this.txtDescripcion.ForeColor = System.Drawing.Color.Gray;
             this.txtDescripcion.Location = new System.Drawing.Point(123, 177);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(267, 30);
+            this.txtDescripcion.Size = new System.Drawing.Size(267, 22);
             this.txtDescripcion.TabIndex = 3;
             // 
             // txtNombreProducto
@@ -189,7 +189,7 @@
             this.txtNombreProducto.Location = new System.Drawing.Point(123, 140);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtNombreProducto.Size = new System.Drawing.Size(267, 30);
+            this.txtNombreProducto.Size = new System.Drawing.Size(267, 22);
             this.txtNombreProducto.TabIndex = 2;
             // 
             // lblTituloModificar
@@ -198,7 +198,7 @@
             this.lblTituloModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloModificar.Location = new System.Drawing.Point(33, 18);
             this.lblTituloModificar.Name = "lblTituloModificar";
-            this.lblTituloModificar.Size = new System.Drawing.Size(192, 29);
+            this.lblTituloModificar.Size = new System.Drawing.Size(133, 20);
             this.lblTituloModificar.TabIndex = 62;
             this.lblTituloModificar.Text = "Editar producto";
             // 
@@ -208,7 +208,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(34, 222);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 20);
+            this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 79;
             this.label7.Text = "Precio:";
             // 
@@ -219,7 +219,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(123, 217);
             this.txtPrecio.MaxLength = 9;
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(267, 30);
+            this.txtPrecio.Size = new System.Drawing.Size(267, 22);
             this.txtPrecio.TabIndex = 4;
             this.txtPrecio.Text = "1.234.567.890";
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
@@ -230,7 +230,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(438, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 20);
+            this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 81;
             this.label6.Text = "Tienda:";
             // 
@@ -240,7 +240,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(438, 180);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 20);
+            this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 83;
             this.label8.Text = "Estado:";
             // 
@@ -254,7 +254,7 @@
             "No activo"});
             this.cmbEstado.Location = new System.Drawing.Point(517, 175);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(267, 33);
+            this.cmbEstado.Size = new System.Drawing.Size(267, 24);
             this.cmbEstado.TabIndex = 8;
             this.cmbEstado.Text = "Estado";
             // 
@@ -263,7 +263,7 @@
             this.chDisponiblidad.AutoSize = true;
             this.chDisponiblidad.Location = new System.Drawing.Point(441, 222);
             this.chDisponiblidad.Name = "chDisponiblidad";
-            this.chDisponiblidad.Size = new System.Drawing.Size(224, 29);
+            this.chDisponiblidad.Size = new System.Drawing.Size(157, 20);
             this.chDisponiblidad.TabIndex = 9;
             this.chDisponiblidad.Text = "Disponibilidad 2 por 1";
             this.chDisponiblidad.UseVisualStyleBackColor = true;
@@ -278,12 +278,12 @@
             this.cmbTienda.FormattingEnabled = true;
             this.cmbTienda.Location = new System.Drawing.Point(517, 105);
             this.cmbTienda.Name = "cmbTienda";
-            this.cmbTienda.Size = new System.Drawing.Size(267, 33);
+            this.cmbTienda.Size = new System.Drawing.Size(267, 24);
             this.cmbTienda.TabIndex = 84;
             // 
             // EditarProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(828, 368);
