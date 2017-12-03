@@ -219,10 +219,11 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnNuevo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ListarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Usuarios";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListarUsuarios_FormClosed);
             this.Load += new System.EventHandler(this.ListarUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).EndInit();
             this.panel3.ResumeLayout(false);

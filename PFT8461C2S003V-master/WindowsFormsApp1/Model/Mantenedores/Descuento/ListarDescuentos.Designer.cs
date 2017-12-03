@@ -239,6 +239,7 @@
             this.Name = "ListarDescuentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Descuentos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListarDescuentos_FormClosed);
             this.Load += new System.EventHandler(this.ListarDescuentos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescuento)).EndInit();
             this.panel3.ResumeLayout(false);

@@ -200,5 +200,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             Close();
             Application.Exit();
         }
+
+        private void PortadaMantenedorTienda_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

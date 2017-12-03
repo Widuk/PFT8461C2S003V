@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controler.DAO;
+using WindowsFormsApp1.Model.Investigacion.Reportes;
 using WindowsFormsApp1.Model.Mantenedores.BI;
 using WindowsFormsApp1.Model.Mantenedores.Descuento;
+using WindowsFormsApp1.Model.Mantenedores.Empresa;
 using WindowsFormsApp1.Model.Mantenedores.Oferta;
 using WindowsFormsApp1.Model.Mantenedores.Usuario;
 using WindowsFormsApp1.Model.Negocio.Entities;
@@ -75,7 +77,13 @@ namespace WindowsFormsApp1.Model.Mantenedores.Valoracion
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-            if (clickedItem.Name.Equals("2"))
+            if (clickedItem.Name.Equals("1"))
+            {
+                PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
+                mantTienda.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("2"))
             {
                 PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
                 mantProd.Show();
@@ -83,13 +91,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Valoracion
             }
             else if (clickedItem.Name.Equals("4"))
             {
-                ListarDescuentos listarDesc = new ListarDescuentos();
-                listarDesc.Show();
-                this.Hide();
-            }
-            else if (clickedItem.Name.Equals("5"))
-            {
-                ListarUsuarios listarUsu = new ListarUsuarios();
+                ListarDescuentos listarUsu = new ListarDescuentos();
                 listarUsu.Show();
                 this.Hide();
             }
@@ -103,6 +105,18 @@ namespace WindowsFormsApp1.Model.Mantenedores.Valoracion
             {
                 ArchivosBI mantBI = new ArchivosBI();
                 mantBI.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("5"))
+            {
+                ListarUsuarios listarUsuarios = new ListarUsuarios();
+                listarUsuarios.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("12"))
+            {
+                ResumenPorTienda rpt = new ResumenPorTienda();
+                rpt.Show();
                 this.Hide();
             }
         }
@@ -140,6 +154,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Valoracion
             {
                 MessageBox.Show("Error grave generando reporte.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ConsultaValoracion_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

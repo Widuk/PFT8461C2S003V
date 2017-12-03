@@ -95,7 +95,7 @@
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.menuStrip1);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(13, 52);
+            this.panel3.Location = new System.Drawing.Point(12, 75);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(193, 412);
             this.panel3.TabIndex = 50;
@@ -186,6 +186,7 @@
             this.Name = "ConsultaValoracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultaValoracion";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConsultaValoracion_FormClosed);
             this.Load += new System.EventHandler(this.ConsultaValoracion_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

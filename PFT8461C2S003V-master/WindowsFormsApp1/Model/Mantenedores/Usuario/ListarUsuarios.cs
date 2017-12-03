@@ -32,6 +32,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
                 List<UsuarioGridVO> listaUsuariosFin = new List<UsuarioGridVO>();
                 listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosTrabajadores());
+                listaUsuariosFin.AddRange(usuarioDAO.getListaUsuariosConsumidores());
                 listaUsuarios =  new BindingList<UsuarioGridVO>(listaUsuariosFin);
                 this.dgvUsuario.DataSource = listaUsuarios;
 
@@ -214,6 +215,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Usuario
         {
             Close();
             Application.Exit();
+        }
+
+        private void ListarUsuarios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

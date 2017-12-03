@@ -237,6 +237,7 @@
             this.Name = "PortadaMantenedorTienda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tiendas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PortadaMantenedorTienda_FormClosed);
             this.Load += new System.EventHandler(this.Tienda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgTiendas)).EndInit();
             this.panel3.ResumeLayout(false);

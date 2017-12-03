@@ -231,10 +231,11 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnNuevo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PortadaMantenedorProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenedor de Productos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PortadaMantenedorProducto_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgListaPreducto)).EndInit();
             this.panel3.ResumeLayout(false);
