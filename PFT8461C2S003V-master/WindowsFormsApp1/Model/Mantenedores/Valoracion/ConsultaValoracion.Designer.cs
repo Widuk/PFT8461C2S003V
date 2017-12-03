@@ -136,6 +136,7 @@
             this.dtgTiendas.Location = new System.Drawing.Point(256, 193);
             this.dtgTiendas.MultiSelect = false;
             this.dtgTiendas.Name = "dtgTiendas";
+            this.dtgTiendas.ReadOnly = true;
             this.dtgTiendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgTiendas.Size = new System.Drawing.Size(665, 274);
             this.dtgTiendas.TabIndex = 47;

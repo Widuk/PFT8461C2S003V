@@ -95,8 +95,10 @@
             // 
             this.dtgListaPreducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgListaPreducto.Location = new System.Drawing.Point(255, 193);
+            this.dtgListaPreducto.MultiSelect = false;
             this.dtgListaPreducto.Name = "dtgListaPreducto";
             this.dtgListaPreducto.ReadOnly = true;
+            this.dtgListaPreducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgListaPreducto.Size = new System.Drawing.Size(666, 272);
             this.dtgListaPreducto.TabIndex = 7;
             this.dtgListaPreducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaPreducto_CellClick);
