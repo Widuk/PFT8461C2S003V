@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Drawing;
 using WindowsFormsApp1.Controler.DAO;
 using System.Windows.Forms;
 using WindowsFormsApp1.Model.Mantenedores.BI;
@@ -62,6 +62,14 @@ namespace WindowsFormsApp1.Model.Investigacion.Reportes
             ws.Cells[1, 4] = "Valoraciones";
             ws.Cells[5, 1] = "Rubro";
             ws.Cells[5, 2] = "Descuentos";
+            
+            ws.Cells[1, 1].Interior.Color = Color.Orange;
+            ws.Cells[1, 2].Interior.Color = Color.Orange;
+            ws.Cells[1, 3].Interior.Color = Color.Orange;
+            ws.Cells[1, 4].Interior.Color = Color.Orange;
+
+            ws.Cells[5, 1].Interior.Color = Color.Orange;
+            ws.Cells[5, 2].Interior.Color = Color.Orange;
 
             //DATOS
             ws.Cells[2, 1] = rp.nombreTienda;
@@ -79,18 +87,18 @@ namespace WindowsFormsApp1.Model.Investigacion.Reportes
                 ws.Cells[fila, columna] = ListRp[f].cantidadDescuentos;
                 fila = fila + f +1;
             }
-            
 
             SaveFileDialog sd = new SaveFileDialog();
             sd.DefaultExt = "*.xlsx";
             sd.FileName = "Informe por tienda";
             sd.Filter = "Archivos de Excel (*.xlsx)|*.xlsx ";
             sd.ShowDialog();
-
             ws.SaveAs(sd.FileName);
             
             MessageBox.Show("El archivo fue descargado con éxito.");
-            
+            ws = null;
+            sd = null;
+            excel.Quit();
         }
 
         private void cargarTiendas()

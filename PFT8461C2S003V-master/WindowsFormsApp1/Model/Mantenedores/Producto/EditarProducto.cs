@@ -60,11 +60,11 @@ namespace WindowsFormsApp1
                     if (cmbEstado.Text.Equals("Activo")) { i = 1; } else { i = 0; };         //estado
 
                     ProductoDAO prodDAO = new ProductoDAO();
-                    Boolean skuExistente = prodDAO.buscaProductoPorSku(txtSku.Text);
+                    Boolean skuExistente = prodDAO.buscaProductoPorSku(txtSku.Text.ToUpper());
 
-                    prodDAO.EditarProducto(h, txtNombreProducto.Text, txtDescripcion.Text, Int64.Parse(txtPrecio.Text), j, txtSku.Text, i, DateTime.Now, Int16.Parse(cmbRubro.SelectedValue.ToString()));
+                    prodDAO.EditarProducto(h, txtNombreProducto.Text, txtDescripcion.Text, Int64.Parse(txtPrecio.Text), j, txtSku.Text.ToUpper(), i, DateTime.Now, Int16.Parse(cmbRubro.SelectedValue.ToString()));
                     
-                    int idProducto = prodDAO.buscaProductoPorNombre(txtNombreProducto.Text, txtSku.Text);
+                    int idProducto = prodDAO.buscaProductoPorNombre(txtNombreProducto.Text, txtSku.Text.ToUpper());
 
                     prodDAO.eliminaProductoTienda(idProducto);
 
