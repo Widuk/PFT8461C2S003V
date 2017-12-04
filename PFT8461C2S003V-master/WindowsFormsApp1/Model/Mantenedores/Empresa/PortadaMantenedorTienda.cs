@@ -71,6 +71,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         {
             CrearTienda ct = new CrearTienda();
             ct.ShowDialog();
+            cargaTiendas();
         }
 
         private void dtgTiendas_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -109,6 +110,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
             }
             EditarTiendas tiendaEdit = new EditarTiendas();
             tiendaEdit.ShowDialog();
+            cargaTiendas();
         }
 
         private void btnEliminarDescuento_Click(object sender, EventArgs e)
@@ -198,6 +200,11 @@ namespace WindowsFormsApp1.Model.Mantenedores.Empresa
         private void btnCerrarCesion_Click(object sender, EventArgs e)
         {
             Close();
+            Application.Exit();
+        }
+
+        private void PortadaMantenedorTienda_FormClosed(object sender, FormClosedEventArgs e)
+        {
             Application.Exit();
         }
     }

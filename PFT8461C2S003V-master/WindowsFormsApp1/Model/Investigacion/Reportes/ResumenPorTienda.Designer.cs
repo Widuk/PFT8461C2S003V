@@ -178,6 +178,7 @@
             this.Name = "ResumenPorTienda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ResumenPorTienda";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ResumenPorTienda_FormClosed);
             this.Load += new System.EventHandler(this.ResumenPorTienda_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

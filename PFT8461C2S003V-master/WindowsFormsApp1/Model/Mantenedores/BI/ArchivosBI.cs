@@ -176,5 +176,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
             Close();
             Application.Exit();
         }
+
+        private void ArchivosBI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

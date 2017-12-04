@@ -55,13 +55,7 @@ namespace WindowsFormsApp1.Model.Home
             }
             else if (clickedItem.Name.Equals("4"))
             {
-                ListarDescuentos listarDesc = new ListarDescuentos();
-                listarDesc.Show();
-                this.Hide();
-            }
-            if (clickedItem.Name.Equals("5"))
-            {
-                ListarUsuarios listarUsu = new ListarUsuarios();
+                ListarDescuentos listarUsu = new ListarDescuentos();
                 listarUsu.Show();
                 this.Hide();
             }
@@ -77,10 +71,10 @@ namespace WindowsFormsApp1.Model.Home
                 mantBI.Show();
                 this.Hide();
             }
-            else if (clickedItem.Name.Equals("11"))
+            else if (clickedItem.Name.Equals("5"))
             {
-                ConsultaValoracion consultaValoracion = new ConsultaValoracion();
-                consultaValoracion.Show();
+                ListarUsuarios listarUsuarios = new ListarUsuarios();
+                listarUsuarios.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("12"))
@@ -89,12 +83,17 @@ namespace WindowsFormsApp1.Model.Home
                 rpt.Show();
                 this.Hide();
             }
-            else if (clickedItem.Name.Equals("6"))
+            else if (clickedItem.Name.Equals("11"))
             {
-                ListarOfertas listarOfertas = new ListarOfertas();
-                listarOfertas.Show();
+                ConsultaValoracion consultaVal = new ConsultaValoracion();
+                consultaVal.Show();
                 this.Hide();
             }
+        }
+
+        private void Index_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

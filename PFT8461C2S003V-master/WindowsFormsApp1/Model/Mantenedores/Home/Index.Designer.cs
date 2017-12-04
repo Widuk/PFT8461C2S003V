@@ -127,6 +127,7 @@
             this.Name = "Index";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Index_FormClosed);
             this.Load += new System.EventHandler(this.Index_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

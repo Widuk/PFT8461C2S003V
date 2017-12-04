@@ -13,6 +13,9 @@ using WindowsFormsApp1.Model.Negocio.Vo;
 using Microsoft.Office.Interop.Excel;
 using System.Text;
 using System.IO;
+using WindowsFormsApp1.Model.Mantenedores.Valoracion;
+using WindowsFormsApp1.Model.Mantenedores.Descuento;
+using System.Drawing;
 
 namespace WindowsFormsApp1.Model.Investigacion.Reportes
 {
@@ -32,6 +35,10 @@ namespace WindowsFormsApp1.Model.Investigacion.Reportes
                 ToolStripMenuItem itm = new ToolStripMenuItem(func.nombre);
                 itm.Click += new EventHandler(genericHandler);
                 itm.Name = func.idFuncionalidad.ToString();
+                if (itm.Name.Equals("12"))
+                {
+                    itm.ForeColor = Color.Gray;
+                }
                 this.menuStrip1.Items.Add(itm);
             }
         }
@@ -132,13 +139,7 @@ namespace WindowsFormsApp1.Model.Investigacion.Reportes
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-            if (clickedItem.Text.Equals("5"))
-            {
-                ListarUsuarios listarUsu = new ListarUsuarios();
-                listarUsu.Show();
-                this.Hide();
-            }
-            else if (clickedItem.Name.Equals("1"))
+            if (clickedItem.Name.Equals("1"))
             {
                 PortadaMantenedorTienda mantTienda = new PortadaMantenedorTienda();
                 mantTienda.Show();
@@ -148,6 +149,12 @@ namespace WindowsFormsApp1.Model.Investigacion.Reportes
             {
                 PortadaMantenedorProducto mantProd = new PortadaMantenedorProducto();
                 mantProd.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("4"))
+            {
+                ListarDescuentos listarUsu = new ListarDescuentos();
+                listarUsu.Show();
                 this.Hide();
             }
             else if (clickedItem.Name.Equals("6"))
@@ -162,12 +169,23 @@ namespace WindowsFormsApp1.Model.Investigacion.Reportes
                 mantBI.Show();
                 this.Hide();
             }
-            else if (clickedItem.Name.Equals("12"))
+            else if (clickedItem.Name.Equals("11"))
             {
-                ResumenPorTienda rpt = new ResumenPorTienda();
+                ConsultaValoracion consultaValoracion = new ConsultaValoracion();
+                consultaValoracion.Show();
+                this.Hide();
+            }
+            else if (clickedItem.Name.Equals("5"))
+            {
+                ListarUsuarios rpt = new ListarUsuarios();
                 rpt.Show();
                 this.Hide();
             }
+        }
+
+        private void ResumenPorTienda_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

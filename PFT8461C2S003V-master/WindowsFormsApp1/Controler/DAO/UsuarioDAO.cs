@@ -114,7 +114,7 @@ namespace WindowsFormsApp1.Controler.DAO
                     usuarioGrid.nombre = reader["NOMBRE"].ToString();
                     usuarioGrid.apellidoPaterno = reader["APELLIDOPATERNO"].ToString();
                     usuarioGrid.apellidoMaterno = reader["APELLIDOMATERNO"].ToString();
-                    usuarioGrid.rut = reader["RUT"].ToString() + reader["DV"].ToString().ToUpper();
+                    usuarioGrid.rut = reader["RUT"].ToString() + "-" + reader["DV"].ToString().ToUpper();
                     usuarioGrid.tipoUsuario = "Consumidor";
                     usuarioGrid.perfil = reader["NOMBREPERFIL"].ToString();
                     listaUsuarios.Add(usuarioGrid);

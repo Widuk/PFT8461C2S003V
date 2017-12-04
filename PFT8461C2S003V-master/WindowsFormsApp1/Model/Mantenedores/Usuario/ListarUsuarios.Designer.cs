@@ -85,6 +85,7 @@
             this.dgvUsuario.Location = new System.Drawing.Point(256, 193);
             this.dgvUsuario.MultiSelect = false;
             this.dgvUsuario.Name = "dgvUsuario";
+            this.dgvUsuario.ReadOnly = true;
             this.dgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuario.Size = new System.Drawing.Size(665, 274);
             this.dgvUsuario.TabIndex = 24;
@@ -219,10 +220,11 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnNuevo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ListarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Usuarios";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListarUsuarios_FormClosed);
             this.Load += new System.EventHandler(this.ListarUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).EndInit();
             this.panel3.ResumeLayout(false);

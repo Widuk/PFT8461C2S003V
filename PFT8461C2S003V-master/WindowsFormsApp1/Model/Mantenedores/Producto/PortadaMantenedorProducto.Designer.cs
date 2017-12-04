@@ -95,8 +95,10 @@
             // 
             this.dtgListaPreducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgListaPreducto.Location = new System.Drawing.Point(255, 193);
+            this.dtgListaPreducto.MultiSelect = false;
             this.dtgListaPreducto.Name = "dtgListaPreducto";
             this.dtgListaPreducto.ReadOnly = true;
+            this.dtgListaPreducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgListaPreducto.Size = new System.Drawing.Size(666, 272);
             this.dtgListaPreducto.TabIndex = 7;
             this.dtgListaPreducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaPreducto_CellClick);
@@ -231,10 +233,11 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnNuevo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PortadaMantenedorProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenedor de Productos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PortadaMantenedorProducto_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgListaPreducto)).EndInit();
             this.panel3.ResumeLayout(false);

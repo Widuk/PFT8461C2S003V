@@ -218,6 +218,7 @@
             this.Name = "ArchivosBI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Descarga archivo BI";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ArchivosBI_FormClosed);
             this.Load += new System.EventHandler(this.ArchivosBI_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

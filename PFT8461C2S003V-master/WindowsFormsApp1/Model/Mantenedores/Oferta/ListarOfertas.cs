@@ -259,5 +259,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.Oferta
             Close();
             Application.Exit();
         }
+
+        private void ListarOfertas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

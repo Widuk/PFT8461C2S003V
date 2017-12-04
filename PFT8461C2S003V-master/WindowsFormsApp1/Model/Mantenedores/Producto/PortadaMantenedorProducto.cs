@@ -213,5 +213,10 @@ namespace WindowsFormsApp1
             Close();
             Application.Exit();
         }
+
+        private void PortadaMantenedorProducto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

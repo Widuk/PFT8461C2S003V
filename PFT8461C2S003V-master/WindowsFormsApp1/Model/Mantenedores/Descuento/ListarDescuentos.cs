@@ -185,5 +185,10 @@ namespace WindowsFormsApp1.Model.Mantenedores.Descuento
             Close();
             Application.Exit();
         }
+
+        private void ListarDescuentos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }
