@@ -56,7 +56,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
                     MessageBox.Show("Error grave Cargando imagen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                String csvpath = "C:\\Users\\"+ Environment.UserName + "\\Desktop\\Lista_de_tiendas.csv";
+                String csvpath = "C:\\Users\\"+ Environment.UserName + "\\Desktop\\Lista_de_ofertas.csv";
 
                 if (File.Exists(csvpath))
                 {
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1.Model.Mantenedores.BI
                 }
                 
                 StringBuilder csvcontent = new StringBuilder();
-                csvcontent.AppendLine("Nombre de tienda;Direccion;Ciudad;Empresa;Fecha creacion;Fecha modificacion");
+                csvcontent.AppendLine("SKU;nombre_producto;estado;minimo_prod;maximo_prod;fecha_inicio;fecha_fin");
                 foreach (OfertaGridVO o in listaOferta)
                 {
                     csvcontent.AppendLine(o.skuProducto + ";" + o.nombreProducto + ";" + o.estado + ";" + o.minimoProductos + ";" + o.maximoProductos + ";" + o.fechaInicio + ";" + o.fechaFin);
